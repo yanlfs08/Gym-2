@@ -3,6 +3,7 @@ package view;
 
 import gym.JPassWordFieldHint;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -62,6 +63,14 @@ public class FrameLogin extends javax.swing.JFrame {
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSenhaActionPerformed(evt);
+            }
+        });
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyTyped(evt);
             }
         });
 
@@ -242,6 +251,25 @@ public class FrameLogin extends javax.swing.JFrame {
         
         new FrameRecuperarSenha().setVisible(true);
     }//GEN-LAST:event_JLrecuperarSenhaMouseClicked
+
+    private void txtSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyTyped
+
+    }//GEN-LAST:event_txtSenhaKeyTyped
+
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){  
+            CadastroDAO dao = new CadastroDAO();
+            if(dao.validarLogin(txtCPF.getText(), txtSenha.getText())){
+            new FrameMenu().setVisible(true);
+            dispose();
+            
+        }else{
+            
+            JOptionPane.showMessageDialog(rootPane, "Login e/ou senha invalidos!");
+            }
+        }
+    }//GEN-LAST:event_txtSenhaKeyPressed
 
     /**
      * @param args the command line arguments

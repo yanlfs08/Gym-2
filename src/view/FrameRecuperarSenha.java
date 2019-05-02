@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -78,6 +79,11 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
         txtEmailrec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailrecActionPerformed(evt);
+            }
+        });
+        txtEmailrec.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailrecKeyPressed(evt);
             }
         });
 
@@ -179,12 +185,10 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
 
     private void jbRecuperarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRecuperarSenhaActionPerformed
         
-        
-        
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", 465);
-        props.put("mail.smtp.user", "yan.lfs8@gmail.com");
+        props.put("mail.smtp.user", "systemgymfit@gmail.com");
         props.put("mail.smtp.auth", "false");
         props.put("mail.smtp.starttls.enable", "false");
         props.put("mail.smtp.debug", "true");
@@ -208,11 +212,11 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
                 MimeMessage message = new MimeMessage(session);
                 message.setText("Sua senha é: " + fetchedPassword);
                 message.setSubject("Recuperação de Senha");
-                message.setFrom(new InternetAddress("yan.lfs8@gmail.com"));
+                message.setFrom(new InternetAddress("systemgymfit@gmail.com"));
                 message.addRecipient(RecipientType.TO, new InternetAddress(txtEmailrec.getText().trim()));
                 message.saveChanges();
                 javax.mail.Transport transport = session.getTransport("smtp");
-                transport.connect("smtp.gmail.com", "yan.lfs8@gmail.com", "Yan@081296");
+                transport.connect("smtp.gmail.com", "systemgymfit@gmail.com", "Projetopi@2019");
                 transport.sendMessage(message, message.getAllRecipients());
                 transport.close();
                 JOptionPane.showMessageDialog(rootPane, "A senha foi enviada para o email cadastrado");
@@ -271,6 +275,56 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
     private void txtEmailrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailrecActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailrecActionPerformed
+
+    private void txtEmailrecKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailrecKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){  
+            
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", 465);
+        props.put("mail.smtp.user", "systemgymfit@gmail.com");
+        props.put("mail.smtp.auth", "false");
+        props.put("mail.smtp.starttls.enable", "false");
+        props.put("mail.smtp.debug", "true");
+        props.put("mail.smtp.socketFactory.port", 465);
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false"); 
+        try {
+            Class.forName("com.mysql.jdbc.Driver"); 
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://projetopi2019.mysql.uhserver.com:3306/projetopi2019",
+                    "projetopi","Projetopi@2019");
+            //Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gym","root","");
+            //String query = "select Password from users where EmailAddress LIKE '"+txtEmail.getText().trim()+"'";
+            String query = "SELECT senha FROM cadastro WHERE email LIKE '"+txtEmailrec.getText().trim()+"' AND cpf = '"+txtCPFrec.getText().trim()+"'";
+            PreparedStatement statmnt = con.prepareStatement(query);
+            ResultSet result = statmnt.executeQuery();               
+            if (result.next()){   
+
+                String fetchedPassword = result.getString("senha");               
+                Session session = Session.getDefaultInstance(props, null);
+                session.setDebug(true);
+                MimeMessage message = new MimeMessage(session);
+                message.setText("Sua senha é: " + fetchedPassword);
+                message.setSubject("Recuperação de Senha");
+                message.setFrom(new InternetAddress("systemgymfit@gmail.com"));
+                message.addRecipient(RecipientType.TO, new InternetAddress(txtEmailrec.getText().trim()));
+                message.saveChanges();
+                javax.mail.Transport transport = session.getTransport("smtp");
+                transport.connect("smtp.gmail.com", "systemgymfit@gmail.com", "Projetopi@2019");
+                transport.sendMessage(message, message.getAllRecipients());
+                transport.close();
+                JOptionPane.showMessageDialog(rootPane, "A senha foi enviada para o email cadastrado");
+                         
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "CPF ou E-mail incorretos");
+                }
+                    } catch (Exception e) {
+                        e.printStackTrace();  
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
+            
+        }
+    }//GEN-LAST:event_txtEmailrecKeyPressed
 
     /**
      * @param args the command line arguments

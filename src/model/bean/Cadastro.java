@@ -92,6 +92,13 @@ public class Cadastro {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return getNome().toString(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
     
 }

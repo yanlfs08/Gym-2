@@ -1,14 +1,42 @@
 
 package view;
 
+import javax.swing.table.DefaultTableModel;
+import model.bean.Avaliação;
+import model.dao.AvaliaçãoDAO;
+
 /**
  *
  * @author yanlf
  */
 public class FrameAvaliação extends javax.swing.JFrame {
-
+    
     public FrameAvaliação() {
         initComponents();
+        readJTable();
+    }
+    
+    public void readJTable (){
+        
+        DefaultTableModel model = (DefaultTableModel) TableAvaliacao.getModel();
+        
+        model.setNumRows(0);
+        
+        AvaliaçãoDAO adao = new AvaliaçãoDAO();
+        
+        for(Avaliação a:adao.read()){
+            
+            model.addRow(new Object[]{
+                    
+                    a.getIdAvaliacao(),
+                    a.getCpf(),
+                    a.getPeso(),
+                    a.getAltura(),
+                    a.getGorduraCorporal()   
+                    
+            });
+        }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -19,7 +47,7 @@ public class FrameAvaliação extends javax.swing.JFrame {
         txCliente = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableAvaliacao = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtIMC = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -30,7 +58,8 @@ public class FrameAvaliação extends javax.swing.JFrame {
         txtAltura = new javax.swing.JTextField();
         txtPeso = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Avaliação Fisica");
 
         txCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,15 +71,38 @@ public class FrameAvaliação extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Avaliações");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableAvaliacao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
                 "ID", "Cliente", "Peso", "Altura", "GC"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TableAvaliacao);
+        if (TableAvaliacao.getColumnModel().getColumnCount() > 0) {
+            TableAvaliacao.getColumnModel().getColumn(0).setMinWidth(35);
+            TableAvaliacao.getColumnModel().getColumn(0).setPreferredWidth(35);
+            TableAvaliacao.getColumnModel().getColumn(0).setMaxWidth(35);
+            TableAvaliacao.getColumnModel().getColumn(1).setMinWidth(150);
+            TableAvaliacao.getColumnModel().getColumn(1).setPreferredWidth(150);
+            TableAvaliacao.getColumnModel().getColumn(1).setMaxWidth(150);
+            TableAvaliacao.getColumnModel().getColumn(2).setResizable(false);
+            TableAvaliacao.getColumnModel().getColumn(2).setPreferredWidth(40);
+            TableAvaliacao.getColumnModel().getColumn(3).setResizable(false);
+            TableAvaliacao.getColumnModel().getColumn(3).setPreferredWidth(40);
+            TableAvaliacao.getColumnModel().getColumn(4).setMinWidth(40);
+            TableAvaliacao.getColumnModel().getColumn(4).setPreferredWidth(40);
+            TableAvaliacao.getColumnModel().getColumn(4).setMaxWidth(40);
+        }
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Cliente");
@@ -170,6 +222,7 @@ public class FrameAvaliação extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txClienteActionPerformed
@@ -203,7 +256,7 @@ public class FrameAvaliação extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -228,6 +281,7 @@ public class FrameAvaliação extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableAvaliacao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -236,7 +290,6 @@ public class FrameAvaliação extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txCliente;
     private javax.swing.JTextField txtAltura;
     private javax.swing.JTextField txtID;

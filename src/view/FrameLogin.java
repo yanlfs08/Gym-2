@@ -9,8 +9,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import model.dao.CadastroDAO;
 
-
-
 /**
  *
  * @author yanlf

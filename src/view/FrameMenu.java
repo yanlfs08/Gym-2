@@ -101,7 +101,7 @@ public class FrameMenu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         
-        FrmLogoff fl = new FrmLogoff();
+        FrameLogoff fl = new FrameLogoff();
         fl.setVisible(true);
         dispose();
        

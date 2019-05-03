@@ -14,7 +14,7 @@ import model.bean.GruposMusculares;
 
 public class ExerciciosDAO {
    
-        public void Create (Exercicios E){
+    public void Create (Exercicios E){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -22,7 +22,7 @@ public class ExerciciosDAO {
             GruposMusculares G = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO exercicios (`idExercicios`,`descExercicio`,`idGrupos`) VALUES (?, ?, ?)");
+            stmt = con.prepareStatement("INSERT INTO avaliação (`idExercicios`,`descExercicio`,`idGrupos`) VALUES (?, ?, ?)");
             stmt.setString(1, E.getIdExercicios());
             stmt.setString(2, E.getdescExercicio());
             stmt.setString(3, E.getIdGruposMusculares().getIdGrupos());
@@ -32,15 +32,15 @@ public class ExerciciosDAO {
             
             JOptionPane.showMessageDialog(null,"Exercicio Cadastrado");
                     
-        } catch (SQLException ex) {
+            } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(null,"Erro ao Casdastrar: " + ex);
+                JOptionPane.showMessageDialog(null,"Erro ao Casdastrar: " + ex);
             
-        }finally{
+                }finally{
             
-            ConnectionFactory.closeConnection(con, stmt);
+                ConnectionFactory.closeConnection(con, stmt);
+            }
         }
-    }
     
     public void Update (Exercicios E){
         

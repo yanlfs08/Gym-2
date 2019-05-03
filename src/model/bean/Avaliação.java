@@ -11,19 +11,21 @@ public class Avaliação {
     private double peso;
     private double altura;
     private double gorduraCorporal;
+    private Cadastro cpf;
     
     public Avaliação(){
         
     }
 
-    public Avaliação(String data, double peso, double altura, double gorduraCorporal) {
+    public Avaliação(String idAvaliacao, String data, double peso, double altura, double gorduraCorporal, Cadastro cpf) {
+        this.idAvaliacao = idAvaliacao;
         this.data = data;
         this.peso = peso;
         this.altura = altura;
         this.gorduraCorporal = gorduraCorporal;
+        this.cpf = cpf;
     }
     
-
     public String getIdAvaliacao() {
         return idAvaliacao;
     }
@@ -63,6 +65,20 @@ public class Avaliação {
 
     public void setGorduraCorporal(double gorduraCorporal) {
         this.gorduraCorporal = gorduraCorporal;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public Cadastro getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(Cadastro cpf) {
+        this.cpf = cpf;
     }
 
     

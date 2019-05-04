@@ -5,7 +5,6 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.dao.UsuarioDAO;
@@ -57,7 +56,7 @@ public class TelaUsuario extends javax.swing.JFrame {
 
     public void readJTableForDesc() {
 
-        DefaultTableModel modelo = (DefaultTableModel) TelaUsuario.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabelaUsuario.getModel();
         modelo.setNumRows(0);
 
         for (Usuario u : dao.read()) {
@@ -74,10 +73,6 @@ public class TelaUsuario extends javax.swing.JFrame {
 
         }
 
-    }
-
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -281,7 +276,7 @@ public class TelaUsuario extends javax.swing.JFrame {
 
     private void BotaoAtuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAtuaActionPerformed
 
-        if (tabelaUsuario.getSelectedRow() != -1) {
+        /*if (tabelaUsuario.getSelectedRow() != -1) {
 
             Usuario u = new Usuario();
             UsuarioDAO dao = new UsuarioDAO();
@@ -302,6 +297,7 @@ public class TelaUsuario extends javax.swing.JFrame {
 
             readJTable();
         }
+        */
     }//GEN-LAST:event_BotaoAtuaActionPerformed
 
     private void BotaoCadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadasActionPerformed

@@ -28,9 +28,9 @@ public class FrameLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtCPF = new gym.JTextFieldHint(new JTextField(),"","CPF");
- ;
-        txtSenha = new JPassWordFieldHint (new JPasswordField(), "", "Senha");
+        txtCPF = new gym.JTextFieldHint(new JTextField(),"","  CPF");
+        ;
+        txtSenha = new JPassWordFieldHint (new JPasswordField(), "", "  Senha");
  ;
         JBLogin1 = new javax.swing.JButton();
         JBSair = new javax.swing.JButton();

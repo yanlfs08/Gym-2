@@ -22,7 +22,7 @@ public class ExerciciosDAO {
             GruposMusculares G = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO avaliação (`idExercicios`,`descExercicio`,`idGrupos`) VALUES (?, ?, ?)");
+            stmt = con.prepareStatement("INSERT INTO exercicios (`idExercicios`,`descExercicio`,`idGrupos`) VALUES (?, ?, ?)");
             stmt.setString(1, E.getIdExercicios());
             stmt.setString(2, E.getdescExercicio());
             stmt.setString(3, E.getIdGruposMusculares().getIdGrupos());

@@ -378,7 +378,7 @@ public class FrameExercicios extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         
-        FrameCreateExercicios ce = new FrameCreateExercicios();
+        FrameCadastroExercicios ce = new FrameCadastroExercicios();
         ce.setVisible(true);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 

@@ -17,12 +17,12 @@ import model.dao.GruposMuscularesDAO;
  *
  * @author yanlf
  */
-public class FrameCreateExercicios extends javax.swing.JFrame {
+public class FrameCadastroExercicios extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameExercicios
      */
-    public FrameCreateExercicios() {
+    public FrameCadastroExercicios() {
         initComponents();
         ViewComboBox ();
         readJTable();
@@ -251,7 +251,7 @@ public class FrameCreateExercicios extends javax.swing.JFrame {
 
         //gera id aleatorio
         for (int i = 0; i < 1; i++) {
-             labelGeradorID.setText(String.valueOf(gerador.nextInt(55555)));
+            labelGeradorID.setText(String.valueOf(gerador.nextInt(5555)));
         }
         
         Exercicios e = new Exercicios();
@@ -264,10 +264,9 @@ public class FrameCreateExercicios extends javax.swing.JFrame {
         e.setIdGruposMusculares(g);
         
         edao.Create(e);
-     
         
-        readJTable();
         txtExercicio.setText("");
+        readJTable();
     }//GEN-LAST:event_jbCadastrarExercicioActionPerformed
 
     private void ComboGrupoMuscularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboGrupoMuscularActionPerformed
@@ -295,14 +294,18 @@ public class FrameCreateExercicios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameCreateExercicios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCadastroExercicios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameCreateExercicios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCadastroExercicios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameCreateExercicios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCadastroExercicios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameCreateExercicios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCadastroExercicios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -311,7 +314,7 @@ public class FrameCreateExercicios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameCreateExercicios().setVisible(true);
+                new FrameCadastroExercicios().setVisible(true);
             }
         });
     }

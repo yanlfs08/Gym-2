@@ -101,7 +101,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new gym.JTextFieldHint(new JTextField(),&quot;&quot;,&quot;CPF&quot;);&#xd; "/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new gym.JTextFieldHint(new JTextField(),&quot;&quot;,&quot;  CPF&quot;);&#xa; "/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtSenha">
@@ -116,7 +116,7 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSenhaKeyTyped"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JPassWordFieldHint (new JPasswordField(), &quot;&quot;, &quot;Senha&quot;);&#xd; "/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JPassWordFieldHint (new JPasswordField(), &quot;&quot;, &quot;  Senha&quot;);&#xd; "/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="JBLogin1">

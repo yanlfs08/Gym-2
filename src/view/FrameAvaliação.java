@@ -1,6 +1,7 @@
 
 package view;
 
+import java.text.DecimalFormat;
 import javax.swing.table.DefaultTableModel;
 import model.bean.Avaliação;
 import model.dao.AvaliaçãoDAO;
@@ -44,7 +45,7 @@ public class FrameAvaliação extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txCliente = new javax.swing.JTextField();
+        txtCliente = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableAvaliacao = new javax.swing.JTable();
@@ -57,13 +58,16 @@ public class FrameAvaliação extends javax.swing.JFrame {
         txtID = new javax.swing.JTextField();
         txtAltura = new javax.swing.JTextField();
         txtPeso = new javax.swing.JTextField();
+        txtGorduraCorporal = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Avaliação Fisica");
 
-        txCliente.addActionListener(new java.awt.event.ActionListener() {
+        txtCliente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txClienteActionPerformed(evt);
+                txtClienteActionPerformed(evt);
             }
         });
 
@@ -71,6 +75,7 @@ public class FrameAvaliação extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Avaliações");
 
+        TableAvaliacao.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TableAvaliacao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -85,6 +90,11 @@ public class FrameAvaliação extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        TableAvaliacao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableAvaliacaoMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(TableAvaliacao);
@@ -125,23 +135,36 @@ public class FrameAvaliação extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("IMC");
 
+        txtID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDActionPerformed(evt);
             }
         });
 
+        txtAltura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtAltura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAlturaActionPerformed(evt);
             }
         });
 
+        txtPeso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesoActionPerformed(evt);
             }
         });
+
+        txtGorduraCorporal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtGorduraCorporal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGorduraCorporalActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("%");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -154,31 +177,36 @@ public class FrameAvaliação extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
-                                        .addGap(10, 10, 10)
+                                        .addGap(18, 18, 18)
                                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtCliente))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(31, 31, 31)
                                         .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(18, 18, 18)
                                         .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtGorduraCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -188,24 +216,21 @@ public class FrameAvaliação extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGorduraCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -225,9 +250,9 @@ public class FrameAvaliação extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txClienteActionPerformed
+    private void txtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txClienteActionPerformed
+    }//GEN-LAST:event_txtClienteActionPerformed
 
     private void txtIMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIMCActionPerformed
        
@@ -244,6 +269,30 @@ public class FrameAvaliação extends javax.swing.JFrame {
     private void txtPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPesoActionPerformed
+
+    private void TableAvaliacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableAvaliacaoMouseClicked
+        
+        int linha = TableAvaliacao.getSelectedRow();
+        
+        txtID.setText(TableAvaliacao.getValueAt(linha,0).toString());
+        txtCliente.setText(TableAvaliacao.getValueAt(linha,1).toString());
+        txtPeso.setText(TableAvaliacao.getValueAt(linha,2).toString());
+        txtAltura.setText(TableAvaliacao.getValueAt(linha,3).toString());
+        txtGorduraCorporal.setText(TableAvaliacao.getValueAt(linha,4).toString());
+        txtID.setEnabled(false);
+        
+        double p,a,result;
+        p=Double.parseDouble(txtPeso.getText());
+        a=Double.parseDouble(txtAltura.getText());
+        
+        result = p/(a*a);
+        DecimalFormat df = new DecimalFormat("#.00");
+        txtIMC.setText(df.format(result).toString());
+    }//GEN-LAST:event_TableAvaliacaoMouseClicked
+
+    private void txtGorduraCorporalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGorduraCorporalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGorduraCorporalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,10 +337,12 @@ public class FrameAvaliação extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txCliente;
     private javax.swing.JTextField txtAltura;
+    private javax.swing.JTextField txtCliente;
+    private javax.swing.JTextField txtGorduraCorporal;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtIMC;
     private javax.swing.JTextField txtPeso;

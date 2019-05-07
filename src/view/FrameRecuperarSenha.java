@@ -50,6 +50,7 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Recuperação de senha ");
 
+        txtCPFrec.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         txtCPFrec.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtCPFrecFocusGained(evt);
@@ -66,6 +67,7 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
             }
         });
 
+        txtEmailrec.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         txtEmailrec.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtEmailrecFocusGained(evt);
@@ -88,7 +90,7 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
         });
 
         jbRecuperarSenha.setBackground(new java.awt.Color(10, 173, 225));
-        jbRecuperarSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbRecuperarSenha.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbRecuperarSenha.setForeground(new java.awt.Color(240, 240, 240));
         jbRecuperarSenha.setText("Recuperar Senha");
         jbRecuperarSenha.setBorderPainted(false);
@@ -108,7 +110,7 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
         });
 
         JBSair.setBackground(new java.awt.Color(217, 81, 51));
-        JBSair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        JBSair.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         JBSair.setForeground(new java.awt.Color(255, 255, 255));
         JBSair.setText("Sair");
         JBSair.setBorderPainted(false);
@@ -151,14 +153,14 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43)
-                .addComponent(txtCPFrec, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtEmailrec, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jbRecuperarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(JBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(txtCPFrec, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtEmailrec, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jbRecuperarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,21 +235,25 @@ public class FrameRecuperarSenha extends javax.swing.JFrame {
     private void jbRecuperarSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRecuperarSenhaMouseEntered
         jbRecuperarSenha.setBackground(new Color(255, 255, 255));
         jbRecuperarSenha.setForeground(new Color(10,173,225));
+        jbRecuperarSenha.setBorderPainted(true);
     }//GEN-LAST:event_jbRecuperarSenhaMouseEntered
                            
     private void jbRecuperarSenhaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRecuperarSenhaMouseExited
         jbRecuperarSenha.setBackground(new Color(10,173,225));
         jbRecuperarSenha.setForeground(Color.WHITE);
+        jbRecuperarSenha.setBorderPainted(false);
     }//GEN-LAST:event_jbRecuperarSenhaMouseExited
 
     private void JBSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBSairMouseEntered
         JBSair.setBackground(new Color(255, 255, 255));
         JBSair.setForeground(new Color(217, 81, 51));
+        JBSair.setBorderPainted(true);
     }//GEN-LAST:event_JBSairMouseEntered
 
     private void JBSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBSairMouseExited
         JBSair.setBackground(new Color(217, 81, 51));
         JBSair.setForeground(Color.WHITE);
+        JBSair.setBorderPainted(false);
     }//GEN-LAST:event_JBSairMouseExited
 
     private void JBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSairActionPerformed

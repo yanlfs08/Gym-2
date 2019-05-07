@@ -119,6 +119,7 @@ public class FrameExercicios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Exercicios");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/alt.png")).getImage());
         setResizable(false);
 
         TableExercicios.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -275,8 +276,7 @@ public class FrameExercicios extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jbCadastrar)
-                                        .addGap(35, 35, 35)
+                                        .addGap(118, 118, 118)
                                         .addComponent(jbAtu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(36, 36, 36)
                                         .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,7 +284,8 @@ public class FrameExercicios extends javax.swing.JFrame {
                                         .addComponent(jbPesquisar))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGap(353, 353, 353)
-                                        .addComponent(jbAtualizarTabela))))))
+                                        .addComponent(jbAtualizarTabela))))
+                            .addComponent(jbCadastrar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(199, 199, 199)
                         .addComponent(jLabel1)))

@@ -36,6 +36,29 @@ public class FrameAvaliação extends javax.swing.JFrame {
                     a.getGorduraCorporal()   
                     
             });
+        }   
+    }
+    
+    public void readPesquisa (String pesquisa){
+        
+        DefaultTableModel model = (DefaultTableModel) TableAvaliacao.getModel();
+        
+        model.setNumRows(0);
+        
+        AvaliaçãoDAO adao = new AvaliaçãoDAO();
+        
+        for(Avaliação a:adao.readPesquisa(pesquisa)){
+            
+            model.addRow(new Object[]{
+                    
+                    a.getIdAvaliacao(),
+                    a.getCpf(),
+                    a.getPeso(),
+                    a.getAltura(),
+                    a.getGorduraCorporal() 
+                    
+                    
+            });
         }
         
     }
@@ -245,23 +268,24 @@ public class FrameAvaliação extends javax.swing.JFrame {
                                             .addGap(18, 18, 18)
                                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txtCliente))
+                                            .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
                                             .addComponent(jLabel5)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(12, 12, 12)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                     .addComponent(jLabel6)
                                                     .addGap(18, 18, 18)
                                                     .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                            .addGap(21, 21, 21)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                     .addComponent(jLabel7)
@@ -396,16 +420,18 @@ public class FrameAvaliação extends javax.swing.JFrame {
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
-        /*
-        if("".equals(txtExercicio.getText())){
-
-            readPesquisadescGrupo(txtDecGrupoMuscular.getText());
+       
+        if("".equals(txtCliente.getText())){
+            
+            readPesquisa(txtCliente.getText());
 
         }else{
-            readPesquisa(txtExercicio.getText());
+            
+            readPesquisa(txtCliente.getText());
+            
         }
         
-        */
+        
     }//GEN-LAST:event_jbPesquisarActionPerformed
         
     /**

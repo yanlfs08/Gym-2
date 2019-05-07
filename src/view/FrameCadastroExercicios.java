@@ -263,6 +263,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         e.setdescExercicio(txtExercicio.getText());
         e.setIdGruposMusculares(g);
         
+        
         edao.Create(e);
         
         txtExercicio.setText("");

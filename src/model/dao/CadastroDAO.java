@@ -10,8 +10,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.bean.Avaliação;
+import model.bean.Cadastro;
+import model.bean.TiposUsuarios;
 
 
 /**
@@ -49,5 +55,49 @@ public class CadastroDAO {
         
         return check;
         
+    }
+    
+    public List <Cadastro> read(){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List <Cadastro> exercicio = new ArrayList<>();
+        
+        try {
+            
+            stmt = con.prepareStatement("select c.CPF, c.nome as Nome, c.dataNascimento as 'D.Nascimento', c.telefone as Contato, c.email as Email, t.tipoUsuarios as Acesso\n" +
+                "From cadastro c inner join tiposusuarios t on t.idTipoUsuarios = c.idTipoUsuarios;");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                
+                Cadastro c = new Cadastro();
+                TiposUsuarios tu = new TiposUsuarios();
+                
+                tu.setTipoUsuarios(rs.getString("Acesso"));
+                
+                c.setCPF(rs.getString("CPF"));
+                c.setNome(rs.getString("Nome"));
+                c.setDataNascimento(rs.getString("D.Nascimento"));
+                c.setTelefone(rs.getString("Contato"));
+                c.setEmail(rs.getString("Email"));
+                c.setIdTiposUsuarios(tu); 
+                
+                exercicio.add(c);
+                
+            }
+                    
+        } catch (SQLException ex) {
+                        
+            JOptionPane.showMessageDialog(null, "Erro ao gerar lista " + ex);
+            
+        }finally{
+            
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return exercicio;
     }
 }

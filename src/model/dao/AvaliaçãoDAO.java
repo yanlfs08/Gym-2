@@ -11,6 +11,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.bean.Avaliação;
 import model.bean.Cadastro;
+import model.bean.Exercicios;
+import model.bean.GruposMusculares;
 /**
  *
  * @author yanlf
@@ -148,4 +150,89 @@ public class AvaliaçãoDAO {
         
         return avaliacao;
     }
+    
+    public List <Avaliação> readPesquisa(String pesquisa){
+            
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List <Avaliação> avaliacao = new ArrayList<>();
+        
+        try {
+            
+            stmt = con.prepareStatement(" SELECT a.idAvaliacao as ID, c.nome as Nome, a.peso as Peso, a.altura, a.gorduraCorporal as '% Gordura'" +
+                    "FROM avaliação a inner join cadastro c on c.CPF = a.CPF WHERE Nome LIKE ? ");
+            stmt.setString(1, "%"+pesquisa+"%");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                
+                Avaliação A = new Avaliação();
+                Cadastro C = new Cadastro();
+                
+                A.setCpf(C);
+                A.setIdAvaliacao(rs.getString("ID"));
+                C.setNome(rs.getString("Nome"));
+                A.setPeso(rs.getDouble("Peso"));
+                A.setAltura(rs.getDouble("altura"));
+                A.setGorduraCorporal(rs.getDouble("% Gordura"));
+                
+                
+                avaliacao.add(A);
+                
+            }
+                    
+        } catch (SQLException ex) {
+                        
+            JOptionPane.showMessageDialog(null, "Erro ao gerar lista " + ex);
+            
+        }finally{
+            
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return avaliacao;
+    }
+    
+     public List <Exercicios> readPesquisaExercicio(String pesquisa){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List <Exercicios> exercicio = new ArrayList<>();
+        
+        try {
+            
+            stmt = con.prepareStatement("select e.idExercicios as ei, e.descExercicio, g.descGrupo from exercicios e inner join gruposmusculares  g on g.idGrupos = e.idGrupos where e.descExercicio like ?");
+            stmt.setString(1, "%"+pesquisa+"%");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                
+                Exercicios E = new Exercicios();
+                GruposMusculares G = new GruposMusculares();
+                
+                E.setIdExercicios(rs.getString("ei"));
+                E.setdescExercicio(rs.getString("e.descExercicio"));
+                E.setIdGruposMusculares(G);
+                G.setdescGrupo(rs.getString("g.descGrupo"));
+
+                exercicio.add(E);
+                
+            }
+                    
+        } catch (SQLException ex) {
+                        
+            JOptionPane.showMessageDialog(null, "Erro ao gerar lista " + ex);
+            
+        }finally{
+            
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return exercicio;
+    }
+    
 }

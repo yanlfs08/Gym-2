@@ -1,11 +1,11 @@
 
 package view;
 
-import Controler.Pessoa;
+import model.dao.PessoaDao;
 import javax.swing.JOptionPane;
 
 public class FramePessoa extends javax.swing.JFrame {
-    static Pessoa tbPes = new Pessoa();
+    static PessoaDao tbPes = new PessoaDao();
     //Creates new form JFProduto    
     public FramePessoa() {
         initComponents();

@@ -20,8 +20,8 @@ public class PessoaDao {
         sql = "SELECT Pessoa.CodPessoa, Pessoa.Nome," +
               " TipoPessoa.DescTP AS TipoPessoa, " +
               " Pessoa.PesJuridicaSN, Pessoa.CNPJ_CPF," +
-              " Pessoa.Logradouro, Pessoa.Numero,"+
-              " Pessoa.Complemento, Pessoa.Bairro,"+
+              " Pessoa.Email, Pessoa.DTNasc,"+
+              " Pessoa.Senha, Pessoa.Telefone,"+
               " Pessoa.Municipio, Pessoa.UF, Pessoa.CEP"+
               " FROM Pessoa" +
               " INNER JOIN TipoPessoa" +
@@ -50,15 +50,11 @@ public class PessoaDao {
         }
         return result;
     }
-    public Boolean Insert(int CodPessoa,String Nome,int CodTpPes, String PesJuridicaSN,
-            int CNPJ_CPF, String Logradouro, String Numero, String Complemento,
-            String Bairro, String Municipio, String UF, int CEP){
+    public Boolean Insert(String CPF,String CodTpUsu,String Nome, String Telefone, String DTNasc, String Email, String Senha){
         
-        sql = "INSERT INTO Produto(CodPessoa,Nome,CodTpPes,PesJuridicaSN,CNPJ_CPF,"
-            + "Logradouro,Numero,Complemento,Bairro,Municipio,UF,CEP)"
-            + " VALUES(" + CodPessoa + ",'" + Nome + "'," + CodTpPes + ",'" + PesJuridicaSN + "'"
-            + "," + CNPJ_CPF + ",'" + Logradouro + "','" + Numero + "','" + Complemento + "'"
-            + ",'" + Bairro + "','"+ Municipio + "','" + UF + "'," + CEP + ");";
+        sql = "INSERT INTO Usuario(Cpf,TipoUsuario,Nome,Telefone,DTNasc,Email,Senha)"
+            + " VALUES('" + CPF + "','" + CodTpUsu + "','" + Nome + "',"
+            + ",'" + Telefone + "','" + DTNasc + "','" + Email + "','" + Senha + "');";
         try{
             ps = con.prepareStatement(sql);
             ps.execute(sql);
@@ -68,22 +64,20 @@ public class PessoaDao {
             System.out.println(u);
             return false;        
         }        
-    }
-    public int Update(int CodPessoa,String Nome, String Logradouro, String Numero,
-    String Complemento, String Bairro, String Municipio, String UF, int CEP) {
+    }//CPF, CodTpPes, Nome, Telefone,DTNasc,Email,Senha
+    public int Update(String CPF,String CodTpUsu,String Nome, String Telefone, String DTNasc, String Email, String Senha) {
         int RegAft = 0;
     
         sql = "UPDATE Produto SET ";
+        if(CodTpUsu.equals("")!= true){sql = sql + "TipoUsuario = '" + CodTpUsu +"',";}
         if(Nome.equals("")!= true){sql = sql + "Nome = '" + Nome +"',";}
-        if(Logradouro.equals("")!= true){sql = sql + "Logradouro = '" + Logradouro +"',";}
-        if(Numero.equals("")!= true){sql = sql + "Numero = '" + Numero +"',";}
-        if(Bairro.equals("")!= true){sql = sql + "Bairro = '" + Bairro +"',";}
-        if(Municipio.equals("")!= true){sql = sql + "Municipio = '" + Municipio +"',";}
-        if(UF.equals("")!= true){sql = sql + "PesJuridicaSN = '" + UF +"',";}
-        if(CEP!= 0){sql = sql + "CEP = " + CEP +",";}        
+        if(Telefone.equals("")!= true){sql = sql + "Telefone = '" + Telefone +"',";}
+        if(DTNasc.equals("")!= true){sql = sql + "DTNasc = '" + DTNasc +"',";}
+        if(Email.equals("")!= true){sql = sql + "Email = '" + Email +"',";}
+        if(Senha.equals("")!= true){sql = sql + "Senha = '" + Senha +"',";}
       
         sql = sql.substring(0, sql.length()-1);
-        sql = sql + " Where CodProduto = " + CodPessoa + ";";
+        sql = sql + " Where CodProduto = " + CPF + ";";
         try{
             ps = con.prepareStatement(sql);  
             RegAft = ps.executeUpdate(sql);
@@ -94,9 +88,9 @@ public class PessoaDao {
             return RegAft;        
         }
     }
-    public int Delete(int CodPessoa){
+    public int Delete(String CPF){
         int RegAft = 0;
-        sql = "DELETE FROM Pessoa WHERE CodPessoa = " + CodPessoa + ";";
+        sql = "DELETE FROM Pessoa WHERE CodPessoa = '" + CPF + "';";
         try{
             ps = con.prepareStatement(sql);  
             RegAft = ps.executeUpdate(sql);
@@ -116,12 +110,12 @@ public class PessoaDao {
             try {                
                 while (rsTabela.next()){
                      
-                    String CodPessoa = rsTabela.getString(1);
+                    String CPF = rsTabela.getString(1);
                     String Nome = rsTabela.getString(2);
                     String CodTpPes = rsTabela.getString(3);
                     String CNPJ_CPF = rsTabela.getString(4);
 
-                    Val.addRow(new String[] {CodPessoa, Nome,CodTpPes, CNPJ_CPF});
+                    Val.addRow(new String[] {CPF, Nome,CodTpPes, CNPJ_CPF});
                 }          
             } catch (SQLException ex) {
                 System.err.println(ex);   
@@ -136,31 +130,25 @@ public class PessoaDao {
             rsDadosForm = select(CodProd,0);
             if (rsDadosForm.next()){
                
-                String CodPessoa = rsDadosForm.getString(1);
+                String CPF = rsDadosForm.getString(1);
                 String Nome = rsDadosForm.getString(2);
                 String CodTpPes = rsDadosForm.getString(3);
-                String PesJuridicaSN = rsDadosForm.getString(4);
-                String CNPJ_CPF = rsDadosForm.getString(5);
-                String Logradouro = rsDadosForm.getString(6);
-                String Numero = rsDadosForm.getString(7);
-                String Complemento = rsDadosForm.getString(8);
-                String Bairro = rsDadosForm.getString(9);
-                String Municipio = rsDadosForm.getString(10);
-                String UF = rsDadosForm.getString(11);
-                String CEP = rsDadosForm.getString(12);
+                String Email = rsDadosForm.getString(5);
+                String DTNasc = rsDadosForm.getString(6);
+                String Senha = rsDadosForm.getString(7);
+                String Telefone = rsDadosForm.getString(8);
+                String Municipio = rsDadosForm.getString(9);
+                String UF = rsDadosForm.getString(10);
+                String CEP = rsDadosForm.getString(11);
 
-                PesList.setCodigo(CodPessoa);
+                
+                PesList.setCPF(CPF);
                 PesList.setNome(Nome);
                 PesList.setTipoPessoa(CodTpPes);
-                PesList.setPesJuridicaSN(PesJuridicaSN);
-                PesList.setCNPJ_CPF(CNPJ_CPF);
-                PesList.setLogradouro(Logradouro); 
-                PesList.setNumero(Numero);
-                PesList.setComplemento(Complemento);
-                PesList.setBairro(Bairro);
-                PesList.setMunicipio(Municipio);
-                PesList.setUf(UF);
-                PesList.setCEP(CEP);
+                PesList.setTelefone(Telefone);
+                PesList.setDTNasc(DTNasc);
+                PesList.setEmail(Email); 
+                PesList.setSenha(Senha);
             }
         } catch (SQLException ex) {
             System.out.println(ex);   

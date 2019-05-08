@@ -90,7 +90,7 @@ public class PessoaDao {
     }
     public int Delete(String CPF){
         int RegAft = 0;
-        sql = "DELETE FROM Pessoa WHERE CodPessoa = '" + CPF + "';";
+        sql = "DELETE FROM Usuario WHERE CPF = '" + CPF + "';";
         try{
             ps = con.prepareStatement(sql);  
             RegAft = ps.executeUpdate(sql);

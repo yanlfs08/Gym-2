@@ -52,7 +52,7 @@ public class PessoaDao {
     }
     public Boolean Insert(String CPF,String CodTpUsu,String Nome, String Telefone, String DTNasc, String Email, String Senha){
         
-        sql = "INSERT INTO Usuario(Cpf,TipoUsuario,Nome,Telefone,DTNasc,Email,Senha)"
+        sql = "INSERT INTO Cadastro(Cpf,idTipoUsuario,Nome,Telefone,DaTaNascimento,Email,Senha)"
             + " VALUES('" + CPF + "','" + CodTpUsu + "','" + Nome + "',"
             + ",'" + Telefone + "','" + DTNasc + "','" + Email + "','" + Senha + "');";
         try{
@@ -64,12 +64,12 @@ public class PessoaDao {
             System.out.println(u);
             return false;        
         }        
-    }//CPF, CodTpPes, Nome, Telefone,DTNasc,Email,Senha
+    }
     public int Update(String CPF,String CodTpUsu,String Nome, String Telefone, String DTNasc, String Email, String Senha) {
         int RegAft = 0;
     
-        sql = "UPDATE Produto SET ";
-        if(CodTpUsu.equals("")!= true){sql = sql + "TipoUsuario = '" + CodTpUsu +"',";}
+        sql = "UPDATE Cadastro SET ";
+        if(CodTpUsu.equals("")!= true){sql = sql + "idTipoUsuario = '" + CodTpUsu +"',";}
         if(Nome.equals("")!= true){sql = sql + "Nome = '" + Nome +"',";}
         if(Telefone.equals("")!= true){sql = sql + "Telefone = '" + Telefone +"',";}
         if(DTNasc.equals("")!= true){sql = sql + "DTNasc = '" + DTNasc +"',";}
@@ -90,7 +90,7 @@ public class PessoaDao {
     }
     public int Delete(String CPF){
         int RegAft = 0;
-        sql = "DELETE FROM Usuario WHERE CPF = '" + CPF + "';";
+        sql = "DELETE FROM Cadastro WHERE CPF = '" + CPF + "';";
         try{
             ps = con.prepareStatement(sql);  
             RegAft = ps.executeUpdate(sql);

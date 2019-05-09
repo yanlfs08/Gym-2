@@ -96,7 +96,7 @@ public class FramePessoa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbIncluirActionPerformed
-        new FrameGerenciarPessoa( true, 0, 2).setVisible(true);
+        new FrameCadastroPessoa( true, 0, 2).setVisible(true);
         tbPes.PreencherTabela(jtbInfoPessoas, true);
     }//GEN-LAST:event_jtbIncluirActionPerformed
 
@@ -105,7 +105,7 @@ public class FramePessoa extends javax.swing.JFrame {
             int linha = jtbInfoPessoas.getSelectedRow();
             Object ValorCampo = jtbInfoPessoas.getModel().getValueAt(linha, 0);
             int codPes = Integer.valueOf((String) ValorCampo);
-            new FrameGerenciarPessoa( true, codPes, 1).setVisible(true);
+            new FrameCadastroPessoa( true, codPes, 1).setVisible(true);
             tbPes.PreencherTabela(jtbInfoPessoas,true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para alterar.");
@@ -117,7 +117,7 @@ public class FramePessoa extends javax.swing.JFrame {
             int linha = jtbInfoPessoas.getSelectedRow();
             Object ValorCampo = jtbInfoPessoas.getModel().getValueAt(linha, 0);
             int codPes = Integer.valueOf((String) ValorCampo);
-            new FrameGerenciarPessoa( true, codPes, 3).setVisible(true);
+            new FrameCadastroPessoa( true, codPes, 3).setVisible(true);
             tbPes.PreencherTabela(jtbInfoPessoas, true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para excluir.");

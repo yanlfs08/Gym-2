@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import model.dao.PessoaDao;
 import model.dao.TipoUsuarioDao;
 import model.bean.Pessoa;
@@ -49,10 +50,8 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         jPanel2 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jtfSenha = new JPassWordFieldHint (new JPasswordField(), "", "  Senha");
- ;
-        jtfCheckSenha = new JPassWordFieldHint (new JPasswordField(), "", "  Senha");
- ;
+        jtfSenha = new javax.swing.JTextField();
+        jtfCheckSenha = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtfDTNasc = new javax.swing.JTextField();
 
@@ -101,38 +100,6 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
 
         jLabel17.setText("Senha:");
 
-        jtfSenha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jtfSenha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtfSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfSenhaActionPerformed(evt);
-            }
-        });
-        jtfSenha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtfSenhaKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtfSenhaKeyTyped(evt);
-            }
-        });
-
-        jtfCheckSenha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jtfCheckSenha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtfCheckSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfCheckSenhaActionPerformed(evt);
-            }
-        });
-        jtfCheckSenha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtfCheckSenhaKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtfCheckSenhaKeyTyped(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,13 +107,15 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel15))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfCheckSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(97, 97, 97)
+                        .addComponent(jtfSenha))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(26, 26, 26)
+                        .addComponent(jtfCheckSenha)))
+                .addGap(119, 119, 119))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,11 +123,11 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jtfCheckSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfCheckSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -367,41 +336,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
        dispose();
     }//GEN-LAST:event_jtbCancelarActionPerformed
 
-    private void jtfSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSenhaKeyTyped
-
-    }//GEN-LAST:event_jtfSenhaKeyTyped
-/*
-    private void jtfSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSenhaKeyPressed
-
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            CadastroDAO dao = new CadastroDAO();
-            if(dao.validarLogin(jtfCPF.getText(), jtfSenha.getText())){
-                new FramePrincipal().setVisible(true);
-                dispose();
-
-            }else{
-
-                JOptionPane.showMessageDialog(rootPane, "Login e/ou senha invalidos!");
-            }
-        }
-    }//GEN-LAST:event_jtfSenhaKeyPressed
-*/
-    private void jtfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfSenhaActionPerformed
-
-    private void jtfCheckSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCheckSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfCheckSenhaActionPerformed
-
-    private void jtfCheckSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCheckSenhaKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfCheckSenhaKeyPressed
-
-    private void jtfCheckSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCheckSenhaKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfCheckSenhaKeyTyped
-    private void CarregarCombos() {
+   private void CarregarCombos() {
         ResultSet Sql  = null;
         int TotalRegs = 0; 
         jcbTipoPessoa.removeAllItems();
@@ -583,11 +518,11 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
     private javax.swing.JToggleButton jtbCancelar;
     private javax.swing.JToggleButton jtbConfirmar;
     private javax.swing.JTextField jtfCPF;
-    private javax.swing.JPasswordField jtfCheckSenha;
+    private javax.swing.JTextField jtfCheckSenha;
     private javax.swing.JTextField jtfDTNasc;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfNome;
-    private javax.swing.JPasswordField jtfSenha;
+    private javax.swing.JTextField jtfSenha;
     private javax.swing.JTextField jtfTelefone;
     // End of variables declaration//GEN-END:variables
 }

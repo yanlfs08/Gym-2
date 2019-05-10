@@ -53,7 +53,7 @@ public class FramePessoa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Nome", "Tipo", "CPF/CNPJ"
+                "CPF", "Nome", "Tipo", "Data Nasc.", "Telefone", "E-mail"
             }
         ));
         jScrollPane1.setViewportView(jtbInfoPessoas);

@@ -16,9 +16,9 @@ public class TipoUsuarioDao {
     private String sql = null;
     private ResultSet result = null;
     public ResultSet select(int CodTpPes) {
-        sql = "SELECT * FROM TipoPessoa";              
+        sql = "SELECT * FROM tiposusuarios";              
         if (CodTpPes != 0 ) {
-            sql = sql + " WHERE CodTpPes  = " + CodTpPes + ";";
+            sql = sql + " WHERE idTipoUsuarios  = " + CodTpPes + ";";
         }else{
             sql = sql + ";";
         }

@@ -53,9 +53,17 @@ public class PessoaDao {
     }
     public Boolean Insert(String CPF,String CodTpUsu,String Nome, String Telefone, String DTNasc, String Email, String Senha){
         
+        if(CodTpUsu.equals("")== true){CodTpUsu = "Null";}
+        if(Nome.equals("")== true){Nome = "Null";}
+        if(Telefone.equals("")== true){Telefone = "Null";}
+        if(DTNasc.equals("")== true){DTNasc = "Null";}
+        if(Email.equals("")== true){Email = "Null";}
+        if(Senha.equals("")== true){Senha = "Null";}
+        
+        
         sql = "INSERT INTO cadastro(Cpf,idTipoUsuarios,Nome,Telefone,DTNasc,Email,Senha)"
             + " VALUES('" + CPF + "','" + CodTpUsu + "','" + Nome + "',"
-            + ",'" + Telefone + "','" + DTNasc + "','" + Email + "','" + Senha + "');";
+            + "'" + Telefone + "','" + DTNasc + "','" + Email + "','" + Senha + "');";
         try{
             ps = con.prepareStatement(sql);
             ps.execute(sql);
@@ -78,7 +86,7 @@ public class PessoaDao {
         if(Senha.equals("")!= true){sql = sql + "Senha = '" + Senha +"',";}
       
         sql = sql.substring(0, sql.length()-1);
-        sql = sql + " Where CodProduto = " + CPF + ";";
+        sql = sql + " Where CPF = " + CPF + ";";
         try{
             ps = con.prepareStatement(sql);  
             RegAft = ps.executeUpdate(sql);
@@ -139,7 +147,7 @@ public class PessoaDao {
                 String DTNasc = rsDadosForm.getString(4);
                 String Telefone = rsDadosForm.getString(5);
                 String Email = rsDadosForm.getString(6);
-                String Senha = rsDadosForm.getString(8);
+                String Senha = rsDadosForm.getString(7);
                 
                 PesList.setCPF(CPF);
                 PesList.setNome(Nome);

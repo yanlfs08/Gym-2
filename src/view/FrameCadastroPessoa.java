@@ -141,32 +141,32 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel9))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtfDTNasc))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jtfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jcbTipoPessoa, 0, 116, Short.MAX_VALUE))
-                                    .addComponent(jtfNome)
-                                    .addComponent(jtfEmail))))
+                                .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtfDTNasc))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jtfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcbTipoPessoa, 0, 116, Short.MAX_VALUE))
+                            .addComponent(jtfNome)
+                            .addComponent(jtfEmail))
                         .addGap(60, 60, 60))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -208,15 +208,13 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLTituloGereciamentoPes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLTituloGereciamentoPes, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtbConfirmar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -272,17 +270,17 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         String Senha = "";
         int OP = getTpOp();
         
+        CPF = jtfCPF.getText();
+        
         //Atualizar-Inserir 
         if (( OP == 1 ) || (OP == 2)){
+            
             if(jtfNome.getText().equalsIgnoreCase(PesForm.getNome()) == false){
                 Nome = jtfNome.getText(); 
             }
             if (jcbTipoPessoa.getModel().getSelectedItem().toString().substring(0, 1).equalsIgnoreCase(PesForm.getTipoPessoa()) == false){
                 CodTpPes = jcbTipoPessoa.getModel().getSelectedItem().toString().substring(0, 1);
             } 
-            if (jtfCPF.getText().equalsIgnoreCase(PesForm.getCPF()) == false){
-                CPF = jtfCPF.getText();
-            }
             if (jtfTelefone.getText().equalsIgnoreCase(PesForm.getTelefone()) == false){
                 Telefone = jtfTelefone.getText();
             }
@@ -290,12 +288,13 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 Email = jtfEmail.getText();
             }
             if (jtfDTNasc.getText().equalsIgnoreCase(PesForm.getDTNasc()) == false){
-                Email = jtfDTNasc.getText();
+                DTNasc = jtfDTNasc.getText();
             }            
-            if (jtfCheckSenha.getText().equalsIgnoreCase(jtfSenha.getText()) == false){
+            if (jtfCheckSenha.getText().equalsIgnoreCase(jtfSenha.getText()) == true){
                 if (jtfSenha.getText().equalsIgnoreCase(PesForm.getSenha()) == false){
                     Senha = jtfSenha.getText();
                 }
+            
             }
             
         }
@@ -387,6 +386,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
             jtfDTNasc.setText(PesForm.getDTNasc()); 
             jtfEmail.setText(PesForm.getEmail());
             jtfSenha.setText(PesForm.getSenha());
+            jtfCheckSenha.setText(PesForm.getSenha());
         }
     }
     private int IndexValorCombo(String Valor,int combo ){

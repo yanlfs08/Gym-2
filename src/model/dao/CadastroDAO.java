@@ -35,7 +35,7 @@ public class CadastroDAO {
         
         try {
             
-            stmt = con.prepareStatement("select * from cadastro where cpf = ? and senha = ?");
+            stmt = con.prepareStatement("select * from cadastro where CPF = ? and Senha = ?");
             stmt.setString(1, CPF);
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
@@ -67,7 +67,7 @@ public class CadastroDAO {
         
         try {
             
-            stmt = con.prepareStatement("select c.CPF, c.nome as Nome, c.dataNascimento as 'D.Nascimento', c.telefone as Contato, c.email as Email, t.tipoUsuarios as Acesso\n" +
+            stmt = con.prepareStatement("select c.CPF, c.nome as Nome, c.DTNasc as 'D.Nascimento', c.Telefone as Contato, c.Email as Email, t.tipoUsuarios as Acesso\n" +
                 "From cadastro c inner join tiposusuarios t on t.idTipoUsuarios = c.idTipoUsuarios;");
             rs = stmt.executeQuery();
             

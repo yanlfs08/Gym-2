@@ -29,7 +29,7 @@ public class UsuarioDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO cadastro(cpf,nome,dataNascimento,telefone,email,idTipoUsuario,senha )VALUES(?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO cadastro(CPF,Nome,DTNasc,Telefone,Email,idTipoUsuario,Senha )VALUES(?,?,?,?,?,?,?,?)");
             stmt.setString(1, u.getCpf());
             stmt.setString(2, u.getNome());
             stmt.setString(3, u.getDataNascimento());

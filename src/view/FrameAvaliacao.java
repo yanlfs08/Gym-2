@@ -105,8 +105,8 @@ public class FrameAvaliacao extends javax.swing.JFrame {
         if (jtbInfoAvalicao.getSelectedRowCount() != 0 ){
             int linha = jtbInfoAvalicao.getSelectedRow();
             Object ValorCampo = jtbInfoAvalicao.getModel().getValueAt(linha, 0);
-            int codProd = Integer.valueOf((String) ValorCampo);
-            new FrameCadAvaliacao( true, codProd, 1).setVisible(true);
+            int codAval = Integer.valueOf((String) ValorCampo);
+            new FrameCadAvaliacao( true, codAval, 1).setVisible(true);
             AvalBD.PreencherTabela(jtbInfoAvalicao,true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para alterar.");
@@ -117,8 +117,8 @@ public class FrameAvaliacao extends javax.swing.JFrame {
         if (jtbInfoAvalicao.getSelectedRowCount() != 0 ){
             int linha = jtbInfoAvalicao.getSelectedRow();
             Object ValorCampo = jtbInfoAvalicao.getModel().getValueAt(linha, 0);
-            int codProd = Integer.valueOf((String) ValorCampo);
-            new FrameCadAvaliacao( true, codProd, 3).setVisible(true);
+            int codAval = Integer.valueOf((String) ValorCampo);
+            new FrameCadAvaliacao( true, codAval, 3).setVisible(true);
             AvalBD.PreencherTabela(jtbInfoAvalicao, true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para excluir.");

@@ -391,7 +391,7 @@ public class Old_FrameAvaliação extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
 
-        FrameCadastroAvl frm = new FrameCadastroAvl();
+        Old_FrameCadastroAvl frm = new Old_FrameCadastroAvl();
         frm.setVisible(true);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 

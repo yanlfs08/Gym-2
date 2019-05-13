@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.bean.Avaliacao;
-import model.dao.Old_AvaliaçãoDAO;
 import model.bean.Cadastro;
 import model.dao.AvaliacaoDAO;
 import model.dao.PessoaDAO;
@@ -17,13 +16,13 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
     boolean ExecSucess = false;   
     Avaliacao AvalForm = new Avaliacao();
     Cadastro UsuForm = new Cadastro();
-    public FrameCadAvaliacao(boolean modal,int codProd,int Op) {
+    public FrameCadAvaliacao(boolean modal,int codAval,int Op) {
         initComponents();
         this.setModal(modal);
         CarregarCombos();
         setTpOp(Op);
         if(Op!=2){
-            PreencherFormulario(codProd);
+            PreencherFormulario(codAval);
         //}else{
         //    PreencherCodigo();
         }
@@ -286,11 +285,11 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
         int TotalRegs = 0; 
         jcbUsuario.removeAllItems();
         try{
-            Sql = BuscarUsuario(0,1);
+            Sql = BuscarUsuario(0,2);
             Sql.last();
             TotalRegs = Sql.getRow();        
             Sql.first();
-            for(int i = 1; i < TotalRegs; i++){
+            for(int i = 0; i < TotalRegs; i++){
                 String Cod = Sql.getString(1);
                 String Desc = Sql.getString(2);
                 jcbUsuario.addItem(Cod +" - "+ Desc);
@@ -315,9 +314,9 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
         AvaliacaoDAO Tabela = new AvaliacaoDAO();     
         return Tabela.Delete(CodProd);
     }
-    private static ResultSet BuscarUsuario(int CodUsu,int CodTpUsu){        
-        PessoaDAO Tabela = new PessoaDAO();     
-        return Tabela.Select(CodUsu,CodTpUsu);
+    private static ResultSet BuscarUsuario(int CPF,int CodTpUsu){        
+        PessoaDAO UsuTb = new PessoaDAO();     
+        return UsuTb.Select(CPF,CodTpUsu);
     }
     private void PreencherFormulario(int CodProd){    
         AvaliacaoDAO AvalDB = new AvaliacaoDAO();     

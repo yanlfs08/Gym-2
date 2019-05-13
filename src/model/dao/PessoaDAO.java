@@ -34,7 +34,7 @@ public class PessoaDAO {
         }
         if (TipoUsuarios != 0 ) {
             if(CPF != 0){sql = sql + " AND ";} 
-            sql = sql + " idTipoUsuarios = " + TipoUsuarios;
+            sql = sql + " cadastro.idTipoUsuarios = " + TipoUsuarios;
         }
         //if(sql.substring(sql.length()-4,  sql.length()).equals("WHERE")==true){
         if((CPF == 0 )&& (TipoUsuarios == 0 )){
@@ -138,9 +138,7 @@ public class PessoaDAO {
         ResultSet rsDadosForm = null;        
         try {
             rsDadosForm = Select(CodProd,0);
-            if (rsDadosForm.next()){
-//`CPF`,`nome`,`idTipoUsuarios`,`dataNascimento`,`telefone`,`email`,`idFicha`,`senha                             
-               
+            if (rsDadosForm.next()){            
                 String CPF = rsDadosForm.getString(1);
                 String Nome = rsDadosForm.getString(2);
                 String CodTpPes = rsDadosForm.getString(3);

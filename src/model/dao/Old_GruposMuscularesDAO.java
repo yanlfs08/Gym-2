@@ -9,12 +9,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import model.bean.GruposMusculares;
+import model.bean.GrupoMuscular;
 
 
-public class GruposMuscularesDAO {
+public class Old_GruposMuscularesDAO {
     
-    public void Create (GruposMusculares G){
+    public void Create (GrupoMuscular G){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -22,7 +22,7 @@ public class GruposMuscularesDAO {
         try {
             stmt = con.prepareStatement("INSERT INTO gruposmusculares (descGrupo) VALUES (?)");
       
-            stmt.setString(1, G.getdescGrupo());
+            stmt.setString(1, G.getDesc());
             
             stmt.executeUpdate();
             
@@ -38,15 +38,15 @@ public class GruposMuscularesDAO {
         }
     }
     
-    public void Update (GruposMusculares G){
+    public void Update (GrupoMuscular G){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
             stmt = con.prepareStatement("UPDATE gruposmusculares SET descGrupo = ? WHERE idGrupos = ?");
-            stmt.setString(1, G.getdescGrupo());
-            stmt.setString(2, G.getIdGrupos());
+            stmt.setString(1, G.getDesc());
+            stmt.setString(2, G.getId());
             
             stmt.executeUpdate();
             
@@ -62,7 +62,7 @@ public class GruposMuscularesDAO {
         }
     }
     
-    public void Delete (GruposMusculares G){
+    public void Delete (GrupoMuscular G){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -76,7 +76,7 @@ public class GruposMuscularesDAO {
             try {
             stmt = con.prepareStatement("DELETE FROM gruposmusculares WHERE idGrupos = ?");
           
-            stmt.setString(1, G.getIdGrupos());
+            stmt.setString(1, G.getId());
             
             stmt.executeUpdate();
             
@@ -94,13 +94,13 @@ public class GruposMuscularesDAO {
     }
     
     
-    public List <GruposMusculares> read(){
+    public List <GrupoMuscular> read(){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List <GruposMusculares> grupomuscular = new ArrayList<>();
+        List <GrupoMuscular> grupomuscular = new ArrayList<>();
         
         try {
             
@@ -109,10 +109,10 @@ public class GruposMuscularesDAO {
             
             while (rs.next()){
                 
-                GruposMusculares G = new GruposMusculares();
+                GrupoMuscular G = new GrupoMuscular();
                 
-                G.setIdGrupos(rs.getString("idGrupos"));
-                G.setdescGrupo(rs.getString("descGrupo"));
+                G.setId(rs.getString("idGrupos"));
+                G.setDesc(rs.getString("descGrupo"));
 
                 grupomuscular.add(G);
                 
@@ -130,13 +130,13 @@ public class GruposMuscularesDAO {
         return grupomuscular;
     }
     
-    public List <GruposMusculares> readPesquisa(String pesquisa){
+    public List <GrupoMuscular> readPesquisa(String pesquisa){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List <GruposMusculares> grupomuscular = new ArrayList<>();
+        List <GrupoMuscular> grupomuscular = new ArrayList<>();
         
         try {
             
@@ -146,10 +146,10 @@ public class GruposMuscularesDAO {
             
             while (rs.next()){
                 
-                GruposMusculares G = new GruposMusculares();
+                GrupoMuscular G = new GrupoMuscular();
 
-                G.setIdGrupos(rs.getString("idGrupos"));
-                G.setdescGrupo(rs.getString("descGrupo"));
+                G.setId(rs.getString("idGrupos"));
+                G.setDesc(rs.getString("descGrupo"));
                 
                 grupomuscular.add(G);
                 

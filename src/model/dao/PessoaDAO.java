@@ -10,7 +10,7 @@ import model.bean.Pessoa;
 import connection.ConnectionFactory;
 import java.sql.Connection;
 
-public class PessoaDao {
+public class PessoaDAO {
     //private final ConnectDB Conexao = new ConnectDB();
     Connection con = ConnectionFactory.getConnection();
     private PreparedStatement ps = null;

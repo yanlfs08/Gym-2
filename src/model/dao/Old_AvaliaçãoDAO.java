@@ -9,17 +9,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import model.bean.Avaliação;
+import model.bean.Avaliacao;
 import model.bean.Cadastro;
 import model.bean.Exercicios;
-import model.bean.GruposMusculares;
+import model.bean.GrupoMuscular;
 /**
  *
  * @author yanlf
  */
-public class AvaliaçãoDAO {
+public class Old_AvaliaçãoDAO {
     
-    public void Create (Avaliação A){
+    public void Create (Avaliacao A){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -48,7 +48,7 @@ public class AvaliaçãoDAO {
         }
     }
 
-    public void Update (Avaliação A){
+    public void Update (Avaliacao A){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -77,7 +77,7 @@ public class AvaliaçãoDAO {
         }    
     }
     
-    public void Delete (Avaliação A){
+    public void Delete (Avaliacao A){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -109,13 +109,13 @@ public class AvaliaçãoDAO {
         }     
     }
     
-    public List <Avaliação> read(){
+    public List <Avaliacao> read(){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List <Avaliação> avaliacao = new ArrayList<>();
+        List <Avaliacao> avaliacao = new ArrayList<>();
         
         try {
             
@@ -125,7 +125,7 @@ public class AvaliaçãoDAO {
             
             while (rs.next()){
                 
-                Avaliação A = new Avaliação();
+                Avaliacao A = new Avaliacao();
                 Cadastro C = new Cadastro();
                 
                 A.setCpf(C);
@@ -151,13 +151,13 @@ public class AvaliaçãoDAO {
         return avaliacao;
     }
     
-    public List <Avaliação> readPesquisa(String pesquisa){
+    public List <Avaliacao> readPesquisa(String pesquisa){
             
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List <Avaliação> avaliacao = new ArrayList<>();
+        List <Avaliacao> avaliacao = new ArrayList<>();
         
         try {
             
@@ -168,7 +168,7 @@ public class AvaliaçãoDAO {
             
             while (rs.next()){
                 
-                Avaliação A = new Avaliação();
+                Avaliacao A = new Avaliacao();
                 Cadastro C = new Cadastro();
                 
                 A.setCpf(C);
@@ -212,12 +212,12 @@ public class AvaliaçãoDAO {
             while (rs.next()){
                 
                 Exercicios E = new Exercicios();
-                GruposMusculares G = new GruposMusculares();
+                GrupoMuscular G = new GrupoMuscular();
                 
                 E.setIdExercicios(rs.getString("ei"));
                 E.setdescExercicio(rs.getString("e.descExercicio"));
                 E.setIdGruposMusculares(G);
-                G.setdescGrupo(rs.getString("g.descGrupo"));
+                G.setDesc(rs.getString("g.descGrupo"));
 
                 exercicio.add(E);
                 

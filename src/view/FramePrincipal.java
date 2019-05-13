@@ -141,7 +141,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmProdMouseClicked
 
     private void jmiAvaliacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAvaliacaoActionPerformed
-        JOptionPane.showMessageDialog(null, "Programa ainda não implementado.");
+        new FrameAvaliacao().setVisible(true);
     }//GEN-LAST:event_jmiAvaliacaoActionPerformed
 
     private void jmiExerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiExerciciosActionPerformed

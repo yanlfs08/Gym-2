@@ -9,7 +9,7 @@ import java.sql.Connection;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class TipoUsuarioDao {
+public class TipoUsuarioDAO {
     //private final ComandDB ExecComand = new ComandDB();
     Connection con = ConnectionFactory.getConnection();
     private PreparedStatement ps = null;

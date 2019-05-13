@@ -6,23 +6,23 @@
 package view;
 
 import java.util.Random;
-import model.bean.Avaliação;
+import model.bean.Avaliacao;
 import model.bean.Cadastro;
-import model.bean.GruposMusculares;
-import model.dao.AvaliaçãoDAO;
+import model.bean.GrupoMuscular;
+import model.dao.Old_AvaliaçãoDAO;
 import model.dao.CadastroDAO;
-import model.dao.GruposMuscularesDAO;
+import model.dao.Old_GruposMuscularesDAO;
 
 /**
  *
  * @author yanlf
  */
-public class FrameCadastroAvl extends javax.swing.JFrame {
+public class Old_FrameCadastroAvl extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameCadastroAvl
      */
-    public FrameCadastroAvl() {
+    public Old_FrameCadastroAvl() {
         initComponents();
     }
     
@@ -208,8 +208,8 @@ public class FrameCadastroAvl extends javax.swing.JFrame {
             labelID.setText(String.valueOf(gerador.nextInt(5555)));
         }
 
-        Avaliação a =new Avaliação();
-        AvaliaçãoDAO adao = new AvaliaçãoDAO();
+        Avaliacao a =new Avaliacao();
+        Old_AvaliaçãoDAO adao = new Old_AvaliaçãoDAO();
         Cadastro c = new Cadastro();
 
         c.getCPF();
@@ -261,20 +261,21 @@ public class FrameCadastroAvl extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameCadastroAvl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameCadastroAvl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameCadastroAvl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameCadastroAvl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameCadastroAvl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameCadastroAvl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameCadastroAvl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameCadastroAvl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameCadastroAvl().setVisible(true);
+                new Old_FrameCadastroAvl().setVisible(true);
             }
         });
     }

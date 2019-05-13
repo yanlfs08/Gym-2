@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.bean.Exercicios;
-import model.bean.GruposMusculares;
+import model.bean.GrupoMuscular;
 
 public class ExerciciosDAO {
    
@@ -19,13 +19,13 @@ public class ExerciciosDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         
-            GruposMusculares G = null;
+            GrupoMuscular G = null;
         
         try {
             stmt = con.prepareStatement("INSERT INTO exercicios (`idExercicios`,`descExercicio`,`idGrupos`) VALUES (?, ?, ?)");
             stmt.setString(1, E.getIdExercicios());
             stmt.setString(2, E.getdescExercicio());
-            stmt.setString(3, E.getIdGruposMusculares().getIdGrupos());
+            stmt.setString(3, E.getIdGruposMusculares().getId());
             
             
             stmt.executeUpdate();
@@ -114,13 +114,13 @@ public class ExerciciosDAO {
             while (rs.next()){
                 
                 Exercicios E = new Exercicios();
-                GruposMusculares G = new GruposMusculares();
+                GrupoMuscular G = new GrupoMuscular();
                 
                 E.setIdExercicios(rs.getString("ei"));
                 E.setdescExercicio(rs.getString("e.descExercicio"));
                 E.setIdGruposMusculares(G);
                 
-                G.setdescGrupo(rs.getString("g.descGrupo"));
+                G.setDesc(rs.getString("g.descGrupo"));
                 
                 exercicio.add(E);
                 
@@ -155,12 +155,12 @@ public class ExerciciosDAO {
             while (rs.next()){
                 
                 Exercicios E = new Exercicios();
-                GruposMusculares G = new GruposMusculares();
+                GrupoMuscular G = new GrupoMuscular();
                 
                 E.setIdExercicios(rs.getString("ei"));
                 E.setdescExercicio(rs.getString("e.descExercicio"));
                 E.setIdGruposMusculares(G);
-                G.setdescGrupo(rs.getString("g.descGrupo"));
+                G.setDesc(rs.getString("g.descGrupo"));
 
                 exercicio.add(E);
                 
@@ -195,12 +195,12 @@ public class ExerciciosDAO {
             while (rs.next()){
                 
                 Exercicios E = new Exercicios();
-                GruposMusculares G = new GruposMusculares();
+                GrupoMuscular G = new GrupoMuscular();
                 
                 E.setIdExercicios(rs.getString("ei"));
                 E.setdescExercicio(rs.getString("e.descExercicio"));
                 E.setIdGruposMusculares(G);
-                G.setdescGrupo(rs.getString("g.descGrupo"));
+                G.setDesc(rs.getString("g.descGrupo"));
 
                 exercicio.add(E);
                 

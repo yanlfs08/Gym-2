@@ -3,16 +3,16 @@ package view;
 
 import java.text.DecimalFormat;
 import javax.swing.table.DefaultTableModel;
-import model.bean.Avaliação;
-import model.dao.AvaliaçãoDAO;
+import model.bean.Avaliacao;
+import model.dao.Old_AvaliaçãoDAO;
 
 /**
  *
  * @author yanlf
  */
-public class FrameAvaliação extends javax.swing.JFrame {
+public class Old_FrameAvaliação extends javax.swing.JFrame {
     
-    public FrameAvaliação() {
+    public Old_FrameAvaliação() {
         initComponents();
         readJTable();
     }
@@ -23,9 +23,9 @@ public class FrameAvaliação extends javax.swing.JFrame {
         
         model.setNumRows(0);
         
-        AvaliaçãoDAO adao = new AvaliaçãoDAO();
+        Old_AvaliaçãoDAO adao = new Old_AvaliaçãoDAO();
         
-        for(Avaliação a:adao.read()){
+        for(Avaliacao a:adao.read()){
             
             model.addRow(new Object[]{
                     
@@ -45,9 +45,9 @@ public class FrameAvaliação extends javax.swing.JFrame {
         
         model.setNumRows(0);
         
-        AvaliaçãoDAO adao = new AvaliaçãoDAO();
+        Old_AvaliaçãoDAO adao = new Old_AvaliaçãoDAO();
         
-        for(Avaliação a:adao.readPesquisa(pesquisa)){
+        for(Avaliacao a:adao.readPesquisa(pesquisa)){
             
             model.addRow(new Object[]{
                     
@@ -403,8 +403,8 @@ public class FrameAvaliação extends javax.swing.JFrame {
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
 
-        Avaliação a = new Avaliação();
-        AvaliaçãoDAO adao = new AvaliaçãoDAO();
+        Avaliacao a = new Avaliacao();
+        Old_AvaliaçãoDAO adao = new Old_AvaliaçãoDAO();
 
         a.setIdAvaliacao((String) TableAvaliacao.getValueAt(TableAvaliacao.getSelectedRow(), 0));
 
@@ -451,20 +451,21 @@ public class FrameAvaliação extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameAvaliação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameAvaliação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameAvaliação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameAvaliação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameAvaliação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameAvaliação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameAvaliação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameAvaliação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameAvaliação().setVisible(true);
+                new Old_FrameAvaliação().setVisible(true);
             }
         });
     }

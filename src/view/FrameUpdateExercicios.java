@@ -31,7 +31,7 @@ public class FrameUpdateExercicios extends javax.swing.JFrame {
         
         GruposMuscularesDAO gdao = new GruposMuscularesDAO();
         
-        for (GruposMusculares g: gdao.read()){
+        for (GrupoMuscular g: gdao.read()){
             
             ComboGrupoMuscular.addItem(g);
         }

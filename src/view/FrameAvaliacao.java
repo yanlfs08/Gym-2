@@ -1,16 +1,16 @@
 
 package view;
 
-import model.bean.GrupoMuscular;
+import model.bean.Avaliacao;
+import model.dao.AvaliacaoDAO;
 import javax.swing.JOptionPane;
-import model.dao.GrupoMuscularDAO;
 
-public class FrameGrupoMuscular extends javax.swing.JFrame {
-    static GrupoMuscularDAO tbGrupoMusc = new GrupoMuscularDAO();
+public class FrameAvaliacao extends javax.swing.JFrame {
+    static AvaliacaoDAO AvalBD = new AvaliacaoDAO();
     //Creates new form JFProduto    
-    public FrameGrupoMuscular() {
+    public FrameAvaliacao() {
         initComponents();
-        tbGrupoMusc.PreencherTabela(jtbInfoTpPgto, true);
+        AvalBD.PreencherTabela(jtbInfoAvalicao, true);
     }
      @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -21,9 +21,9 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
         jtbIncluir = new javax.swing.JToggleButton();
         jtbExcluir = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtbInfoTpPgto = new javax.swing.JTable();
+        jtbInfoAvalicao = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Opções");
@@ -49,15 +49,15 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
             }
         });
 
-        jtbInfoTpPgto.setModel(new javax.swing.table.DefaultTableModel(
+        jtbInfoAvalicao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Descrição"
+                "Cod. Avaliação", "Usuário", "Peso", "Altura", "Gordura(%)"
             }
         ));
-        jScrollPane1.setViewportView(jtbInfoTpPgto);
+        jScrollPane1.setViewportView(jtbInfoAvalicao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,29 +97,29 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbIncluirActionPerformed
-        new FrameGerenciarGrupoMuscular(true, 0, 2).setVisible(true);
-        tbGrupoMusc.PreencherTabela(jtbInfoTpPgto, true);
+        new FrameCadAvaliacao(true, 0, 2).setVisible(true);
+        AvalBD.PreencherTabela(jtbInfoAvalicao, true);
     }//GEN-LAST:event_jtbIncluirActionPerformed
 
     private void jtbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbAlterarActionPerformed
-        if (jtbInfoTpPgto.getSelectedRowCount() != 0 ){
-            int linha = jtbInfoTpPgto.getSelectedRow();
-            Object ValorCampo = jtbInfoTpPgto.getModel().getValueAt(linha, 0);
-            int codTPPes = Integer.valueOf((String) ValorCampo);
-            new FrameGerenciarGrupoMuscular( true, codTPPes, 1).setVisible(true);
-            tbGrupoMusc.PreencherTabela(jtbInfoTpPgto,true);
+        if (jtbInfoAvalicao.getSelectedRowCount() != 0 ){
+            int linha = jtbInfoAvalicao.getSelectedRow();
+            Object ValorCampo = jtbInfoAvalicao.getModel().getValueAt(linha, 0);
+            int codProd = Integer.valueOf((String) ValorCampo);
+            new FrameCadAvaliacao( true, codProd, 1).setVisible(true);
+            AvalBD.PreencherTabela(jtbInfoAvalicao,true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para alterar.");
         }
     }//GEN-LAST:event_jtbAlterarActionPerformed
 
     private void jtbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbExcluirActionPerformed
-        if (jtbInfoTpPgto.getSelectedRowCount() != 0 ){
-            int linha = jtbInfoTpPgto.getSelectedRow();
-            Object ValorCampo = jtbInfoTpPgto.getModel().getValueAt(linha, 0);
-            int codPes = Integer.valueOf((String) ValorCampo);
-            new FrameGerenciarGrupoMuscular( true, codPes, 3).setVisible(true);
-            tbGrupoMusc.PreencherTabela(jtbInfoTpPgto, true);
+        if (jtbInfoAvalicao.getSelectedRowCount() != 0 ){
+            int linha = jtbInfoAvalicao.getSelectedRow();
+            Object ValorCampo = jtbInfoAvalicao.getModel().getValueAt(linha, 0);
+            int codProd = Integer.valueOf((String) ValorCampo);
+            new FrameCadAvaliacao( true, codProd, 3).setVisible(true);
+            AvalBD.PreencherTabela(jtbInfoAvalicao, true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para excluir.");
         }
@@ -138,26 +138,14 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameGrupoMuscular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameAvaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameGrupoMuscular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameAvaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameGrupoMuscular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameAvaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameGrupoMuscular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameAvaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -166,11 +154,11 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameGrupoMuscular().setVisible(true);
+                new FrameAvaliacao().setVisible(true);
             }
         });
         
-        tbGrupoMusc.PreencherTabela(jtbInfoTpPgto, true);
+        AvalBD.PreencherTabela(jtbInfoAvalicao, true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -178,6 +166,6 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
     private javax.swing.JToggleButton jtbAlterar;
     private javax.swing.JToggleButton jtbExcluir;
     private javax.swing.JToggleButton jtbIncluir;
-    private static javax.swing.JTable jtbInfoTpPgto;
+    private static javax.swing.JTable jtbInfoAvalicao;
     // End of variables declaration//GEN-END:variables
 }

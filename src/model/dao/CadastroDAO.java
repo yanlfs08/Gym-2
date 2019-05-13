@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.bean.Avaliação;
+import model.bean.Avaliacao;
 import model.bean.Cadastro;
 import model.bean.TiposUsuarios;
 
@@ -47,7 +47,7 @@ public class CadastroDAO {
             
         }catch (SQLException ex) {
             
-            Logger.getLogger(GruposMuscularesDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Old_GruposMuscularesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }

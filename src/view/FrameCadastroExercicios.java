@@ -8,9 +8,9 @@ package view;
 import java.util.Random;
 import javax.swing.table.DefaultTableModel;
 import model.bean.Exercicios;
-import model.bean.GruposMusculares;
+import model.bean.GrupoMuscular;
 import model.dao.ExerciciosDAO;
-import model.dao.GruposMuscularesDAO;
+import model.dao.Old_GruposMuscularesDAO;
 
 
 /**
@@ -31,9 +31,9 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
     
     public void ViewComboBox (){
         
-        GruposMuscularesDAO gdao = new GruposMuscularesDAO();
+        Old_GruposMuscularesDAO gdao = new Old_GruposMuscularesDAO();
         
-        for (GruposMusculares g: gdao.read()){
+        for (GrupoMuscular g: gdao.read()){
             
             ComboGrupoMuscular.addItem(g);
         }
@@ -256,8 +256,8 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         
         Exercicios e = new Exercicios();
         ExerciciosDAO edao = new ExerciciosDAO();
-        GruposMusculares g = (GruposMusculares) ComboGrupoMuscular.getSelectedItem();
-        g.getIdGrupos();
+        GrupoMuscular g = (GrupoMuscular) ComboGrupoMuscular.getSelectedItem();
+        g.getId();
         
         e.setIdExercicios(labelGeradorID.getText());
         e.setdescExercicio(txtExercicio.getText());

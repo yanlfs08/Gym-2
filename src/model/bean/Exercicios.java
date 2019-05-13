@@ -5,12 +5,12 @@ public class Exercicios {
     
     private String idExercicios;
     private String descExercicio;
-    private GruposMusculares idGruposMusculares;
+    private GrupoMuscular idGruposMusculares;
 
     public Exercicios() {
     }
 
-    public Exercicios(String descGrup, GruposMusculares idGruposMusculares) {
+    public Exercicios(String descGrup, GrupoMuscular idGruposMusculares) {
         
         this.descExercicio = descExercicio;
         this.idGruposMusculares = idGruposMusculares;
@@ -32,11 +32,11 @@ public class Exercicios {
         this.descExercicio = desc;
     }
 
-    public GruposMusculares getIdGruposMusculares() {
+    public GrupoMuscular getIdGruposMusculares() {
         return idGruposMusculares;
     }
 
-    public void setIdGruposMusculares(GruposMusculares idGruposMusculares) {
+    public void setIdGruposMusculares(GrupoMuscular idGruposMusculares) {
         this.idGruposMusculares = idGruposMusculares;
     }
 

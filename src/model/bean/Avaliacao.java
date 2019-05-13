@@ -4,7 +4,7 @@ package model.bean;
 import java.lang.String;
 
 
-public class Avaliação {
+public class Avaliacao {
     
     private String idAvaliacao;
     private String data;
@@ -13,11 +13,11 @@ public class Avaliação {
     private double gorduraCorporal;
     private Cadastro cpf;
     
-    public Avaliação(){
+    public Avaliacao(){
         
     }
 
-    public Avaliação(String idAvaliacao, String data, double peso, double altura, double gorduraCorporal, Cadastro cpf) {
+    public Avaliacao(String idAvaliacao, String data, double peso, double altura, double gorduraCorporal, Cadastro cpf) {
         this.idAvaliacao = idAvaliacao;
         this.data = data;
         this.peso = peso;

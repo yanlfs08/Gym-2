@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
-import model.dao.PessoaDao;
-import model.dao.TipoUsuarioDao;
+import model.dao.PessoaDAO;
+import model.dao.TipoUsuarioDAO;
 import model.bean.Pessoa;
 import model.dao.CadastroDAO;
 
@@ -91,6 +91,11 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
 
         jtfCPF.setText("   .   .   -  ");
         jtfCPF.setToolTipText("");
+        jtfCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCPFActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("CPF:");
 
@@ -335,6 +340,10 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
        dispose();
     }//GEN-LAST:event_jtbCancelarActionPerformed
 
+    private void jtfCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfCPFActionPerformed
+
    private void CarregarCombos() {
         ResultSet Sql  = null;
         int TotalRegs = 0; 
@@ -357,24 +366,24 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
     }//(CPF, CodTpPes, Nome, Telefone,DTNasc,Email,Senha);
     private static boolean IncluirProdutos(String CPF, String CodTpPes, String Nome,
                     String Telefone, String DTNasc, String Email, String Senha){        
-        PessoaDao Tabela = new PessoaDao();     
+        PessoaDAO Tabela = new PessoaDAO();     
         return Tabela.Insert(CPF, CodTpPes, Nome, Telefone,DTNasc,Email,Senha);
     }
     private static int AtualizarProdutos(String CPF, String CodTpPes, String Nome,
                     String Telefone, String DTNasc, String Email, String Senha){        
-        PessoaDao Tabela = new PessoaDao();     
+        PessoaDAO Tabela = new PessoaDAO();     
         return Tabela.Update(CPF, CodTpPes, Nome, Telefone,DTNasc,Email,Senha);
     }
     private static int DeletarProdutos(String CPF){        
-        PessoaDao Tabela = new PessoaDao();     
+        PessoaDAO Tabela = new PessoaDAO();     
         return Tabela.Delete(CPF);
     }
     private static ResultSet BuscarTpPessoa(int CPF){        
-        TipoUsuarioDao Tabela = new TipoUsuarioDao();     
+        TipoUsuarioDAO Tabela = new TipoUsuarioDAO();     
         return Tabela.select(CPF);
     }
     private void PreencherFormulario(int CodProd){    
-        PessoaDao PesDB = new PessoaDao();     
+        PessoaDAO PesDB = new PessoaDAO();     
         //ResultSet rsDadosForm = null; 
         
         PesForm = PesDB.CarregaDadosFormulario(CodProd);

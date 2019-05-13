@@ -12,6 +12,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jbLogoff = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmFluxo = new javax.swing.JMenu();
         jmiUsuario = new javax.swing.JMenuItem();
@@ -26,15 +27,28 @@ public class FramePrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
+        jbLogoff.setText("Logoff");
+        jbLogoff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLogoffActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(324, Short.MAX_VALUE)
+                .addComponent(jbLogoff)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(214, Short.MAX_VALUE)
+                .addComponent(jbLogoff)
+                .addContainerGap())
         );
 
         jmFluxo.setText("Cadastro");
@@ -151,6 +165,12 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void jmiGrupoMuscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGrupoMuscActionPerformed
         new FrameGrupoMuscular().setVisible(true);
     }//GEN-LAST:event_jmiGrupoMuscActionPerformed
+
+    private void jbLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLogoffActionPerformed
+       FrameLogoff frm = new FrameLogoff();
+       frm.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_jbLogoffActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -195,6 +215,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbLogoff;
     private javax.swing.JMenu jmFluxo;
     private javax.swing.JMenu jmProd;
     private javax.swing.JMenuItem jmiAvaliacao;

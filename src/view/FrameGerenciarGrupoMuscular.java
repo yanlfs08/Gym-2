@@ -54,11 +54,17 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
         });
 
         JLTituloGereciamentoPes.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLTituloGereciamentoPes.setText("Gerenciamento de pessoas");
+        JLTituloGereciamentoPes.setText("Gerenciamento de Grupo Muscular");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setText("Código:");
+
+        jtfCodigoGrupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCodigoGrupoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Descrição:");
 
@@ -129,6 +135,7 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     private void setTpOp(int Op){
 	this.TpOp = Op;
@@ -139,16 +146,16 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
     private void MostrarOp(int Op){  
         switch(Op){
             case 1:
-                JLTituloGereciamentoPes.setText("Alterar Tipo Pessoa");
+                JLTituloGereciamentoPes.setText("Alterar Grupo Muscular");
                  break;
             case 2:
-                JLTituloGereciamentoPes.setText("Incluir Tipo Pessoa");
+                JLTituloGereciamentoPes.setText("Incluir Grupo Muscular");
                 break;
             case 3:
-                JLTituloGereciamentoPes.setText("Excluir Tipo Pessoa");
+                JLTituloGereciamentoPes.setText("Excluir Grupo Muscular");
                 break;
             default:
-                JLTituloGereciamentoPes.setText("Gerenciar Tipo Pessoa");
+                JLTituloGereciamentoPes.setText("Gerenciar Grupo Muscular");
         }       
     }
     private void jtbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConfirmarActionPerformed
@@ -199,6 +206,10 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
     private void jtbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbCancelarActionPerformed
        dispose();
     }//GEN-LAST:event_jtbCancelarActionPerformed
+
+    private void jtfCodigoGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCodigoGrupoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfCodigoGrupoActionPerformed
     private static boolean IncluirTpPgto(int CodTpPgto,String Desc){        
         GrupoMuscularDAO Tabela = new GrupoMuscularDAO();     
         return Tabela.Insert(CodTpPgto, Desc);

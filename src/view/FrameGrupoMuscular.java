@@ -1,7 +1,6 @@
 
 package view;
 
-import model.bean.GrupoMuscular;
 import javax.swing.JOptionPane;
 import model.dao.GrupoMuscularDAO;
 

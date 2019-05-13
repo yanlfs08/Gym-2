@@ -122,6 +122,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jbCadastrarExercicio = new javax.swing.JButton();
         labelGeradorID = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Exercicios");
@@ -162,7 +163,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Cadastrar Exercicios");
+        jLabel1.setText("Cadastrar Exercícios");
 
         ComboGrupoMuscular.setToolTipText("Grupo Muscular");
         ComboGrupoMuscular.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +173,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Exercicio");
+        jLabel2.setText("Exercício");
 
         jbCadastrarExercicio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbCadastrarExercicio.setText("Cadastrar");
@@ -186,6 +187,19 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
 
         labelGeradorID.setForeground(new java.awt.Color(255, 255, 255));
         labelGeradorID.setText("jLabel3");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 430, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 439, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,6 +229,8 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
                         .addGap(98, 98, 98)
                         .addComponent(jLabel1)))
                 .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +248,11 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
                     .addComponent(labelGeradorID))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jbCadastrarExercicio.getAccessibleContext().setAccessibleName("Atualizar ");
@@ -325,6 +345,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
     private javax.swing.JTable TableExercicios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbCadastrarExercicio;
     private javax.swing.JLabel labelGeradorID;

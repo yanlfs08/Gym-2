@@ -128,7 +128,7 @@ public class FrameExercicios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Exercicio", "Grp. Muscular"
+                "ID", "Exercício", "Grp. Muscular"
             }
         ) {
             Class[] types = new Class [] {
@@ -169,7 +169,7 @@ public class FrameExercicios extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Exercicios");
+        jLabel1.setText("Exercícios");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("ID");
@@ -212,7 +212,7 @@ public class FrameExercicios extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Exercicio");
+        jLabel3.setText("Exercício");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Grupo Muscular");

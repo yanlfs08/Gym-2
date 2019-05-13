@@ -73,13 +73,24 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
         });
 
         JLTituloGereciamentoProd.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLTituloGereciamentoProd.setText("Gerenciamento de produtos");
+        JLTituloGereciamentoProd.setText("Cadastro de Avaliações");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setText("Código:");
 
         jcbUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbUsuarioActionPerformed(evt);
+            }
+        });
+
+        jtfCodigoAval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCodigoAvalActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Cliente:");
 
@@ -194,6 +205,7 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     private void setTpOp(int Op){
 	this.TpOp = Op;
@@ -280,6 +292,14 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
     private void jtbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbCancelarActionPerformed
        dispose();
     }//GEN-LAST:event_jtbCancelarActionPerformed
+
+    private void jcbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbUsuarioActionPerformed
+
+    private void jtfCodigoAvalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCodigoAvalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfCodigoAvalActionPerformed
     private void CarregarCombos() {
         ResultSet Sql  = null;
         int TotalRegs = 0; 

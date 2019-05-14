@@ -1,15 +1,19 @@
 
 package view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import model.dao.PessoaDAO;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class FramePessoa extends javax.swing.JFrame {
-    static PessoaDAO tbPes = new PessoaDAO();
+
     //Creates new form JFProduto    
     public FramePessoa() {
         initComponents();
-        tbPes.PreencherTabela(jtbInfoPessoas, true);
+        PreencherTabela(jtbInfoPessoas, true);
     }
      @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -57,6 +61,14 @@ public class FramePessoa extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jtbInfoPessoas);
+        if (jtbInfoPessoas.getColumnModel().getColumnCount() > 0) {
+            jtbInfoPessoas.getColumnModel().getColumn(0).setMinWidth(90);
+            jtbInfoPessoas.getColumnModel().getColumn(0).setPreferredWidth(90);
+            jtbInfoPessoas.getColumnModel().getColumn(0).setMaxWidth(90);
+            jtbInfoPessoas.getColumnModel().getColumn(2).setMinWidth(52);
+            jtbInfoPessoas.getColumnModel().getColumn(2).setPreferredWidth(52);
+            jtbInfoPessoas.getColumnModel().getColumn(2).setMaxWidth(52);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,12 +77,12 @@ public class FramePessoa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                     .addComponent(jtbIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jtbAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jtbExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -89,16 +101,41 @@ public class FramePessoa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbIncluirActionPerformed
         new FrameCadastroPessoa( true, 0, 2).setVisible(true);
-        tbPes.PreencherTabela(jtbInfoPessoas, true);
+        PreencherTabela(jtbInfoPessoas, true);
     }//GEN-LAST:event_jtbIncluirActionPerformed
+    
+    public void PreencherTabela(JTable modeloTable,boolean Limpar){ 
+        ResultSet rsTabela; 
+        PessoaDAO pdao = new PessoaDAO();
+        DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
+        if (Limpar == true){ Val.setNumRows(0); }
+        rsTabela = pdao.Select(0,0);
+        if (rsTabela != null){
+            try {                
+                while (rsTabela.next()){
+                    String CPF = rsTabela.getString(1);
+                    String Nome = rsTabela.getString(2);
+                    String CodTpPes = rsTabela.getString(3);
+                    String DtNasc = rsTabela.getString(4);
+                    String Tel = rsTabela.getString(5);
+                    String Email = rsTabela.getString(6);
+
+                    Val.addRow(new String[] {CPF, Nome, CodTpPes, DtNasc, Tel, Email});
+                }          
+            } catch (SQLException ex) {
+                System.err.println(ex);   
+            }
+        }
+    }
 
     private void jtbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbAlterarActionPerformed
         if (jtbInfoPessoas.getSelectedRowCount() != 0 ){
@@ -106,7 +143,7 @@ public class FramePessoa extends javax.swing.JFrame {
             Object ValorCampo = jtbInfoPessoas.getModel().getValueAt(linha, 0);
             int codPes = Integer.valueOf((String) ValorCampo);
             new FrameCadastroPessoa( true, codPes, 1).setVisible(true);
-            tbPes.PreencherTabela(jtbInfoPessoas,true);
+            PreencherTabela(jtbInfoPessoas,true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para alterar.");
         }
@@ -118,7 +155,7 @@ public class FramePessoa extends javax.swing.JFrame {
             Object ValorCampo = jtbInfoPessoas.getModel().getValueAt(linha, 0);
             int codPes = Integer.valueOf((String) ValorCampo);
             new FrameCadastroPessoa( true, codPes, 3).setVisible(true);
-            tbPes.PreencherTabela(jtbInfoPessoas, true);
+            PreencherTabela(jtbInfoPessoas, true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para excluir.");
         }
@@ -131,7 +168,7 @@ public class FramePessoa extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -185,7 +222,7 @@ public class FramePessoa extends javax.swing.JFrame {
             }
         });
         
-        tbPes.PreencherTabela(jtbInfoPessoas, true);
+        //PreencherTabela(jtbInfoPessoas, true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

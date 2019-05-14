@@ -1,15 +1,13 @@
 
 package view;
 
-import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
 import model.dao.PessoaDAO;
 import model.dao.TipoUsuarioDAO;
 import model.bean.Pessoa;
-import model.dao.CadastroDAO;
+
 
 public class FrameCadastroPessoa extends javax.swing.JDialog  {
     int RegAfct = 0,TpOp = 0;
@@ -101,7 +99,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel15.setText("Cofrimação de senha:");
+        jLabel15.setText("Confirmação de senha:");
 
         jLabel17.setText("Senha:");
 
@@ -115,7 +113,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(97, 97, 97)
-                        .addComponent(jtfSenha))
+                        .addComponent(jtfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addGap(26, 26, 26)
@@ -125,7 +123,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -156,7 +154,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                             .addComponent(jLabel4)
                             .addComponent(jLabel12)
                             .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)

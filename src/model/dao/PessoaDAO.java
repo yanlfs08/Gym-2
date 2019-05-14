@@ -110,32 +110,32 @@ public class PessoaDAO {
             return RegAft;        
         }
     }
-    public void PreencherTabela(JTable modeloTable,boolean Limpar){ 
-        ResultSet rsTabela; 
-        DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
-        if (Limpar == true){ Val.setNumRows(0); }
-        rsTabela = Select(0,0);
-        if (rsTabela != null){
-            try {                
-                while (rsTabela.next()){
-                    String CPF = rsTabela.getString(1);
-                    String Nome = rsTabela.getString(2);
-                    String CodTpPes = rsTabela.getString(3);
-                    String DtNasc = rsTabela.getString(4);
-                    String Tel = rsTabela.getString(5);
-                    String Email = rsTabela.getString(6);
-
-                    Val.addRow(new String[] {CPF, Nome, CodTpPes, DtNasc, Tel, Email});
-                }          
-            } catch (SQLException ex) {
-                System.err.println(ex);   
-            }
-        }
-    }
+//    public void PreencherTabela(JTable modeloTable,boolean Limpar){ 
+//        ResultSet rsTabela; 
+//        DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
+//        if (Limpar == true){ Val.setNumRows(0); }
+//        rsTabela = Select(0,0);
+//        if (rsTabela != null){
+//            try {                
+//                while (rsTabela.next()){
+//                    String CPF = rsTabela.getString(1);
+//                    String Nome = rsTabela.getString(2);
+//                    String CodTpPes = rsTabela.getString(3);
+//                    String DtNasc = rsTabela.getString(4);
+//                    String Tel = rsTabela.getString(5);
+//                    String Email = rsTabela.getString(6);
+//
+//                    Val.addRow(new String[] {CPF, Nome, CodTpPes, DtNasc, Tel, Email});
+//                }          
+//            } catch (SQLException ex) {
+//                System.err.println(ex);   
+//            }
+//        }
+//    }
     public Pessoa CarregaDadosFormulario(int CodProd){    
         Pessoa PesList = new Pessoa(); 
         
-        ResultSet rsDadosForm = null;        
+        ResultSet rsDadosForm;        
         try {
             rsDadosForm = Select(CodProd,0);
             if (rsDadosForm.next()){            

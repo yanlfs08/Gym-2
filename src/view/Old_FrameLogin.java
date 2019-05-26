@@ -13,12 +13,12 @@ import model.dao.CadastroDAO;
  *
  * @author yanlf
  */
-public class FrameLogin extends javax.swing.JFrame {
+public class Old_FrameLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameLogin
      */
-    public FrameLogin() {
+    public Old_FrameLogin() {
         initComponents();
     }
 
@@ -41,8 +41,6 @@ public class FrameLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(153, 153, 255));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/icons8-password-26.png")).getImage()
-        );
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -227,7 +225,7 @@ public class FrameLogin extends javax.swing.JFrame {
         CadastroDAO dao = new CadastroDAO();
         if(dao.validarLogin(txtCPF.getText(), txtSenha.getText())){
             
-            new FramePrincipal().setVisible(true);
+            new Old_FramePrincipal().setVisible(true);
             dispose();
             
         }else{
@@ -251,7 +249,7 @@ public class FrameLogin extends javax.swing.JFrame {
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){  
             CadastroDAO dao = new CadastroDAO();
             if(dao.validarLogin(txtCPF.getText(), txtSenha.getText())){
-            new FramePrincipal().setVisible(true);
+            new Old_FramePrincipal().setVisible(true);
             dispose();
             
         }else{
@@ -278,20 +276,21 @@ public class FrameLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameLogin().setVisible(true);
+                new Old_FrameLogin().setVisible(true);
             }
         });
     }

@@ -4,8 +4,6 @@ package model.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import model.bean.Pessoa;
 import connection.ConnectionFactory;
 import java.sql.Connection;

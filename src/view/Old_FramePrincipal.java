@@ -1,11 +1,16 @@
 package view;
 
 import javax.swing.JOptionPane;
-public class FramePrincipal extends javax.swing.JFrame {  
+public class Old_FramePrincipal extends javax.swing.JFrame {  
     
-    public FramePrincipal() { 
+    public Old_FramePrincipal() { 
         initComponents();
         //VerificaConexao();
+    }
+    
+    public void verificaLogin (String verificao){
+        
+        lbUsuario.setText(verificao);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -13,6 +18,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jbLogoff = new javax.swing.JButton();
+        lbUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmFluxo = new javax.swing.JMenu();
         jmiUsuario = new javax.swing.JMenuItem();
@@ -42,11 +48,17 @@ public class FramePrincipal extends javax.swing.JFrame {
                 .addContainerGap(324, Short.MAX_VALUE)
                 .addComponent(jbLogoff)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(214, Short.MAX_VALUE)
+                .addGap(85, 85, 85)
+                .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(jbLogoff)
                 .addContainerGap())
         );
@@ -185,14 +197,18 @@ public class FramePrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Old_FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -201,7 +217,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FramePrincipal().setVisible(true);
+                new Old_FramePrincipal().setVisible(true);
             }
         });
     }
@@ -223,5 +239,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiFichaExec;
     private javax.swing.JMenuItem jmiGrupoMusc;
     private javax.swing.JMenuItem jmiUsuario;
+    private javax.swing.JLabel lbUsuario;
     // End of variables declaration//GEN-END:variables
 }

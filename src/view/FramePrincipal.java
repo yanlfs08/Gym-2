@@ -1,176 +1,234 @@
+
 package view;
 
-import javax.swing.JOptionPane;
-public class FramePrincipal extends javax.swing.JFrame {  
-    
-    public FramePrincipal() { 
+
+public class FramePrincipal extends javax.swing.JFrame {
+
+    public FramePrincipal() {
         initComponents();
-        //VerificaConexao();
     }
+
+       
+    
+    public void userVerification (String user){
+  
+       lbUsuario1.setText(user);
+    }
+    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jbLogoff = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jmFluxo = new javax.swing.JMenu();
-        jmiUsuario = new javax.swing.JMenuItem();
-        jmiFichaExec = new javax.swing.JMenuItem();
-        jmiAvaliacao = new javax.swing.JMenuItem();
-        jmProd = new javax.swing.JMenu();
-        jmiExercicios = new javax.swing.JMenuItem();
-        jmiGrupoMusc = new javax.swing.JMenuItem();
+        lbUserIcon = new javax.swing.JLabel();
+        lbAvaliação = new javax.swing.JLabel();
+        lbExercicio = new javax.swing.JLabel();
+        lbLogout = new javax.swing.JLabel();
+        lbFicha = new javax.swing.JLabel();
+        lbUsuario1 = new javax.swing.JLabel();
+        lbMenu1 = new javax.swing.JLabel();
+        lbMenu2 = new javax.swing.JLabel();
+        lbMenu3 = new javax.swing.JLabel();
+        lbMenu4 = new javax.swing.JLabel();
+        lbBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SysGym");
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        setMinimumSize(null);
+        setResizable(false);
 
-        jbLogoff.setText("Logoff");
-        jbLogoff.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbLogoffActionPerformed(evt);
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.setMinimumSize(new java.awt.Dimension(700, 480));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 480));
+        jPanel1.setLayout(null);
+
+        lbUserIcon.setToolTipText("Usuários");
+        lbUserIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbUserIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbUserIconMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbUserIconMouseExited(evt);
             }
         });
+        jPanel1.add(lbUserIcon);
+        lbUserIcon.setBounds(250, 80, 139, 130);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(324, Short.MAX_VALUE)
-                .addComponent(jbLogoff)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(214, Short.MAX_VALUE)
-                .addComponent(jbLogoff)
-                .addContainerGap())
-        );
-
-        jmFluxo.setText("Cadastro");
-        jmFluxo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jmFluxo.setMaximumSize(new java.awt.Dimension(71, 40));
-        jmFluxo.setName("JMFlux"); // NOI18N
-        jmFluxo.setPreferredSize(new java.awt.Dimension(71, 20));
-
-        jmiUsuario.setText("Usuário");
-        jmiUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiUsuarioActionPerformed(evt);
+        lbAvaliação.setToolTipText("Avaliações");
+        lbAvaliação.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbAvaliação.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbAvaliaçãoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbAvaliaçãoMouseExited(evt);
             }
         });
-        jmFluxo.add(jmiUsuario);
+        jPanel1.add(lbAvaliação);
+        lbAvaliação.setBounds(430, 250, 140, 130);
 
-        jmiFichaExec.setText("Ficha Exercício");
-        jmiFichaExec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiFichaExecActionPerformed(evt);
-            }
-        });
-        jmFluxo.add(jmiFichaExec);
-
-        jmiAvaliacao.setText("Avaliação");
-        jmiAvaliacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiAvaliacaoActionPerformed(evt);
-            }
-        });
-        jmFluxo.add(jmiAvaliacao);
-
-        jMenuBar1.add(jmFluxo);
-
-        jmProd.setText("Consulta");
-        jmProd.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jmProd.setMaximumSize(new java.awt.Dimension(71, 40));
-        jmProd.setName("JMProd"); // NOI18N
-        jmProd.setPreferredSize(new java.awt.Dimension(71, 20));
-        jmProd.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbExercicio.setToolTipText("Exercícios");
+        lbExercicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbExercicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmProdMouseClicked(evt);
+                lbExercicioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbExercicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbExercicioMouseExited(evt);
             }
         });
-        jmProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmProdActionPerformed(evt);
+        jPanel1.add(lbExercicio);
+        lbExercicio.setBounds(430, 80, 139, 130);
+
+        lbLogout.setToolTipText("Ficha de exercícios");
+        lbLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbLogoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbLogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbLogoutMouseExited(evt);
             }
         });
+        jPanel1.add(lbLogout);
+        lbLogout.setBounds(630, 420, 40, 40);
 
-        jmiExercicios.setText("Exercícios");
-        jmiExercicios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiExerciciosActionPerformed(evt);
+        lbFicha.setToolTipText("Ficha de exercícios");
+        lbFicha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbFicha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbFichaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbFichaMouseExited(evt);
             }
         });
-        jmProd.add(jmiExercicios);
+        jPanel1.add(lbFicha);
+        lbFicha.setBounds(250, 250, 139, 130);
 
-        jmiGrupoMusc.setText("GrupoMuscular");
-        jmiGrupoMusc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiGrupoMuscActionPerformed(evt);
-            }
-        });
-        jmProd.add(jmiGrupoMusc);
+        lbUsuario1.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
+        lbUsuario1.setText("Bem Vindo!");
+        lbUsuario1.setToolTipText("");
+        jPanel1.add(lbUsuario1);
+        lbUsuario1.setBounds(70, 70, 100, 50);
 
-        jMenuBar1.add(jmProd);
+        lbMenu1.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
+        lbMenu1.setForeground(new java.awt.Color(102, 102, 102));
+        lbMenu1.setToolTipText("");
+        jPanel1.add(lbMenu1);
+        lbMenu1.setBounds(280, 210, 100, 40);
 
-        setJMenuBar(jMenuBar1);
+        lbMenu2.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
+        lbMenu2.setForeground(new java.awt.Color(102, 102, 102));
+        lbMenu2.setToolTipText("");
+        jPanel1.add(lbMenu2);
+        lbMenu2.setBounds(460, 210, 100, 40);
+
+        lbMenu3.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
+        lbMenu3.setForeground(new java.awt.Color(102, 102, 102));
+        lbMenu3.setToolTipText("");
+        jPanel1.add(lbMenu3);
+        lbMenu3.setBounds(290, 380, 100, 40);
+
+        lbMenu4.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
+        lbMenu4.setForeground(new java.awt.Color(102, 102, 102));
+        lbMenu4.setToolTipText("");
+        jPanel1.add(lbMenu4);
+        lbMenu4.setBounds(460, 380, 110, 40);
+
+        lbBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Banner (1).png"))); // NOI18N
+        lbBackGround.setMaximumSize(null);
+        lbBackGround.setMinimumSize(null);
+        lbBackGround.setPreferredSize(null);
+        jPanel1.add(lbBackGround);
+        lbBackGround.setBounds(0, 0, 700, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void jmiUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUsuarioActionPerformed
-        new FramePessoa().setVisible(true);
-    }//GEN-LAST:event_jmiUsuarioActionPerformed
 
-    private void jmiFichaExecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFichaExecActionPerformed
-        JOptionPane.showMessageDialog(null, "Programa ainda não implementado.");
-    }//GEN-LAST:event_jmiFichaExecActionPerformed
+    private void lbExercicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExercicioMouseEntered
+        lbExercicio.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        lbExercicio.setBounds(435, 80, 139, 130);
+        lbMenu2.setText("Exercicios");
+    }//GEN-LAST:event_lbExercicioMouseEntered
 
-    private void jmProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmProdActionPerformed
-  
-    }//GEN-LAST:event_jmProdActionPerformed
+    private void lbExercicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExercicioMouseExited
+         lbExercicio.setBorder(null);
+         lbMenu2.setText(" ");
+    }//GEN-LAST:event_lbExercicioMouseExited
 
-    private void jmProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmProdMouseClicked
-        //new JFProduto().setVisible(true);
-    }//GEN-LAST:event_jmProdMouseClicked
+    private void lbUserIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbUserIconMouseEntered
+        lbUserIcon.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255))); 
+        lbUserIcon.setBounds(250, 85, 139, 130);
+        lbMenu1.setText("Usuarios");
+    }//GEN-LAST:event_lbUserIconMouseEntered
 
-    private void jmiAvaliacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAvaliacaoActionPerformed
-        new FrameAvaliacao().setVisible(true);
-    }//GEN-LAST:event_jmiAvaliacaoActionPerformed
+    private void lbUserIconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbUserIconMouseExited
+        lbUserIcon.setBorder(null);
+        lbMenu1.setText(" ");
+    }//GEN-LAST:event_lbUserIconMouseExited
 
-    private void jmiExerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiExerciciosActionPerformed
-        new FrameExercicios().setVisible(true);
-    }//GEN-LAST:event_jmiExerciciosActionPerformed
+    private void lbFichaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbFichaMouseEntered
+        lbFicha.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        lbFicha.setBounds(250, 255, 139, 130);
+        lbMenu3.setText("Fichas");
+    }//GEN-LAST:event_lbFichaMouseEntered
 
-    private void jmiGrupoMuscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGrupoMuscActionPerformed
-        new FrameGrupoMuscular().setVisible(true);
-    }//GEN-LAST:event_jmiGrupoMuscActionPerformed
+    private void lbFichaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbFichaMouseExited
+        lbFicha.setBorder(null);
+        lbMenu3.setText(" ");
+    }//GEN-LAST:event_lbFichaMouseExited
 
-    private void jbLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLogoffActionPerformed
-       FrameLogoff frm = new FrameLogoff();
-       frm.setVisible(true);
-       dispose();
-    }//GEN-LAST:event_jbLogoffActionPerformed
+    private void lbAvaliaçãoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAvaliaçãoMouseEntered
+        lbAvaliação.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        lbAvaliação.setBounds(432, 255, 140, 130);
+        lbMenu4.setText("Avaliacoes");
+    }//GEN-LAST:event_lbAvaliaçãoMouseEntered
+
+    private void lbAvaliaçãoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAvaliaçãoMouseExited
+        lbAvaliação.setBorder(null);
+        lbMenu4.setText(" ");
+    }//GEN-LAST:event_lbAvaliaçãoMouseExited
+
+    private void lbLogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogoutMouseEntered
+        lbLogout.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        lbLogout.setBounds(633, 417, 40, 40);
+    }//GEN-LAST:event_lbLogoutMouseEntered
+
+    private void lbLogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogoutMouseExited
+        lbLogout.setBorder(null);
+    }//GEN-LAST:event_lbLogoutMouseExited
+
+    private void lbLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogoutMouseClicked
+        FrameLogoff frm = new FrameLogoff();
+        frm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_lbLogoutMouseClicked
+
+    private void lbExercicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExercicioMouseClicked
+        FrameExercicios frm = new FrameExercicios();
+        frm.setVisible(true);
+    }//GEN-LAST:event_lbExercicioMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -194,9 +252,6 @@ public class FramePrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -205,23 +260,19 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
     }
-    /*public final void VerificaConexao(){
-        if (ExecComand.TestarConexão() != true){
-            JOptionPane.showMessageDialog(null, "Problema ao conectar ao banco de dados. \n"
-                    + "Verifique se o servidor esta ativo.");
-            System.exit(0);
-        }
-    }*/
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbLogoff;
-    private javax.swing.JMenu jmFluxo;
-    private javax.swing.JMenu jmProd;
-    private javax.swing.JMenuItem jmiAvaliacao;
-    private javax.swing.JMenuItem jmiExercicios;
-    private javax.swing.JMenuItem jmiFichaExec;
-    private javax.swing.JMenuItem jmiGrupoMusc;
-    private javax.swing.JMenuItem jmiUsuario;
+    private javax.swing.JLabel lbAvaliação;
+    private javax.swing.JLabel lbBackGround;
+    private javax.swing.JLabel lbExercicio;
+    private javax.swing.JLabel lbFicha;
+    private javax.swing.JLabel lbLogout;
+    private javax.swing.JLabel lbMenu1;
+    private javax.swing.JLabel lbMenu2;
+    private javax.swing.JLabel lbMenu3;
+    private javax.swing.JLabel lbMenu4;
+    private javax.swing.JLabel lbUserIcon;
+    private javax.swing.JLabel lbUsuario1;
     // End of variables declaration//GEN-END:variables
 }

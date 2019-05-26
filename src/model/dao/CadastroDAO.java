@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.bean.Avaliacao;
 import model.bean.Cadastro;
 import model.bean.TiposUsuarios;
 
@@ -54,16 +53,15 @@ public class CadastroDAO {
         
         
         return check;
-        
     }
-    
+
     public List <Cadastro> read(){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List <Cadastro> exercicio = new ArrayList<>();
+        List <Cadastro> cad = new ArrayList<>();
         
         try {
             
@@ -85,7 +83,7 @@ public class CadastroDAO {
                 c.setEmail(rs.getString("Email"));
                 c.setIdTiposUsuarios(tu); 
                 
-                exercicio.add(c);
+                cad.add(c);
                 
             }
                     
@@ -98,6 +96,35 @@ public class CadastroDAO {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
         
-        return exercicio;
+        return cad;
     }
+    
+//    public void verificaUser(String cpf){
+//        
+//        Connection con = ConnectionFactory.getConnection();
+//        PreparedStatement stmt = null;
+//        ResultSet rs = null;
+//        
+//
+//        try {
+//            Cadastro c  = new Cadastro();
+//            stmt = con.prepareStatement("SELECT Nome FROM cadastro WHERE CPF = ?");
+//            stmt.setString(1, "%"+cpf+"%");
+//            rs = stmt.executeQuery();
+//       
+//            c.setNome(rs.getString("Nome"));
+//           
+//                                     
+//        } catch (SQLException ex) {
+//                        
+//            JOptionPane.showMessageDialog(null, "Erro ao verificar usuario" + ex);
+//            
+//        }finally{
+//            
+//            ConnectionFactory.closeConnection(con, stmt, rs);
+//        }
+//       
+//    }
+
+   
 }

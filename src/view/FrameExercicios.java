@@ -67,8 +67,7 @@ public class FrameExercicios extends javax.swing.JFrame {
                     
                     
             });
-        }
-        
+        }   
     }
     
     public void readPesquisadescGrupo (String pesquisa){
@@ -102,27 +101,153 @@ public class FrameExercicios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jbCadastrar = new javax.swing.JButton();
+        jbExcluir = new javax.swing.JButton();
+        jbAtualizarTabela = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jbPesquisar = new javax.swing.JButton();
+        txtDecGrupoMuscular = new javax.swing.JTextField();
+        jbAtu = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        txtExercicio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableExercicios = new javax.swing.JTable();
-        txtExercicio = new javax.swing.JTextField();
-        txtID = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jbAtu = new javax.swing.JButton();
-        txtDecGrupoMuscular = new javax.swing.JTextField();
-        jbPesquisar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jbAtualizarTabela = new javax.swing.JButton();
-        jbExcluir = new javax.swing.JButton();
-        jbCadastrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Exercicios");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/alt.png")).getImage());
         setResizable(false);
 
-        TableExercicios.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jPanel1.setLayout(null);
+
+        jbCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbCadastrar.setText("Cadastrar");
+        jbCadastrar.setToolTipText("Atualizar os dados da tabela");
+        jbCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCadastrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbCadastrar);
+        jbCadastrar.setBounds(60, 210, 83, 33);
+
+        jbExcluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbExcluir.setText("Excluir");
+        jbExcluir.setToolTipText("Atualizar os dados da tabela");
+        jbExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbExcluir.setMaximumSize(new java.awt.Dimension(83, 25));
+        jbExcluir.setMinimumSize(new java.awt.Dimension(83, 25));
+        jbExcluir.setPreferredSize(new java.awt.Dimension(83, 25));
+        jbExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExcluirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbExcluir);
+        jbExcluir.setBounds(60, 330, 81, 33);
+
+        jbAtualizarTabela.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbAtualizarTabela.setText("Atualizar");
+        jbAtualizarTabela.setToolTipText("Atualizar os dados da tabela");
+        jbAtualizarTabela.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbAtualizarTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAtualizarTabelaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbAtualizarTabela);
+        jbAtualizarTabela.setBounds(60, 390, 79, 33);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("Grupo Muscular");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(250, 110, 106, 20);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Exercício");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(300, 70, 60, 20);
+
+        jbPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbPesquisar.setText("Pesquisar");
+        jbPesquisar.setToolTipText("Pesquisar por exercicio ou grupo muscular");
+        jbPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPesquisarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbPesquisar);
+        jbPesquisar.setBounds(570, 150, 83, 33);
+
+        txtDecGrupoMuscular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDecGrupoMuscularMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtDecGrupoMuscularMouseEntered(evt);
+            }
+        });
+        txtDecGrupoMuscular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDecGrupoMuscularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtDecGrupoMuscular);
+        txtDecGrupoMuscular.setBounds(370, 110, 285, 30);
+
+        jbAtu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbAtu.setText("Alterar");
+        jbAtu.setToolTipText("Atualizar os dados da tabela");
+        jbAtu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbAtu.setMaximumSize(new java.awt.Dimension(83, 25));
+        jbAtu.setMinimumSize(new java.awt.Dimension(83, 25));
+        jbAtu.setPreferredSize(new java.awt.Dimension(83, 25));
+        jbAtu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAtuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbAtu);
+        jbAtu.setBounds(60, 270, 83, 33);
+        jbAtu.getAccessibleContext().setAccessibleName("Atualizar ");
+        jbAtu.getAccessibleContext().setAccessibleDescription("");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("ID");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(210, 70, 14, 20);
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Exercícios");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(400, 10, 113, 32);
+
+        txtID.setEnabled(false);
+        txtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtID);
+        txtID.setBounds(240, 70, 43, 30);
+
+        txtExercicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtExercicioMouseClicked(evt);
+            }
+        });
+        jPanel1.add(txtExercicio);
+        txtExercicio.setBounds(370, 70, 285, 30);
+
+        TableExercicios.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         TableExercicios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -154,173 +279,23 @@ public class FrameExercicios extends javax.swing.JFrame {
             TableExercicios.getColumnModel().getColumn(2).setMaxWidth(100);
         }
 
-        txtExercicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtExercicioMouseClicked(evt);
-            }
-        });
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(170, 210, 470, 217);
 
-        txtID.setEnabled(false);
-        txtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Exercícios");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("ID");
-
-        jbAtu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbAtu.setText("Alterar");
-        jbAtu.setToolTipText("Atualizar os dados da tabela");
-        jbAtu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbAtu.setMaximumSize(new java.awt.Dimension(83, 25));
-        jbAtu.setMinimumSize(new java.awt.Dimension(83, 25));
-        jbAtu.setPreferredSize(new java.awt.Dimension(83, 25));
-        jbAtu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAtuActionPerformed(evt);
-            }
-        });
-
-        txtDecGrupoMuscular.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtDecGrupoMuscularMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtDecGrupoMuscularMouseEntered(evt);
-            }
-        });
-        txtDecGrupoMuscular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDecGrupoMuscularActionPerformed(evt);
-            }
-        });
-
-        jbPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbPesquisar.setText("Pesquisar");
-        jbPesquisar.setToolTipText("Pesquisar por exercicio ou grupo muscular");
-        jbPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbPesquisarActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Exercício");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Grupo Muscular");
-
-        jbAtualizarTabela.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbAtualizarTabela.setText("Atualizar");
-        jbAtualizarTabela.setToolTipText("Atualizar os dados da tabela");
-        jbAtualizarTabela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbAtualizarTabela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAtualizarTabelaActionPerformed(evt);
-            }
-        });
-
-        jbExcluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbExcluir.setText("Excluir");
-        jbExcluir.setToolTipText("Atualizar os dados da tabela");
-        jbExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbExcluir.setMaximumSize(new java.awt.Dimension(83, 25));
-        jbExcluir.setMinimumSize(new java.awt.Dimension(83, 25));
-        jbExcluir.setPreferredSize(new java.awt.Dimension(83, 25));
-        jbExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbExcluirActionPerformed(evt);
-            }
-        });
-
-        jbCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbCadastrar.setText("Cadastrar");
-        jbCadastrar.setToolTipText("Atualizar os dados da tabela");
-        jbCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCadastrarActionPerformed(evt);
-            }
-        });
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Banner.png"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(0, 0, 670, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel3)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtExercicio)
-                                    .addComponent(txtDecGrupoMuscular)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(118, 118, 118)
-                                        .addComponent(jbAtu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(36, 36, 36)
-                                        .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jbPesquisar))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(353, 353, 353)
-                                        .addComponent(jbAtualizarTabela))))
-                            .addComponent(jbCadastrar)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(jLabel1)))
-                .addContainerGap(41, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDecGrupoMuscular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbAtu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbAtualizarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
-
-        jbAtu.getAccessibleContext().setAccessibleName("Atualizar ");
-        jbAtu.getAccessibleContext().setAccessibleDescription("");
 
         getAccessibleContext().setAccessibleDescription("Exercicios");
 
@@ -444,6 +419,8 @@ public class FrameExercicios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAtu;
     private javax.swing.JButton jbAtualizarTabela;

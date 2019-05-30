@@ -1,21 +1,20 @@
 
 package view;
 
-
 public class FramePrincipal extends javax.swing.JFrame {
 
     public FramePrincipal() {
         initComponents();
+
+    }
+    
+
+    public void userVerification(String user){
+             
+        lbUsuario2.setText(user);
+
     }
 
-       
-    
-    public void userVerification (String user){
-  
-       lbUsuario1.setText(user);
-    }
-    
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -31,6 +30,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         lbMenu2 = new javax.swing.JLabel();
         lbMenu3 = new javax.swing.JLabel();
         lbMenu4 = new javax.swing.JLabel();
+        lbUsuario2 = new javax.swing.JLabel();
         lbBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,10 +114,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         lbFicha.setBounds(250, 250, 139, 130);
 
         lbUsuario1.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
-        lbUsuario1.setText("Bem Vindo!");
         lbUsuario1.setToolTipText("");
         jPanel1.add(lbUsuario1);
-        lbUsuario1.setBounds(70, 70, 100, 50);
+        lbUsuario1.setBounds(70, 110, 100, 50);
 
         lbMenu1.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
         lbMenu1.setForeground(new java.awt.Color(102, 102, 102));
@@ -143,10 +142,20 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel1.add(lbMenu4);
         lbMenu4.setBounds(460, 380, 110, 40);
 
+        lbUsuario2.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
+        lbUsuario2.setToolTipText("");
+        jPanel1.add(lbUsuario2);
+        lbUsuario2.setBounds(80, 50, 100, 50);
+
         lbBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Banner (1).png"))); // NOI18N
         lbBackGround.setMaximumSize(null);
         lbBackGround.setMinimumSize(null);
         lbBackGround.setPreferredSize(null);
+        lbBackGround.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbBackGroundMouseEntered(evt);
+            }
+        });
         jPanel1.add(lbBackGround);
         lbBackGround.setBounds(0, 0, 700, 480);
 
@@ -229,6 +238,10 @@ public class FramePrincipal extends javax.swing.JFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_lbExercicioMouseClicked
 
+    private void lbBackGroundMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBackGroundMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbBackGroundMouseEntered
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -274,5 +287,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lbMenu4;
     private javax.swing.JLabel lbUserIcon;
     private javax.swing.JLabel lbUsuario1;
+    private javax.swing.JLabel lbUsuario2;
     // End of variables declaration//GEN-END:variables
 }

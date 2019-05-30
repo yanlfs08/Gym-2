@@ -1,0 +1,360 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package view;
+
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Properties;
+import javax.mail.Message.RecipientType;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class Old_FrameRecuperarSenha extends javax.swing.JFrame {
+
+ 
+    public Old_FrameRecuperarSenha() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtCPFrec = new gym.JTextFieldHint(new JTextField(),"","CPF");
+        ;
+        txtEmailrec = new gym.JTextFieldHint(new JTextField(),"","Email");
+        ;
+        jbRecuperarSenha = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setName("Recuperar Senha"); // NOI18N
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Recuperação de senha ");
+
+        txtCPFrec.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtCPFrec.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCPFrecFocusGained(evt);
+            }
+        });
+        txtCPFrec.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtCPFrecMouseClicked(evt);
+            }
+        });
+        txtCPFrec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCPFrecActionPerformed(evt);
+            }
+        });
+
+        txtEmailrec.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtEmailrec.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailrecFocusGained(evt);
+            }
+        });
+        txtEmailrec.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtEmailrecMouseClicked(evt);
+            }
+        });
+        txtEmailrec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailrecActionPerformed(evt);
+            }
+        });
+        txtEmailrec.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailrecKeyPressed(evt);
+            }
+        });
+
+        jbRecuperarSenha.setBackground(new java.awt.Color(10, 173, 225));
+        jbRecuperarSenha.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jbRecuperarSenha.setForeground(new java.awt.Color(240, 240, 240));
+        jbRecuperarSenha.setText("Recuperar Senha");
+        jbRecuperarSenha.setBorderPainted(false);
+        jbRecuperarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbRecuperarSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbRecuperarSenhaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbRecuperarSenhaMouseExited(evt);
+            }
+        });
+        jbRecuperarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRecuperarSenhaActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/icons8-dumbbell-80 (1).png"))); // NOI18N
+
+        jLabel7.setBackground(new java.awt.Color(10, 173, 255));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(10, 173, 255));
+        jLabel7.setText("GymSys");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtEmailrec, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCPFrec, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbRecuperarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCPFrec, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtEmailrec, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jbRecuperarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        getAccessibleContext().setAccessibleName("Recuperar senha por e-mail");
+        getAccessibleContext().setAccessibleDescription("");
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCPFrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFrecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCPFrecActionPerformed
+
+    private void jbRecuperarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRecuperarSenhaActionPerformed
+        
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", 465);
+        props.put("mail.smtp.user", "systemgymfit@gmail.com");
+        props.put("mail.smtp.auth", "false");
+        props.put("mail.smtp.starttls.enable", "false");
+        props.put("mail.smtp.debug", "true");
+        props.put("mail.smtp.socketFactory.port", 465);
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false"); 
+        try {
+            Class.forName("com.mysql.jdbc.Driver"); 
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://projetopi2019.mysql.uhserver.com:3306/projetopi2019",
+                    "projetopi","Projetopi@2019");
+            //Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gym","root","");
+            //String query = "select Password from users where EmailAddress LIKE '"+txtEmail.getText().trim()+"'";
+            String query = "SELECT senha FROM cadastro WHERE email LIKE '"+txtEmailrec.getText().trim()+"' AND cpf = '"+txtCPFrec.getText().trim()+"'";
+            PreparedStatement statmnt = con.prepareStatement(query);
+            ResultSet result = statmnt.executeQuery();               
+            if (result.next()){   
+
+                String fetchedPassword = result.getString("senha");               
+                Session session = Session.getDefaultInstance(props, null);
+                session.setDebug(true);
+                MimeMessage message = new MimeMessage(session);
+                message.setText("Sua senha é: " + fetchedPassword);
+                message.setSubject("Recuperação de Senha");
+                message.setFrom(new InternetAddress("systemgymfit@gmail.com"));
+                message.addRecipient(RecipientType.TO, new InternetAddress(txtEmailrec.getText().trim()));
+                message.saveChanges();
+                javax.mail.Transport transport = session.getTransport("smtp");
+                transport.connect("smtp.gmail.com", "systemgymfit@gmail.com", "Projetopi@2019");
+                transport.sendMessage(message, message.getAllRecipients());
+                transport.close();
+                JOptionPane.showMessageDialog(rootPane, "A senha foi enviada para o email cadastrado");
+                         
+            }else{
+               JOptionPane.showMessageDialog(rootPane, "CPF ou E-mail incorretos");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();  
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }//GEN-LAST:event_jbRecuperarSenhaActionPerformed
+
+    private void jbRecuperarSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRecuperarSenhaMouseEntered
+        jbRecuperarSenha.setBackground(new Color(255, 255, 255));
+        jbRecuperarSenha.setForeground(new Color(10,173,225));
+        jbRecuperarSenha.setBorderPainted(true);
+    }//GEN-LAST:event_jbRecuperarSenhaMouseEntered
+                           
+    private void jbRecuperarSenhaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRecuperarSenhaMouseExited
+        jbRecuperarSenha.setBackground(new Color(10,173,225));
+        jbRecuperarSenha.setForeground(Color.WHITE);
+        jbRecuperarSenha.setBorderPainted(false);
+    }//GEN-LAST:event_jbRecuperarSenhaMouseExited
+
+    
+    private void txtCPFrecFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCPFrecFocusGained
+       
+    }//GEN-LAST:event_txtCPFrecFocusGained
+
+    private void txtCPFrecMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCPFrecMouseClicked
+       
+    }//GEN-LAST:event_txtCPFrecMouseClicked
+
+    private void txtEmailrecFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailrecFocusGained
+      
+
+    }//GEN-LAST:event_txtEmailrecFocusGained
+
+    private void txtEmailrecMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailrecMouseClicked
+      
+    }//GEN-LAST:event_txtEmailrecMouseClicked
+   
+    private void txtEmailrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailrecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailrecActionPerformed
+
+    private void txtEmailrecKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailrecKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){  
+            
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", 465);
+        props.put("mail.smtp.user", "systemgymfit@gmail.com");
+        props.put("mail.smtp.auth", "false");
+        props.put("mail.smtp.starttls.enable", "false");
+        props.put("mail.smtp.debug", "true");
+        props.put("mail.smtp.socketFactory.port", 465);
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false"); 
+        try {
+            Class.forName("com.mysql.jdbc.Driver"); 
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://projetopi2019.mysql.uhserver.com:3306/projetopi2019",
+                    "projetopi","Projetopi@2019");
+            //Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gym","root","");
+            //String query = "select Password from users where EmailAddress LIKE '"+txtEmail.getText().trim()+"'";
+            String query = "SELECT senha FROM cadastro WHERE email LIKE '"+txtEmailrec.getText().trim()+"' AND cpf = '"+txtCPFrec.getText().trim()+"'";
+            PreparedStatement statmnt = con.prepareStatement(query);
+            ResultSet result = statmnt.executeQuery();               
+            if (result.next()){   
+
+                String fetchedPassword = result.getString("senha");               
+                Session session = Session.getDefaultInstance(props, null);
+                session.setDebug(true);
+                MimeMessage message = new MimeMessage(session);
+                message.setText("Sua senha é: " + fetchedPassword);
+                message.setSubject("Recuperação de Senha");
+                message.setFrom(new InternetAddress("systemgymfit@gmail.com"));
+                message.addRecipient(RecipientType.TO, new InternetAddress(txtEmailrec.getText().trim()));
+                message.saveChanges();
+                javax.mail.Transport transport = session.getTransport("smtp");
+                transport.connect("smtp.gmail.com", "systemgymfit@gmail.com", "Projetopi@2019");
+                transport.sendMessage(message, message.getAllRecipients());
+                transport.close();
+                JOptionPane.showMessageDialog(rootPane, "A senha foi enviada para o email cadastrado");
+                         
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "CPF ou E-mail incorretos");
+                }
+                    } catch (Exception e) {
+                        e.printStackTrace();  
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
+            
+        }
+    }//GEN-LAST:event_txtEmailrecKeyPressed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Old_FrameRecuperarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Old_FrameRecuperarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Old_FrameRecuperarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Old_FrameRecuperarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Old_FrameRecuperarSenha().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbRecuperarSenha;
+    private javax.swing.JTextField txtCPFrec;
+    private javax.swing.JTextField txtEmailrec;
+    // End of variables declaration//GEN-END:variables
+}

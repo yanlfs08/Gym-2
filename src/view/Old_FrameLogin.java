@@ -237,7 +237,7 @@ public class Old_FrameLogin extends javax.swing.JFrame {
 
     private void JLrecuperarSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLrecuperarSenhaMouseClicked
         
-        new FrameRecuperarSenha().setVisible(true);
+        new Old_FrameRecuperarSenha().setVisible(true);
     }//GEN-LAST:event_JLrecuperarSenhaMouseClicked
 
     private void txtSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyTyped

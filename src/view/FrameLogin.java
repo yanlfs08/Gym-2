@@ -5,9 +5,14 @@
  */
 package view;
 
+import connection.ConnectionFactory;
 import gym.JPassWordFieldHint;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -153,19 +158,66 @@ public class FrameLogin extends javax.swing.JFrame {
 
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
            
-            CadastroDAO dao = new CadastroDAO(); 
-        if(dao.validarLogin(txtCPF.getText(), txtSenha.getText())){
+            CadastroDAO dao = new CadastroDAO();
+            String senha = new String(txtSenha.getPassword()).trim();
+        
+            if(dao.validarLogin(txtCPF.getText(), senha)){
             
-           
-            FramePrincipal frm = new FramePrincipal();
-            frm.userVerification(txtCPF.getText());
-            frm.setVisible(true);
-            dispose();
+                try{
+                    Connection con = ConnectionFactory.getConnection();
+                    String query = "SELECT nome, idTipoUsuarios FROM cadastro WHERE cpf = '" +txtCPF.getText()+"';";
+                    PreparedStatement stmt = con.prepareStatement(query);
+                    ResultSet rs = stmt.executeQuery();
 
-        }else{
+                    while (rs.next()){
+                        
+                        if (rs.getString("idTipoUsuarios").equalsIgnoreCase("1")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipal frm = new FramePrincipal();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();
+                        }else if
+                                
+                            (rs.getString("idTipoUsuarios").equalsIgnoreCase("2")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipal frm = new FramePrincipal();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();   
+                        }else if
+                                
+                            (rs.getString("idTipoUsuarios").equalsIgnoreCase("3")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipalMedico frm = new FramePrincipalMedico();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();   
+                        }else if
+                                
+                            (rs.getString("idTipoUsuarios").equalsIgnoreCase("4")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipal frm = new FramePrincipal();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();   
+                        }else if
+                                
+                            (rs.getString("idTipoUsuarios").equalsIgnoreCase("5")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipal frm = new FramePrincipal();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();   
+                        }
+                    }
+                    } catch (SQLException ex) {
 
+                        JOptionPane.showMessageDialog(null, "Erro ao verificar Usuario " + ex);   
+                    }                        
+            }else{
             JOptionPane.showMessageDialog(rootPane, "Login e/ou senha invalidos!");
-        }
+            }
         }
     }//GEN-LAST:event_txtSenhaKeyPressed
 
@@ -174,8 +226,10 @@ public class FrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaKeyTyped
 
     private void JLrecuperarSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLrecuperarSenhaMouseClicked
-
-        new FrameRecuperarSenha().setVisible(true);
+        
+        this.dispose();
+        FrameRecSenha frm = new FrameRecSenha();
+        frm.setVisible(true);
     }//GEN-LAST:event_JLrecuperarSenhaMouseClicked
 
     private void JLrecuperarSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLrecuperarSenhaMouseEntered
@@ -188,19 +242,66 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLoginActionPerformed
         CadastroDAO dao = new CadastroDAO();
-        
-        if(dao.validarLogin(txtCPF.getText(), txtSenha.getText())){
+        String senha = new String(txtSenha.getPassword()).trim();
+
+        if(dao.validarLogin(txtCPF.getText(), senha)){
             
-           
-            FramePrincipal frm = new FramePrincipal();
-            frm.userVerification(txtCPF.getText());
-            frm.setVisible(true);
-            dispose();
+            try{
+                Connection con = ConnectionFactory.getConnection();
+                String query = "SELECT nome, idTipoUsuarios FROM cadastro WHERE cpf = '" +txtCPF.getText()+"';";
+                PreparedStatement stmt = con.prepareStatement(query);
+                ResultSet rs = stmt.executeQuery();
 
-        }else{
+                while (rs.next()){
+                        
+                    if (rs.getString("idTipoUsuarios").equalsIgnoreCase("1")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipal frm = new FramePrincipal();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();
+                        }else if
+                                
+                            (rs.getString("idTipoUsuarios").equalsIgnoreCase("2")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipal frm = new FramePrincipal();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();   
+                        }else if
+                                
+                            (rs.getString("idTipoUsuarios").equalsIgnoreCase("3")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipalMedico frm = new FramePrincipalMedico();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();   
+                        }else if
+                                
+                            (rs.getString("idTipoUsuarios").equalsIgnoreCase("4")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipal frm = new FramePrincipal();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();   
+                        }else if
+                                
+                            (rs.getString("idTipoUsuarios").equalsIgnoreCase("5")){
+                            String[] Nome = rs.getString("nome").split(" ");
+                            FramePrincipal frm = new FramePrincipal();
+                            frm.userVerification(Nome[0]);
+                            frm.setVisible(true);
+                            dispose();   
+                        }
+                    }
+                    } catch (SQLException ex) {
 
+                        JOptionPane.showMessageDialog(null, "Erro ao verificar Usuario " + ex);   
+                    }                        
+            }else{
             JOptionPane.showMessageDialog(rootPane, "Login e/ou senha invalidos!");
-        }
+            }
+        
     }//GEN-LAST:event_jbLoginActionPerformed
 
     private void jbLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbLoginMouseEntered

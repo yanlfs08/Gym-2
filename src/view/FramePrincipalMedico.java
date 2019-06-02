@@ -11,7 +11,7 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
 
     public void userVerification(String user){
              
-        lbUsuario2.setText(user);
+        lbUsuario1.setText(user);
 
     }
 
@@ -30,10 +30,11 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
         lbMenu2 = new javax.swing.JLabel();
         lbMenu3 = new javax.swing.JLabel();
         lbMenu4 = new javax.swing.JLabel();
-        lbUsuario2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lbBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/Icon.png")).getImage());
         setMinimumSize(null);
         setResizable(false);
 
@@ -115,10 +116,11 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
         jPanel1.add(lbFicha);
         lbFicha.setBounds(250, 250, 139, 130);
 
-        lbUsuario1.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
+        lbUsuario1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbUsuario1.setForeground(new java.awt.Color(102, 102, 102));
         lbUsuario1.setToolTipText("");
         jPanel1.add(lbUsuario1);
-        lbUsuario1.setBounds(70, 110, 100, 50);
+        lbUsuario1.setBounds(130, 30, 100, 20);
 
         lbMenu1.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
         lbMenu1.setForeground(new java.awt.Color(102, 102, 102));
@@ -144,12 +146,13 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
         jPanel1.add(lbMenu4);
         lbMenu4.setBounds(460, 380, 110, 40);
 
-        lbUsuario2.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        lbUsuario2.setToolTipText("");
-        jPanel1.add(lbUsuario2);
-        lbUsuario2.setBounds(80, 50, 100, 50);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Bem vind@");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(30, 30, 90, 20);
 
-        lbBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Banner (1).png"))); // NOI18N
+        lbBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Banner.png"))); // NOI18N
         lbBackGround.setMaximumSize(null);
         lbBackGround.setMinimumSize(null);
         lbBackGround.setPreferredSize(null);
@@ -159,7 +162,7 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lbBackGround);
-        lbBackGround.setBounds(0, 0, 700, 480);
+        lbBackGround.setBounds(0, 0, 700, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -232,7 +235,7 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
     private void lbLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogoutMouseClicked
         FrameLogoff frm = new FrameLogoff();
         frm.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_lbLogoutMouseClicked
 
     private void lbExercicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExercicioMouseClicked
@@ -277,6 +280,7 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbAvaliação;
     private javax.swing.JLabel lbBackGround;
@@ -289,6 +293,5 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
     private javax.swing.JLabel lbMenu4;
     private javax.swing.JLabel lbUserIcon;
     private javax.swing.JLabel lbUsuario1;
-    private javax.swing.JLabel lbUsuario2;
     // End of variables declaration//GEN-END:variables
 }

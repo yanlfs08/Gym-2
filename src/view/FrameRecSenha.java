@@ -26,20 +26,18 @@ public class FrameRecSenha extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtCPFrec = new javax.swing.JTextField();
-        txtEmailrec = new javax.swing.JTextField();
+        txtCPFrec = new gym.JTextFieldHint(new JTextField(),""," CPF");
+        txtEmailrec = new gym.JTextFieldHint(new JTextField(),"","Email");  ;
         jbRecuperarSenha = new javax.swing.JButton();
         jbRecuperarSenha1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 480));
         setResizable(false);
         setSize(new java.awt.Dimension(700, 480));
 
         jPanel1.setMaximumSize(null);
-        jPanel1.setMinimumSize(null);
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 0));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setLayout(null);
@@ -89,10 +87,11 @@ public class FrameRecSenha extends javax.swing.JFrame {
         jPanel1.add(txtEmailrec);
         txtEmailrec.setBounds(437, 253, 170, 30);
 
-        jbRecuperarSenha.setBackground(new java.awt.Color(10, 173, 225));
+        jbRecuperarSenha.setBackground(new java.awt.Color(157, 216, 219));
         jbRecuperarSenha.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbRecuperarSenha.setForeground(new java.awt.Color(240, 240, 240));
         jbRecuperarSenha.setText("RECUPERAR SENHA");
+        jbRecuperarSenha.setBorder(null);
         jbRecuperarSenha.setBorderPainted(false);
         jbRecuperarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbRecuperarSenha.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,10 +110,11 @@ public class FrameRecSenha extends javax.swing.JFrame {
         jPanel1.add(jbRecuperarSenha);
         jbRecuperarSenha.setBounds(394, 310, 220, 42);
 
-        jbRecuperarSenha1.setBackground(new java.awt.Color(10, 173, 225));
+        jbRecuperarSenha1.setBackground(new java.awt.Color(157, 216, 219));
         jbRecuperarSenha1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbRecuperarSenha1.setForeground(new java.awt.Color(240, 240, 240));
         jbRecuperarSenha1.setText("VOLTAR");
+        jbRecuperarSenha1.setBorder(null);
         jbRecuperarSenha1.setBorderPainted(false);
         jbRecuperarSenha1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbRecuperarSenha1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -286,11 +286,15 @@ public class FrameRecSenha extends javax.swing.JFrame {
     }//GEN-LAST:event_jbRecuperarSenhaActionPerformed
 
     private void jbRecuperarSenha1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRecuperarSenha1MouseEntered
-        // TODO add your handling code here:
+        jbRecuperarSenha1.setBackground(new Color(255, 255, 255));
+        jbRecuperarSenha1.setForeground(new Color(157,216,219));
+        jbRecuperarSenha1.setBorderPainted(true);
     }//GEN-LAST:event_jbRecuperarSenha1MouseEntered
 
     private void jbRecuperarSenha1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRecuperarSenha1MouseExited
-        // TODO add your handling code here:
+        jbRecuperarSenha1.setBackground(new Color(157,216,219));
+        jbRecuperarSenha1.setForeground(Color.WHITE);
+        jbRecuperarSenha1.setBorderPainted(false);
     }//GEN-LAST:event_jbRecuperarSenha1MouseExited
 
     private void jbRecuperarSenha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRecuperarSenha1ActionPerformed

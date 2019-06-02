@@ -38,7 +38,8 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/alt.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/Icon.png")).getImage());
+        setResizable(false);
         setSize(new java.awt.Dimension(700, 480));
 
         jPanel1.setLayout(null);
@@ -56,7 +57,7 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtCPF);
-        txtCPF.setBounds(430, 160, 170, 18);
+        txtCPF.setBounds(430, 158, 170, 22);
 
         txtSenha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtSenha.setBorder(null);
@@ -106,7 +107,7 @@ public class FrameLogin extends javax.swing.JFrame {
         jbLogin.setForeground(new java.awt.Color(255, 255, 255));
         jbLogin.setText("Entrar");
         jbLogin.setBorder(null);
-        jbLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbLoginMouseEntered(evt);

@@ -1,9 +1,9 @@
 
 package view;
 
-public class FramePrincipal extends javax.swing.JFrame {
+public class FramePersonal extends javax.swing.JFrame {
 
-    public FramePrincipal() {
+    public FramePersonal() {
         initComponents();
 
     }
@@ -103,9 +103,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         lbFicha.setToolTipText("Ficha de exercícios");
         lbFicha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbFicha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbFichaMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lbFichaMouseEntered(evt);
             }
@@ -241,15 +238,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_lbExercicioMouseClicked
 
-    
     private void lbBackGroundMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBackGroundMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_lbBackGroundMouseEntered
-
-    private void lbFichaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbFichaMouseClicked
-        FrameFicha frm = new FrameFicha();
-        frm.setVisible(true);
-    }//GEN-LAST:event_lbFichaMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -265,20 +256,21 @@ public class FramePrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FramePersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FramePersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FramePersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FramePersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FramePrincipal().setVisible(true);
+                new FramePersonal().setVisible(true);
             }
         });
     }

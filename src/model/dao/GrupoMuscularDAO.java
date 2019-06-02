@@ -15,6 +15,7 @@ public class GrupoMuscularDAO {
     private PreparedStatement ps = null;
     private String sql = null;
     private ResultSet result = null;
+    
     public ResultSet select(int CodGrupMusc) {
         sql = "SELECT * FROM gruposmusculares";              
         if (CodGrupMusc != 0 ) {
@@ -32,6 +33,7 @@ public class GrupoMuscularDAO {
         }   
         return result;
     }
+    
     public Boolean Insert(int CodGrupMusc,String DescGrupoMusc){
         sql = "INSERT INTO gruposmusculares(idGrupos,descGrupo)  VALUES(" + CodGrupMusc + ",'" + DescGrupoMusc + "');";        
         try{
@@ -43,6 +45,7 @@ public class GrupoMuscularDAO {
             return false;        
         }        
     }
+    
     public int Update(int CodGrupMusc,String DescGrupoMusc) {
     		if(DescGrupoMusc.equals("")!= true){
                     sql = "UPDATE gruposmusculares SET ";
@@ -61,6 +64,7 @@ public class GrupoMuscularDAO {
 			return 1;
 		}
     }
+    
     public int Delete(int CodGrupMusc){        
         sql = "DELETE FROM gruposmusculares WHERE idGrupos = " + CodGrupMusc + ";";        
         try{
@@ -72,7 +76,8 @@ public class GrupoMuscularDAO {
             return 0;        
         }  
     }
-    public void PreencherTabela(JTable modeloTable,boolean Limpar){ 
+    
+    public void PreencherTabela(JTable modeloTable,boolean Limpar){
         ResultSet rsTabela; 
         DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
         if (Limpar == true){ Val.setNumRows(0); }
@@ -89,6 +94,7 @@ public class GrupoMuscularDAO {
             }
         }
     }
+    
     public GrupoMuscular CarregaDadosFormulario(int CodGrupMusc){    
         GrupoMuscular GrupoMuscList = new GrupoMuscular();         
         ResultSet rsDadosForm = null;        
@@ -105,5 +111,5 @@ public class GrupoMuscularDAO {
             System.out.println(ex);   
         }
         return GrupoMuscList;
-    }  
+    }
 }

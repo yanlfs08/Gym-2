@@ -1,4 +1,3 @@
-
 package model.dao;
 
 import connection.ConnectionFactory;
@@ -119,7 +118,6 @@ public class ExerciciosDAO {
                 E.setIdExercicios(rs.getString("ei"));
                 E.setdescExercicio(rs.getString("e.descExercicio"));
                 E.setIdGruposMusculares(G);
-                
                 G.setDesc(rs.getString("g.descGrupo"));
                 
                 exercicio.add(E);

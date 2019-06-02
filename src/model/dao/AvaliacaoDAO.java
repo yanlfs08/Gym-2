@@ -20,6 +20,7 @@ public class AvaliacaoDAO {
     private ResultSet result = null;
     public AvaliacaoDAO(){    
     }        
+    
     public ResultSet select(int CodigoAval,boolean relacionado) {
         if(relacionado){
             
@@ -49,6 +50,7 @@ public class AvaliacaoDAO {
             return result;
         }           
     }
+    
     public Boolean Insert(int CodigoAval,
                       double PesoAval,
                       double AltAval,
@@ -70,6 +72,7 @@ public class AvaliacaoDAO {
             return false;
         }           
     }
+    
     public int Update(int CodigoAval,
                       double PesoAval,
                       double AltAval,
@@ -108,7 +111,8 @@ public class AvaliacaoDAO {
             return 0;
         }  
     }
-    public void PreencherTabela(JTable modeloTable,boolean Limpar){ 
+    
+    public void PreencherTabela(JTable modeloTable,boolean Limpar){
         ResultSet rsTabela; 
         DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
         if (Limpar == true){ Val.setNumRows(0); }
@@ -129,7 +133,8 @@ public class AvaliacaoDAO {
             }
         }
     }
-    public Avaliacao CarregaDadosFormulario(int CodProd){    
+    
+    public Avaliacao CarregaDadosFormulario(int CodProd){   
         Avaliacao AvalList = new Avaliacao();
         Cadastro UsuList = new Cadastro();
         

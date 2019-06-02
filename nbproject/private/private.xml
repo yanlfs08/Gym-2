@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/model/dao/CadastroDAO.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>0</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/yanlf/Gym-2/src/view/FrameGerenciarGrupoMuscular.java</file>
-            <file>file:/C:/Users/yanlf/Gym-2/src/view/FramePrincipalMedico.java</file>
-            <file>file:/C:/Users/yanlf/Gym-2/src/view/FramePrincipal.java</file>
-            <file>file:/C:/Users/yanlf/Gym-2/src/view/FrameLogin.java</file>
+            <file>file:/C:/Users/lucas/Gym-2/src/model/dao/CadastroDAO.java</file>
+            <file>file:/C:/Users/lucas/Gym-2/src/model/dao/FichaDAO.java</file>
+            <file>file:/C:/Users/lucas/Gym-2/src/model/dao/AvaliacaoDAO.java</file>
+            <file>file:/C:/Users/lucas/Gym-2/src/view/FrameFicha.java</file>
+            <file>file:/C:/Users/lucas/Gym-2/src/view/FrameUpdateExercicios.java</file>
+            <file>file:/C:/Users/lucas/Gym-2/src/model/dao/ExerciciosDAO.java</file>
+            <file>file:/C:/Users/lucas/Gym-2/src/view/FrameExercicios.java</file>
         </group>
     </open-files>
 </project-private>

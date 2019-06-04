@@ -46,6 +46,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         lbUserIcon.setToolTipText("Usuários");
         lbUserIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbUserIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbUserIconMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lbUserIconMouseEntered(evt);
             }
@@ -59,6 +62,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         lbAvaliação.setToolTipText("Avaliações");
         lbAvaliação.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbAvaliação.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbAvaliaçãoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lbAvaliaçãoMouseEntered(evt);
             }
@@ -104,6 +110,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         lbFicha.setToolTipText("Ficha de exercícios");
         lbFicha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbFicha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbFichaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lbFichaMouseEntered(evt);
             }
@@ -244,6 +253,21 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void lbBackGroundMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBackGroundMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_lbBackGroundMouseEntered
+
+    private void lbUserIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbUserIconMouseClicked
+        FramePessoa frm = new FramePessoa();
+        frm.setVisible(true);
+    }//GEN-LAST:event_lbUserIconMouseClicked
+
+    private void lbFichaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbFichaMouseClicked
+        FrameFicha frm = new FrameFicha();
+        frm.setVisible(true);
+    }//GEN-LAST:event_lbFichaMouseClicked
+
+    private void lbAvaliaçãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAvaliaçãoMouseClicked
+        FrameAvaliacao frm = new FrameAvaliacao();
+        frm.setVisible(true);
+    }//GEN-LAST:event_lbAvaliaçãoMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

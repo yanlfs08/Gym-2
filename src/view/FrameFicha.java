@@ -130,7 +130,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbCadastrar);
-        jbCadastrar.setBounds(60, 210, 83, 33);
+        jbCadastrar.setBounds(40, 210, 83, 33);
 
         jbExcluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbExcluir.setText("Excluir");
@@ -145,7 +145,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbExcluir);
-        jbExcluir.setBounds(60, 330, 81, 33);
+        jbExcluir.setBounds(40, 330, 81, 33);
 
         jbAtualizarTabela.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbAtualizarTabela.setText("Atualizar");
@@ -157,17 +157,17 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbAtualizarTabela);
-        jbAtualizarTabela.setBounds(60, 390, 79, 33);
+        jbAtualizarTabela.setBounds(40, 390, 79, 33);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Grupo Muscular");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(250, 110, 106, 20);
+        jLabel4.setBounds(90, 140, 106, 20);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Exercício");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(300, 70, 60, 20);
+        jLabel3.setBounds(140, 80, 60, 20);
 
         jbPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbPesquisar.setText("Pesquisar");
@@ -179,7 +179,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbPesquisar);
-        jbPesquisar.setBounds(570, 150, 83, 33);
+        jbPesquisar.setBounds(530, 140, 83, 33);
 
         txtDecGrupoMuscular.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,7 +195,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtDecGrupoMuscular);
-        txtDecGrupoMuscular.setBounds(370, 110, 285, 30);
+        txtDecGrupoMuscular.setBounds(210, 140, 285, 30);
 
         jbAtu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbAtu.setText("Alterar");
@@ -210,20 +210,20 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbAtu);
-        jbAtu.setBounds(60, 270, 83, 33);
+        jbAtu.setBounds(40, 270, 83, 33);
         jbAtu.getAccessibleContext().setAccessibleName("Atualizar ");
         jbAtu.getAccessibleContext().setAccessibleDescription("");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("ID");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(210, 70, 14, 20);
+        jLabel2.setBounds(60, 80, 14, 20);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Ficha");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(400, 10, 58, 32);
+        jLabel1.setBounds(310, 10, 58, 32);
 
         txtID.setEnabled(false);
         txtID.addActionListener(new java.awt.event.ActionListener() {
@@ -232,7 +232,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtID);
-        txtID.setBounds(240, 70, 43, 30);
+        txtID.setBounds(80, 80, 43, 30);
 
         txtExercicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -240,7 +240,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtExercicio);
-        txtExercicio.setBounds(370, 70, 285, 30);
+        txtExercicio.setBounds(210, 80, 285, 30);
 
         TableFicha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         TableFicha.setModel(new javax.swing.table.DefaultTableModel(
@@ -267,9 +267,9 @@ public class FrameFicha extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TableFicha);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(170, 210, 470, 217);
+        jScrollPane1.setBounds(150, 210, 470, 217);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Banner.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
         jPanel1.add(jLabel5);
         jLabel5.setBounds(0, 0, 670, 480);
 

@@ -234,7 +234,6 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
         int CodUsuario = 0;
         double Peso = 0;
         double Altura = 0;
-        double IMC = 0;
         double GordCorp = 0;
         int OP = getTpOp();
         
@@ -262,7 +261,7 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar avaliação. \nContate o administrador.");
                 }
                 break;
             case 2: //Inserir
@@ -270,7 +269,7 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
                 if(ExecSucess == true){
                     JOptionPane.showMessageDialog(null, "Inclusão realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao inserir o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao inserir avaliação. \nContate o administrador.");
                 }
                 break;
             case 3: //Excluir
@@ -278,7 +277,7 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir avaliação. \nContate o administrador.");
                 }
                 break;
             case 0: 

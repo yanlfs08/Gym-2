@@ -19,38 +19,19 @@ public class FramePessoa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jtbAlterar = new javax.swing.JToggleButton();
-        jtbIncluir = new javax.swing.JToggleButton();
-        jtbExcluir = new javax.swing.JToggleButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbInfoPessoas = new javax.swing.JTable();
+        jtbExcluir = new javax.swing.JToggleButton();
+        jtbIncluir = new javax.swing.JToggleButton();
+        jtbAlterar = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
+        lbBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Opções");
-
-        jtbAlterar.setText("Alterar");
-        jtbAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbAlterarActionPerformed(evt);
-            }
-        });
-
-        jtbIncluir.setText("Incluir");
-        jtbIncluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbIncluirActionPerformed(evt);
-            }
-        });
-
-        jtbExcluir.setText("Excluir");
-        jtbExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbExcluirActionPerformed(evt);
-            }
-        });
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 480));
+        jPanel1.setLayout(null);
 
         jtbInfoPessoas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,38 +51,54 @@ public class FramePessoa extends javax.swing.JFrame {
             jtbInfoPessoas.getColumnModel().getColumn(2).setMaxWidth(52);
         }
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(170, 120, 500, 275);
+
+        jtbExcluir.setText("Excluir");
+        jtbExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbExcluirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtbExcluir);
+        jtbExcluir.setBounds(5, 232, 160, 38);
+
+        jtbIncluir.setText("Incluir");
+        jtbIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbIncluirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtbIncluir);
+        jtbIncluir.setBounds(5, 120, 160, 38);
+
+        jtbAlterar.setText("Alterar");
+        jtbAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbAlterarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtbAlterar);
+        jtbAlterar.setBounds(5, 176, 160, 38);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Usuários");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(50, 60, 78, 36);
+
+        lbBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
+        jPanel1.add(lbBackGround);
+        lbBackGround.setBounds(0, 0, 700, 480);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                    .addComponent(jtbIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtbAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtbExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtbIncluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtbAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtbExcluir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -226,10 +223,12 @@ public class FramePessoa extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jtbAlterar;
     private javax.swing.JToggleButton jtbExcluir;
     private javax.swing.JToggleButton jtbIncluir;
     private static javax.swing.JTable jtbInfoPessoas;
+    private javax.swing.JLabel lbBackGround;
     // End of variables declaration//GEN-END:variables
 }

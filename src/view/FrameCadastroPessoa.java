@@ -31,9 +31,9 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jtbCancelar = new javax.swing.JToggleButton();
+        jPanel3 = new javax.swing.JPanel();
         jtbConfirmar = new javax.swing.JToggleButton();
-        JLTituloGereciamentoPes = new javax.swing.JLabel();
+        jtbCancelar = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
         jcbTipoPessoa = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -52,18 +52,18 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         jtfCheckSenha = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtfDTNasc = new javax.swing.JTextField();
+        JLTituloGereciamentoPes = new javax.swing.JLabel();
+        lbBackground = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(520, 400));
         setResizable(false);
 
-        jtbCancelar.setText("Cancelar");
-        jtbCancelar.setName("JTBCancelar"); // NOI18N
-        jtbCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbCancelarActionPerformed(evt);
-            }
-        });
+        jPanel3.setMaximumSize(new java.awt.Dimension(487, 362));
+        jPanel3.setMinimumSize(new java.awt.Dimension(487, 362));
+        jPanel3.setLayout(null);
 
+        jtbConfirmar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jtbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jtbConfirmar.setText("Confirmar");
         jtbConfirmar.setName("JTBConfirmar"); // NOI18N
         jtbConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,9 +71,20 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 jtbConfirmarActionPerformed(evt);
             }
         });
+        jPanel3.add(jtbConfirmar);
+        jtbConfirmar.setBounds(70, 310, 120, 35);
 
-        JLTituloGereciamentoPes.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLTituloGereciamentoPes.setText("Gerenciamento de pessoas");
+        jtbCancelar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jtbCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jtbCancelar.setText("Cancelar");
+        jtbCancelar.setName("JTBCancelar"); // NOI18N
+        jtbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbCancelarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jtbCancelar);
+        jtbCancelar.setBounds(300, 310, 120, 35);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -109,15 +120,13 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel17))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(97, 97, 97)
-                        .addComponent(jtfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(26, 26, 26)
-                        .addComponent(jtfCheckSenha)))
+                    .addComponent(jtfSenha)
+                    .addComponent(jtfCheckSenha))
                 .addGap(119, 119, 119))
         );
         jPanel2Layout.setVerticalGroup(
@@ -154,7 +163,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                             .addComponent(jLabel4)
                             .addComponent(jLabel12)
                             .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,35 +213,33 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
 
         jtfNome.getAccessibleContext().setAccessibleName("");
 
+        jPanel3.add(jPanel1);
+        jPanel1.setBounds(16, 50, 450, 238);
+
+        JLTituloGereciamentoPes.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        JLTituloGereciamentoPes.setText("Cadastro de Usuários");
+        jPanel3.add(JLTituloGereciamentoPes);
+        JLTituloGereciamentoPes.setBounds(150, 15, 190, 21);
+
+        lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
+        lbBackground.setMaximumSize(new java.awt.Dimension(487, 362));
+        lbBackground.setMinimumSize(new java.awt.Dimension(487, 362));
+        lbBackground.setPreferredSize(new java.awt.Dimension(487, 362));
+        jPanel3.add(lbBackground);
+        lbBackground.setBounds(0, 0, 487, 362);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JLTituloGereciamentoPes, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JLTituloGereciamentoPes, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtbCancelar)
-                    .addComponent(jtbConfirmar))
-                .addGap(13, 13, 13))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        getAccessibleContext().setAccessibleName("Usuários");
 
         pack();
         setLocationRelativeTo(null);
@@ -423,7 +430,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -522,6 +529,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JComboBox<String> jcbTipoPessoa;
     private javax.swing.JToggleButton jtbCancelar;
     private javax.swing.JToggleButton jtbConfirmar;
@@ -532,5 +540,6 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfSenha;
     private javax.swing.JTextField jtfTelefone;
+    private javax.swing.JLabel lbBackground;
     // End of variables declaration//GEN-END:variables
 }

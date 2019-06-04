@@ -94,13 +94,13 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(JLrecuperarSenha);
-        JLrecuperarSenha.setBounds(530, 380, 61, 20);
+        JLrecuperarSenha.setBounds(530, 370, 61, 20);
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Esqueceu sua senha?");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(400, 380, 128, 20);
+        jLabel5.setBounds(400, 370, 128, 20);
 
         jbLogin.setBackground(new java.awt.Color(157, 216, 219));
         jbLogin.setFont(new java.awt.Font("Segoe UI", 1, 23)); // NOI18N
@@ -122,7 +122,7 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbLogin);
-        jbLogin.setBounds(390, 330, 220, 40);
+        jbLogin.setBounds(390, 320, 220, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/_Login 2.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -300,7 +300,7 @@ public class FrameLogin extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Erro ao verificar Usuario " + ex);   
                     }                        
             }else{
-            JOptionPane.showMessageDialog(rootPane, "Login e/ou senha invalidos!");
+            JOptionPane.showMessageDialog(rootPane, "CPF e/ou senha invalidos!");
             }
         
     }//GEN-LAST:event_jbLoginActionPerformed

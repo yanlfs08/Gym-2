@@ -53,7 +53,7 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Descrição"
+                "Código", "Descrição"
             }
         ));
         jScrollPane1.setViewportView(jtbInfoTpPgto);

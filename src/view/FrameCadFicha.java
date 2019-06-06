@@ -218,11 +218,12 @@ public class FrameCadFicha extends javax.swing.JDialog  {
     private void jtbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConfirmarActionPerformed
 
         String CodUsuario;
-        String CodFicha;
+        String idExercicio = null;
+        String CodFicha = null;
         String Exercicio;
-        double Carga;
-        String Repeticao;
-        String Serie;
+        double Carga = 0;
+        String Repeticao = null;
+        String Serie = null;
         String GrupoM;
         int OP = getTpOp();
 
@@ -249,27 +250,28 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         }
         switch (OP){
             case 1: //Atualizar
-                RegAfct = AtualizarFicha(Carga, Repeticao, Serie);
+                RegAfct = AtualizarFicha(CodFicha, Carga, Repeticao, Serie);
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar a Ficha. \nContate o administrador.");
                 }
                 break;
-            case 2: //Inserir
-                ExecSucess = IncluirFicha(CodigoFicha, Peso, Altura, GordCorp, CodUsuario);
+            case 2: {
+            ExecSucess = IncluirFicha(CodFicha, idExercicio, Carga, Repeticao, Serie);
+        }
                 if(ExecSucess == true){
                     JOptionPane.showMessageDialog(null, "Inclusão realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao inserir o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao inserir a Ficha. \nContate o administrador.");
                 }
                 break;
             case 3: //Excluir
-                RegAfct = DeletarFicha(CodAval);
+                RegAfct = DeletarFicha(CodFicha, idExercicio);
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir a Ficha. \nContate o administrador.");
                 }
                 break;
             case 0:
@@ -331,34 +333,34 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         }
     }
     //CodAval, Peso, Altura, GordCorp, CodUsuario
-    private static boolean IncluirFicha(String CodAval,Double Peso,Double Altura,
-        Double GordCorp,int CodUsuario){        
-        AvaliacaoDAO Tabela = new AvaliacaoDAO();     
-        return Tabela.Insert(CodAval, Peso, Altura, GordCorp, CodUsuario);
+    private static boolean IncluirFicha(String CodFicha,String idExercicio,double Carga,String Repeticao,String Serie){
+        FichaDAO Tabela = new FichaDAO();
+        return Tabela.Insert(CodFicha, idExercicio, Carga, Repeticao, Serie);
     }
-    private static int AtualizarFicha(String Carga, String Repeticao, String Serie){        
-        AvaliacaoDAO Tabela = new AvaliacaoDAO();     
-        return Tabela.Update(Carga, Repeticao, Serie);
+    private static int AtualizarFicha(String CodFicha, double Carga, String Repeticao, String Serie){
+        FichaDAO Tabela = new FichaDAO();
+        return Tabela.Update(CodFicha, Carga, Repeticao, Serie);
     }
-    private static int DeletarFicha(int CodProd){        
-        AvaliacaoDAO Tabela = new AvaliacaoDAO();     
-        return Tabela.Delete(CodProd);
+    private static int DeletarFicha(String CodFicha, String idExercicio){        
+        FichaDAO Tabela = new FichaDAO();     
+        return Tabela.Delete(CodFicha, idExercicio);
     }
     private static ResultSet BuscarUsuario(int CPF,int CodTpUsu){        
         PessoaDAO UsuTb = new PessoaDAO();     
         return UsuTb.Select(CPF,CodTpUsu);
     }
-    private void PreencherFormulario(int CodProd){    
-        AvaliacaoDAO AvalDB = new AvaliacaoDAO();     
+    private void PreencherFormulario(int CodFicha){    
+        FichaDAO FichaDB = new FichaDAO();     
         //ResultSet rsDadosForm = null; 
         
         FichaForm = FichaDB.CarregaDadosFormulario(CodFicha);
         if (FichaForm != null ){
-            jtfCodigoAval.setText(AvalForm.getIdAvaliacao());
-            jtfPeso.setText(String.valueOf(AvalForm.getPeso()));                
-            jtfAltura.setText(String.valueOf(AvalForm.getAltura()));
-            jtfGordCorp.setText(String.valueOf(AvalForm.getGorduraCorporal()));            
-            jcbUsuario.setSelectedIndex(IndexValorCombo(UsuForm.getCPF(),1));
+            jcbExercicio.setSelectedIndex(IndexValorCombo(ExercForm.getdescExercicio(),1));
+            jcbUsuario.setSelectedIndex(IndexValorCombo(CadForm.getNome(),1));
+            jtfCarga.setText(String.valueOf(FichaForm.getCarga()));
+            jtfRepeticao.setText(String.valueOf(FichaForm.getRepeticao()));
+            jtfSerie.setText(String.valueOf(FichaForm.getSerie()));
+            jtfGrupoM.setText(String.valueOf(GmForm.getDesc()));
         }
     }
     /*
@@ -385,6 +387,40 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 indexVal = 0;                
         }
         return indexVal;
+    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrameCadAvaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrameCadAvaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrameCadAvaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrameCadAvaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrameCadFicha(true,0,0).setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

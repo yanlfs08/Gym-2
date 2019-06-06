@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import model.dao.PessoaDAO;
 import model.dao.TipoUsuarioDAO;
 import model.bean.Pessoa;
+import javax.swing.JTextField;
 
 
 public class FrameCadastroPessoa extends javax.swing.JDialog  {
@@ -42,18 +43,19 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jtfEmail = new javax.swing.JTextField();
-        jtfCPF = new javax.swing.JTextField();
+        jtfCPF = new gym.JTextFieldHint(new JTextField(),"","    .    .   -   ");  ;
         jLabel12 = new javax.swing.JLabel();
         jtfTelefone = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jtfSenha = new javax.swing.JTextField();
-        jtfCheckSenha = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jtfDTNasc = new javax.swing.JTextField();
-        JLTituloGereciamentoPes = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lbBackground = new javax.swing.JLabel();
+        JLTituloGereciamentoPes = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(520, 400));
         setResizable(false);
@@ -98,7 +100,6 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
 
         jLabel9.setText("E-mail:");
 
-        jtfCPF.setText("   .   .   -  ");
         jtfCPF.setToolTipText("");
         jtfCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +115,18 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
 
         jLabel17.setText("Senha:");
 
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+
+        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -123,11 +136,11 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel15)
                     .addComponent(jLabel17))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfSenha)
-                    .addComponent(jtfCheckSenha))
-                .addGap(119, 119, 119))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(jPasswordField1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,11 +148,11 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jtfCheckSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -216,10 +229,10 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         jPanel3.add(jPanel1);
         jPanel1.setBounds(16, 50, 450, 238);
 
-        JLTituloGereciamentoPes.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLTituloGereciamentoPes.setText("Cadastro de Usuários");
-        jPanel3.add(JLTituloGereciamentoPes);
-        JLTituloGereciamentoPes.setBounds(150, 15, 190, 21);
+        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        jLabel1.setText("Cadastro de Usuário");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(150, 10, 190, 30);
 
         lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
         lbBackground.setMaximumSize(new java.awt.Dimension(487, 362));
@@ -227,6 +240,11 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         lbBackground.setPreferredSize(new java.awt.Dimension(487, 362));
         jPanel3.add(lbBackground);
         lbBackground.setBounds(0, 0, 487, 362);
+
+        JLTituloGereciamentoPes.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        JLTituloGereciamentoPes.setText("Cadastro de Usuários");
+        jPanel3.add(JLTituloGereciamentoPes);
+        JLTituloGereciamentoPes.setBounds(150, 15, 190, 21);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -301,9 +319,13 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
             if (jtfDTNasc.getText().equalsIgnoreCase(PesForm.getDTNasc()) == false){
                 DTNasc = jtfDTNasc.getText();
             }            
-            if (jtfCheckSenha.getText().equalsIgnoreCase(jtfSenha.getText()) == true){
-                if (jtfSenha.getText().equalsIgnoreCase(PesForm.getSenha()) == false){
-                    Senha = jtfSenha.getText();
+            
+            String senha = new String(jPasswordField1.getPassword()).trim();
+            String checksenha = new String(jPasswordField2.getPassword()).trim();
+            
+            if (senha.equalsIgnoreCase(checksenha) == true){
+                if (checksenha.equalsIgnoreCase(PesForm.getSenha()) == false){
+                    Senha = checksenha;
                 }
             
             }
@@ -315,7 +337,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o cadastro. \nContate o administrador.");
                 }
                 break;
             case 2: //Inserir
@@ -323,7 +345,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 if(ExecSucess == true){
                     JOptionPane.showMessageDialog(null, "Inclusão realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao inserir o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao inserir o cadastro. \nContate o administrador.");
                 }
                 break;
             case 3: //Excluir
@@ -331,7 +353,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o produto. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o cadastro. \nContate o administrador.");
                 }
                 break;
             case 0: 
@@ -349,6 +371,14 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
     private void jtfCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfCPFActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField2ActionPerformed
 
    private void CarregarCombos() {
         ResultSet Sql  = null;
@@ -393,6 +423,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         //ResultSet rsDadosForm = null; 
         
         PesForm = PesDB.CarregaDadosFormulario(CodProd);
+        
         if (PesForm != null ){
             jtfCPF.setText(PesForm.getCPF());           
             jcbTipoPessoa.setSelectedIndex(IndexValorCombo(PesForm.getTipoPessoa(),1));
@@ -400,8 +431,8 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
             jtfTelefone.setText(PesForm.getTelefone());                
             jtfDTNasc.setText(PesForm.getDTNasc()); 
             jtfEmail.setText(PesForm.getEmail());
-            jtfSenha.setText(PesForm.getSenha());
-            jtfCheckSenha.setText(PesForm.getSenha());
+            jPasswordField1.setText(PesForm.getSenha());
+            jPasswordField2.setText(PesForm.getSenha());
         }
     }
     private int IndexValorCombo(String Valor,int combo ){
@@ -519,6 +550,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLTituloGereciamentoPes;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
@@ -530,15 +562,15 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JComboBox<String> jcbTipoPessoa;
     private javax.swing.JToggleButton jtbCancelar;
     private javax.swing.JToggleButton jtbConfirmar;
     private javax.swing.JTextField jtfCPF;
-    private javax.swing.JTextField jtfCheckSenha;
     private javax.swing.JTextField jtfDTNasc;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfNome;
-    private javax.swing.JTextField jtfSenha;
     private javax.swing.JTextField jtfTelefone;
     private javax.swing.JLabel lbBackground;
     // End of variables declaration//GEN-END:variables

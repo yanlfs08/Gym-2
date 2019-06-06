@@ -58,7 +58,7 @@ public class FichaDAO {
         }
     }*/
 
-    public Boolean Insert(int CodigoFicha,int idExercicio,int carga,int repeticao,int serie){
+    public Boolean Insert(String CodigoFicha,String idExercicio,double carga,String repeticao,String serie){
         
         sql = "INSERT INTO ficha(idFicha,idExercicios,carga,repeticao,serie)"
                 +" VALUES(" + CodigoFicha + ",'" + idExercicio + "'," + carga + ",'" 

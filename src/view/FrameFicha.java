@@ -1,96 +1,18 @@
 
 package view;
 
-import javax.swing.table.DefaultTableModel;
-import model.bean.Exercicios;
-import model.dao.ExerciciosDAO;
-import model.bean.Ficha;
+import javax.swing.JOptionPane;
 import model.dao.FichaDAO;
-import model.bean.Cadastro;
-import model.dao.CadastroDAO;
-
-import model.dao.GrupoMuscularDAO;
-
 
 public class FrameFicha extends javax.swing.JFrame {
-
+    static FichaDAO FichaBD = new FichaDAO();
+    //Creates new form JFProduto  
     public FrameFicha() {
         initComponents();
-        readJTable();    
+        FichaBD.PreencherTabela(TableFicha, true);
     }
     
-    public void readJTable (){
-        
-        DefaultTableModel model = (DefaultTableModel) TableFicha.getModel();
-        
-        model.setNumRows(0);
-        
-        FichaDAO fdao = new FichaDAO();
-        ExerciciosDAO edao = new ExerciciosDAO();
-        CadastroDAO cdao = new CadastroDAO();
-        GrupoMuscularDAO gmdao = new GrupoMuscularDAO();
-        
-        for(Ficha f:fdao.read()){
-            for(Exercicios e:edao.read()){
-                for(Cadastro c:cdao.read()){
-            
-                    model.addRow(new Object[]{
-
-                        c.getNome(),
-                        e.getdescExercicio(),
-                        f.getCarga(),
-                        f.getRepeticao(),
-                        f.getSerie()
-                    });
-                    
-                }
-            }
-        }
-    }
     
-    public void readPesquisa (String pesquisa){
-        
-        DefaultTableModel model = (DefaultTableModel) TableFicha.getModel();
-        
-        model.setNumRows(0);
-        
-        FichaDAO fdao = new FichaDAO();
-        ExerciciosDAO edao = new ExerciciosDAO();
-        
-        for(Ficha f:fdao.readPesquisaFicha(pesquisa)){
-            for(Exercicios e:edao.readPesquisaExercicio(pesquisa))
-            
-            model.addRow(new Object[]{
-                    
-                    f.getIdExercicios(),
-                    f.getIdFicha(),
-                    e.getdescExercicio(),
-                    f.getCarga(),
-                    f.getRepeticao(),
-                    f.getSerie()
-            });
-        }   
-    }
-    
-    public void readPesquisadescGrupo (String pesquisa){
-        
-        DefaultTableModel model = (DefaultTableModel) TableFicha.getModel();
-        
-        model.setNumRows(0);
-        
-        ExerciciosDAO edao = new ExerciciosDAO();
-        
-        for(Exercicios e:edao.readPesquisaDesc(pesquisa)){
-            
-            model.addRow(new Object[]{
-                    
-                    e.getIdExercicios(),
-                    e.getdescExercicio(),
-                    e.getIdGruposMusculares()
-            });
-        }
-        
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -130,7 +52,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbCadastrar);
-        jbCadastrar.setBounds(40, 210, 83, 33);
+        jbCadastrar.setBounds(60, 210, 83, 33);
 
         jbExcluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbExcluir.setText("Excluir");
@@ -145,7 +67,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbExcluir);
-        jbExcluir.setBounds(40, 330, 81, 33);
+        jbExcluir.setBounds(60, 330, 81, 33);
 
         jbAtualizarTabela.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbAtualizarTabela.setText("Atualizar");
@@ -157,17 +79,17 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbAtualizarTabela);
-        jbAtualizarTabela.setBounds(40, 390, 79, 33);
+        jbAtualizarTabela.setBounds(60, 390, 79, 33);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Grupo Muscular");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(90, 140, 106, 20);
+        jLabel4.setBounds(250, 110, 106, 20);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Exercício");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(140, 80, 60, 20);
+        jLabel3.setBounds(300, 70, 60, 20);
 
         jbPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbPesquisar.setText("Pesquisar");
@@ -179,7 +101,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbPesquisar);
-        jbPesquisar.setBounds(530, 140, 83, 33);
+        jbPesquisar.setBounds(570, 150, 83, 33);
 
         txtDecGrupoMuscular.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,7 +117,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtDecGrupoMuscular);
-        txtDecGrupoMuscular.setBounds(210, 140, 285, 30);
+        txtDecGrupoMuscular.setBounds(370, 110, 285, 30);
 
         jbAtu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbAtu.setText("Alterar");
@@ -210,20 +132,20 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbAtu);
-        jbAtu.setBounds(40, 270, 83, 33);
+        jbAtu.setBounds(60, 270, 83, 33);
         jbAtu.getAccessibleContext().setAccessibleName("Atualizar ");
         jbAtu.getAccessibleContext().setAccessibleDescription("");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("ID");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(60, 80, 14, 20);
+        jLabel2.setBounds(210, 70, 14, 20);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Ficha");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(310, 10, 58, 32);
+        jLabel1.setBounds(400, 10, 58, 32);
 
         txtID.setEnabled(false);
         txtID.addActionListener(new java.awt.event.ActionListener() {
@@ -232,7 +154,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtID);
-        txtID.setBounds(80, 80, 43, 30);
+        txtID.setBounds(240, 70, 43, 30);
 
         txtExercicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -240,7 +162,7 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtExercicio);
-        txtExercicio.setBounds(210, 80, 285, 30);
+        txtExercicio.setBounds(370, 70, 285, 30);
 
         TableFicha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         TableFicha.setModel(new javax.swing.table.DefaultTableModel(
@@ -267,9 +189,7 @@ public class FrameFicha extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TableFicha);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(150, 210, 470, 217);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
+        jScrollPane1.setBounds(170, 210, 470, 217);
         jPanel1.add(jLabel5);
         jLabel5.setBounds(0, 0, 670, 480);
 
@@ -290,21 +210,22 @@ public class FrameFicha extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void jbAtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAtuActionPerformed
-        
-        FrameUpdateExercicios ue = new FrameUpdateExercicios();
-        ue.setVisible(true);
+        if (TableFicha.getSelectedRowCount() != 0 ){
+            int linha = TableFicha.getSelectedRow();
+            Object ValorCampo = TableFicha.getModel().getValueAt(linha, 0);
+            int codFicha = Integer.valueOf((String) ValorCampo);
+            new FrameCadFicha( true, codFicha, 1).setVisible(true);
+            FichaBD.PreencherTabela(TableFicha,true);
+        }else{
+            JOptionPane.showMessageDialog(null, "selecione um registro na tabela para alterar.");
+        };
     }//GEN-LAST:event_jbAtuActionPerformed
 
     private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
-       
-        if("".equals(txtExercicio.getText())){
-        
-            readPesquisadescGrupo(txtDecGrupoMuscular.getText());
-            
-        }else{
-            readPesquisa(txtExercicio.getText());
-        }
+       //////////////////////////////////
     }//GEN-LAST:event_jbPesquisarActionPerformed
 
     private void TableFichaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableFichaMouseClicked
@@ -318,31 +239,25 @@ public class FrameFicha extends javax.swing.JFrame {
     }//GEN-LAST:event_TableFichaMouseClicked
 
     private void jbAtualizarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAtualizarTabelaActionPerformed
-        readJTable();
-        txtID.setText("");
-        txtExercicio.setText("");
-        txtDecGrupoMuscular.setText("");
+        ///////////////////////////////////
     }//GEN-LAST:event_jbAtualizarTabelaActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        
-        Exercicios e = new Exercicios();
-        ExerciciosDAO edao = new ExerciciosDAO();
-        
-        e.setIdExercicios((String) TableFicha.getValueAt(TableFicha.getSelectedRow(), 0));
-        
-        edao.Delete(e);
-        
-        readJTable();
-        txtID.setText("");
-        txtExercicio.setText("");
-        txtDecGrupoMuscular.setText("");
+       if (TableFicha.getSelectedRowCount() != 0 ){
+            int linha = TableFicha.getSelectedRow();
+            Object ValorCampo = TableFicha.getModel().getValueAt(linha, 0);
+            int codFicha = Integer.valueOf((String) ValorCampo);
+            new FrameCadFicha( true, codFicha, 3).setVisible(true);
+            FichaBD.PreencherTabela(TableFicha, true);
+        }else{
+            JOptionPane.showMessageDialog(null, "selecione um registro na tabela para excluir.");
+        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
-        
-        FrameCadastroExercicios ce = new FrameCadastroExercicios();
-        ce.setVisible(true);
+       
+        new FrameCadFicha(true, 0, 2).setVisible(true);
+        FichaBD.PreencherTabela(TableFicha, true);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
@@ -399,6 +314,7 @@ public class FrameFicha extends javax.swing.JFrame {
                 new FrameFicha().setVisible(true);
             }
         });
+        FichaBD.PreencherTabela(TableFicha, true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

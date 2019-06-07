@@ -8,7 +8,6 @@ import model.bean.Cadastro;
 import model.bean.Exercicios;
 import model.bean.Ficha;
 import model.bean.GrupoMuscular;
-import model.dao.AvaliacaoDAO;
 import model.dao.PessoaDAO;
 import model.dao.ExerciciosDAO;
 import model.dao.GrupoMuscularDAO;
@@ -220,7 +219,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         String CodUsuario;
         String idExercicio = null;
         String CodFicha = null;
-        String Exercicio;
+        String Exercicio = null;
         double Carga = 0;
         String Repeticao = null;
         String Serie = null;
@@ -250,7 +249,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         }
         switch (OP){
             case 1: //Atualizar
-                RegAfct = AtualizarFicha(CodFicha, Carga, Repeticao, Serie);
+                RegAfct = AtualizarFicha(CodFicha, Exercicio, Carga, Repeticao, Serie);
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
                 }else{
@@ -331,24 +330,45 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         }catch (SQLException ex) {
             System.out.println(ex);   
         }
+        Sql  = null;
+        TotalRegs = 0; 
+        jcbExercicio.removeAllItems();
+        try{
+            Sql = BuscarUsuario(0,2);
+            Sql.last();
+            TotalRegs = Sql.getRow();        
+            Sql.first();
+            for(int i = 0; i < TotalRegs; i++){
+                String Cod = Sql.getString(1);
+                String Desc = Sql.getString(2);
+                jcbExercicio.addItem(Cod +" - "+ Desc);
+                Sql.next();
+            }            
+        }catch (SQLException ex) {
+            System.out.println(ex);   
+        }
     }
     //CodAval, Peso, Altura, GordCorp, CodUsuario
     private static boolean IncluirFicha(String CodFicha,String idExercicio,double Carga,String Repeticao,String Serie){
         FichaDAO Tabela = new FichaDAO();
         return Tabela.Insert(CodFicha, idExercicio, Carga, Repeticao, Serie);
     }
-    private static int AtualizarFicha(String CodFicha, double Carga, String Repeticao, String Serie){
+    private static int AtualizarFicha(String CodFicha, String IdExercicio, double Carga, String Repeticao, String Serie){
         FichaDAO Tabela = new FichaDAO();
-        return Tabela.Update(CodFicha, Carga, Repeticao, Serie);
+        return Tabela.Update(CodFicha, IdExercicio, Carga, Repeticao, Serie);
     }
     private static int DeletarFicha(String CodFicha, String idExercicio){        
         FichaDAO Tabela = new FichaDAO();     
-        return Tabela.Delete(CodFicha, idExercicio);
+        return Tabela.Delete(CodFicha,idExercicio);
     }
     private static ResultSet BuscarUsuario(int CPF,int CodTpUsu){        
         PessoaDAO UsuTb = new PessoaDAO();     
         return UsuTb.Select(CPF,CodTpUsu);
     }
+    /*private static ResultSet BuscarExercicio(int CPF,int CodTpUsu){        
+        PessoaDAO UsuTb = new PessoaDAO();     
+        return UsuTb.Select(CPF,CodTpUsu);
+    }*/
     private void PreencherFormulario(int CodFicha){    
         FichaDAO FichaDB = new FichaDAO();     
         //ResultSet rsDadosForm = null; 
@@ -379,6 +399,15 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 for (int i = 1;i < totVal; i++){
                     jcbUsuario.setSelectedIndex(i);
                     if(jcbUsuario.getModel().getSelectedItem().toString().substring(0, 1).equalsIgnoreCase(Valor)==true){
+                       indexVal = i; 
+                    }
+                }
+                break;
+             case 2:
+                totVal = jcbExercicio.getItemCount();
+                for (int i = 1;i < totVal; i++){
+                    jcbExercicio.setSelectedIndex(i);
+                    if(jcbExercicio.getModel().getSelectedItem().toString().substring(0, 1).equalsIgnoreCase(Valor)==true){
                        indexVal = i; 
                     }
                 }

@@ -13,6 +13,8 @@ import model.bean.GrupoMuscular;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class FichaDAO {
@@ -23,29 +25,31 @@ public class FichaDAO {
     public FichaDAO() {
     }
     
-    /*public ResultSet select(int CodigoFicha,boolean relacionado) {
+    public ResultSet select(int CodigoFicha,boolean relacionado) {
         if(relacionado){
             
-            sql = "SELECT \n" +
-                  "c.`Nome` AS Nome, \n" +
-                    "f.`carga` AS Carga, \n" +
-                    "f.`repeticao` AS Repetições, \n" +
-                    "f.`serie` AS Séries, \n" +
-                    "e.`descExercicio` AS Exercicio, g.`descGrupo` AS 'Grupro Muscular' \n" +
-                    "FROM `ficha` f \n" +
-                    "INNER JOIN `cadastro` c \n" +
-                    "ON f.`idFicha` = c.`idFicha` \n" +
-                    "INNER JOIN `exercicios` e \n" +
-                    "ON f.`idExercicios` = e.`idExercicios` \n" +
-                    "INNER JOIN `gruposmusculares` g \n" +
-                    "ON e.`idGrupos` = g.`idGrupos`\n" +
-                    "ORDER BY g.`descGrupo`";
+            sql = " SELECT cadastro.Nome AS Nome, " +
+                         " ficha.carga AS Carga, " +
+                         " ficha.repeticao AS Repeticoes, " +
+                         " ficha.serie AS Series, " +
+                         " exercicios.descExercicio AS Exercicio, " +
+                         " gruposmusculares.descGrupo AS GrupoMuscular" +
+                    " FROM ficha " +
+                   " INNER JOIN  cadastro " +
+                      " ON ficha.idFicha = cadastro.idFicha " +
+                   " INNER JOIN exercicios " +
+                      " ON ficha.idExercicios = exercicios.idExercicios " +
+                   " INNER JOIN gruposmusculares " +
+                      " ON exercicios.idGrupos = gruposmusculares.idGrupos ";
         } else {
             sql = "SELECT * FROM ficha";
         }if (CodigoFicha != 0 ) {
-            sql = sql + " WHERE idFicha = " + CodigoFicha + " ORDER BY ficha.idFicha;";
+            sql = sql + " WHERE idFicha = " + CodigoFicha + 
+                        " ORDER BY ficha.idFicha, " +
+                                 " gruposmuscularesdescGrupo;";
         }else{
-            sql = sql + " ORDER BY ficha.idFicha;";
+            sql = sql + " ORDER BY ficha.idFicha, " +
+                                 " gruposmuscularesdescGrupo;";
         }
         try{
             ps = con.prepareStatement(sql);
@@ -56,7 +60,7 @@ public class FichaDAO {
             System.out.println(u); 
             return result;
         }
-    }*/
+    }
 
     public Boolean Insert(String CodigoFicha,String idExercicio,double carga,String repeticao,String serie){
         
@@ -74,12 +78,17 @@ public class FichaDAO {
         }
     }
     
-    public int Update(int CodigoFicha,int idExercicio,int carga,int repeticao,int serie){
+    public int Update(String CodigoFicha,
+                      String idExercicio,
+                      Double carga,
+                      String repeticao,
+                      String serie){
+        
         sql = "UPDATE ficha SET ";
-        sql = sql + " idExercicio = '" + idExercicio + "'";
-        sql = sql + " carga = '" + carga + "'";
-        sql = sql + " repeticao = '" + repeticao + "'";
-        sql = sql + " serie = '" + serie + "'";
+        if(idExercicio.equals("")== true){sql = sql + " idExercicio = '" + idExercicio + "'";}
+        if(carga!= 0){sql = sql + " carga = '" + carga + "'";}
+        if(repeticao.equals("")== true){sql = sql + " repeticao = '" + repeticao + "'";}
+        if(serie.equals("")== true){sql = sql + " serie = '" + serie + "'";}
         sql = sql + " WHERE idFicha = " + CodigoFicha + ";";
         
        try{
@@ -93,9 +102,10 @@ public class FichaDAO {
         } 
     }
     
-    public int Delete(int CodigoFicha, int idExercicio){
-        sql = "DELETE FROM ficha WHERE idFicha = " + CodigoFicha + ";";
-        //sql = "DELETE FROM ficha WHERE idExercico = " + idExercicio + ";";
+    public int Delete(String CodigoFicha, String idExercicio){
+        sql = "DELETE FROM ficha, " +
+                   " WHERE idFicha     = '" + CodigoFicha + "', " +
+                     " AND idExercicio;= '" + idExercicio + "';";
         
         try{
             ps = con.prepareStatement(sql);
@@ -107,7 +117,7 @@ public class FichaDAO {
         }
     }
     
-   /* public void PreencherTabela(JTable modeloTable,boolean Limpar){
+    public void PreencherTabela(JTable modeloTable,boolean Limpar){
         ResultSet rsTabela; 
         DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
         if (Limpar == true){ Val.setNumRows(0); }
@@ -158,7 +168,7 @@ public class FichaDAO {
         }catch (SQLException ex) {
             System.out.println(ex);   
         }return FichaList;
-    } */
+    } 
     
     public List <Ficha> read(){
         
@@ -170,18 +180,18 @@ public class FichaDAO {
         
         try {
             stmt = con.prepareStatement("SELECT \n" +
-                                        "c.`Nome` AS Nome, \n" +
-                                        "f.`carga` AS Carga, \n" +
-                                        "f.`repeticao` AS Repetições, \n" +
-                                        "f.`serie` AS Séries, \n" +
-                                        "e.`descExercicio` AS Exercicio, g.`descGrupo` AS 'Grupro Muscular' \n" +
+                                        "cadastro.Nome` AS Nome, \n" +
+                                        "ficha.carga` AS Carga, \n" +
+                                        "ficha.repeticao` AS Repetições, \n" +
+                                        "ficha.serie` AS Séries, \n" +
+                                        "exercicios.descExercicio` AS Exercicio, g.`descGrupo` AS 'Grupro Muscular' \n" +
                                         "FROM `ficha` f \n" +
                                         "INNER JOIN `cadastro` c \n" +
-                                        "ON f.`idFicha` = c.`idFicha` \n" +
+                                        "ON ficha.idFicha` = cadastro.idFicha` \n" +
                                         "INNER JOIN `exercicios` e \n" +
-                                        "ON f.`idExercicios` = e.`idExercicios` \n" +
+                                        "ON ficha.idExercicios` = exercicios.idExercicios` \n" +
                                         "INNER JOIN `gruposmusculares` g \n" +
-                                        "ON e.`idGrupos` = g.`idGrupos`\n" +
+                                        "ON exercicios.idGrupos` = g.`idGrupos`\n" +
                                         "ORDER BY g.`descGrupo`"); 
             rs = stmt.executeQuery();
             
@@ -223,18 +233,18 @@ public class FichaDAO {
         
          try {
             stmt = con.prepareStatement("SELECT \n" +
-                                        "c.`Nome` AS Nome, \n" +
-                                        "f.`carga` AS Carga, \n" +
-                                        "f.`repeticao` AS Repetições, \n" +
-                                        "f.`serie` AS Séries, \n" +
-                                        "e.`descExercicio` AS Exercicio, g.`descGrupo` AS 'Grupro Muscular' \n" +
+                                        "cadastro.Nome` AS Nome, \n" +
+                                        "ficha.carga` AS Carga, \n" +
+                                        "ficha.repeticao` AS Repetições, \n" +
+                                        "ficha.serie` AS Séries, \n" +
+                                        "exercicios.descExercicio` AS Exercicio, g.`descGrupo` AS 'Grupro Muscular' \n" +
                                         "FROM `ficha` f \n" +
                                         "INNER JOIN `cadastro` c \n" +
-                                        "ON f.`idFicha` = c.`idFicha` \n" +
-                                        "INNER JOIN `exercicios` e \n" +
-                                        "ON f.`idExercicios` = e.`idExercicios` \n" +
+                                        "ON ficha.idFicha` = cadastro.idFicha` \n" +
+                                        "INNER JOIN exercicios " +
+                                        "ON ficha.idExercicios` = exercicios.idExercicios` \n" +
                                         "INNER JOIN `gruposmusculares` g \n" +
-                                        "ON e.`idGrupos` = g.`idGrupos`\n" +
+                                        "ON exercicios.idGrupos` = g.`idGrupos`\n" +
                                         "ORDER BY g.`descGrupo`");
             stmt.setString(1, "%"+pesquisa+"%");
             rs = stmt.executeQuery();

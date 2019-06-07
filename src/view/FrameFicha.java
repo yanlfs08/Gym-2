@@ -33,6 +33,7 @@ public class FrameFicha extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/alt.png")).getImage());
         setResizable(false);
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(395, 297));
         jPanel1.setLayout(null);
 
         jbIncluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -83,7 +84,7 @@ public class FrameFicha extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Opções");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 20, 90, 32);
+        jLabel1.setBounds(10, 10, 90, 32);
 
         TableFicha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         TableFicha.setModel(new javax.swing.table.DefaultTableModel(
@@ -121,14 +122,14 @@ public class FrameFicha extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                .addGap(1, 1, 1))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("Exercicios");

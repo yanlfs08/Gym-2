@@ -13,7 +13,28 @@ import model.bean.Exercicios;
 import model.bean.GrupoMuscular;
 
 public class ExerciciosDAO {
-   
+    Connection con = ConnectionFactory.getConnection();
+    private PreparedStatement ps = null;
+    private String sql = null;
+    private ResultSet result = null;
+    public ResultSet Select(int CodigoExec) {
+        sql = "SELECT idExercicios,descExercicio,idGrupos " +
+               " FROM exercicios ";          
+        if (CodigoExec != 0 ) {
+            sql = sql + " WHERE idExercicios = '" + CodigoExec + "' ORDER BY idExercicios;";
+        }else{
+            sql = sql + " ORDER BY idExercicios;";
+        }
+        try{
+            ps = con.prepareStatement(sql);
+            result = ps.executeQuery(sql);
+            //Conexao.closeConnection();
+            return result;
+        }catch(SQLException u ){
+            System.out.println(u); 
+            return result;
+        }           
+    }
     public void Create (Exercicios E){
         
         Connection con = ConnectionFactory.getConnection();

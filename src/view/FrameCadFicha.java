@@ -3,6 +3,9 @@ package view;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.bean.Cadastro;
 import model.bean.Exercicios;
@@ -59,9 +62,8 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         jtfRepeticao = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jtfSerie = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jtfGrupoM = new javax.swing.JTextField();
 
+        setMinimumSize(new java.awt.Dimension(460, 351));
         setPreferredSize(new java.awt.Dimension(460, 351));
 
         JLTituloFicha.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -84,10 +86,13 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setMinimumSize(new java.awt.Dimension(385, 199));
+        jPanel1.setPreferredSize(new java.awt.Dimension(385, 199));
 
         jLabel3.setText("Nome:");
 
         jcbUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbUsuario.setPreferredSize(new java.awt.Dimension(180, 20));
         jcbUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbUsuarioActionPerformed(evt);
@@ -97,6 +102,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         jLabel1.setText("Exercício");
 
         jcbExercicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbExercicio.setPreferredSize(new java.awt.Dimension(180, 20));
         jcbExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbExercicioActionPerformed(evt);
@@ -109,37 +115,29 @@ public class FrameCadFicha extends javax.swing.JDialog  {
 
         jLabel7.setText("Serie");
 
-        jLabel8.setText("Grupo Muscular");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel7)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel1))
-                                .addGap(70, 70, 70)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jtfRepeticao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtfCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtfSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtfGrupoM, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jcbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jcbExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(28, Short.MAX_VALUE))))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))
+                        .addGap(70, 70, 70)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jtfRepeticao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtfCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtfSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jcbUsuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbExercicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(67, 67, 67))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,15 +158,11 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jtfRepeticao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jtfSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jtfGrupoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(111, 111, 111))
+                .addGap(137, 137, 137))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,7 +172,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLTituloFicha, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addComponent(JLTituloFicha, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,7 +191,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JLTituloFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtbConfirmar)
                     .addComponent(jtbCancelar))
@@ -205,8 +199,8 @@ public class FrameCadFicha extends javax.swing.JDialog  {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(36, 36, 36)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(37, 37, 37)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(42, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -216,7 +210,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
 
     private void jtbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConfirmarActionPerformed
 
-        String CodUsuario;
+        int CodUsuario;
         String idExercicio = null;
         String CodFicha = null;
         String Exercicio = null;
@@ -224,13 +218,36 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         String Repeticao = null;
         String Serie = null;
         String GrupoM;
+        String UsuAux;
         int OP = getTpOp();
+        
+        UsuAux = jcbUsuario.getModel().getSelectedItem().toString();
+        String[] CPFVet = UsuAux.split(" ");
+        UsuAux = CPFVet[0];
+        CodUsuario = Integer.parseInt(UsuAux);
+        ResultSet Sql  = null;        
 
         //Atualizar-Inserir
-        if (( OP == 1 ) || (OP == 2)){
-            if (jcbUsuario.getModel().getSelectedItem().toString().substring(0, 1).equalsIgnoreCase(CadForm.getCPF()) == false){
-                CodUsuario = jcbUsuario.getModel().getSelectedItem().toString().substring(0, 1);
+        if (( OP == 1 ) || (OP == 2)){            
+            try {
+                Sql = BuscarUsuario(CodUsuario,2);
+                Sql.first();
+                CodFicha = Sql.getString(8);
+            } catch (SQLException ex) {
+                Logger.getLogger(FrameCadFicha.class.getName()).log(Level.SEVERE, null, ex);
             }
+            if(CodFicha.equals("")){
+                Random gerador = new Random();
+                //gera id aleatorio
+                for (int i = 0; i < 1; i++) {
+                    CodFicha = String.valueOf(gerador.nextInt(5555));
+                }
+                RegAfct = IncluirFichaUsuario(CodUsuario, CodFicha);
+                if(RegAfct <= 0){
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o cadastro. \nContate o administrador.");
+                }
+            }
+            
             if (jtfCarga.getText().equalsIgnoreCase(String.valueOf(FichaForm.getCarga())) == false){
                 Carga = Double.parseDouble(jtfCarga.getText());
             }
@@ -240,11 +257,8 @@ public class FrameCadFicha extends javax.swing.JDialog  {
             if (jtfSerie.getText().equalsIgnoreCase(String.valueOf(FichaForm.getSerie())) == false){
                 Serie = jtfSerie.getText();
             }
-            if (jtfGrupoM.getText().equalsIgnoreCase(String.valueOf(GmForm.getDesc())) == false){
-                GrupoM = jtfGrupoM.getText();
-            }
             if (jcbExercicio.getModel().getSelectedItem().toString().substring(0, 1).equalsIgnoreCase(ExercForm.getdescExercicio()) == false){
-                Exercicio = jcbExercicio.getModel().getSelectedItem().toString().substring(0, 1);
+                idExercicio = jcbExercicio.getModel().getSelectedItem().toString().substring(0, 1);
             }
         }
         switch (OP){
@@ -266,6 +280,23 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 }
                 break;
             case 3: //Excluir
+                try {
+                    Sql.first();
+                    CodFicha = Sql.getString(8);
+                } catch (SQLException ex) {
+                    Logger.getLogger(FrameCadFicha.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if(CodFicha.equals("")){
+                    Random gerador = new Random();
+                    //gera id aleatorio
+                    for (int i = 0; i < 1; i++) {
+                        CodFicha = String.valueOf(gerador.nextInt(5555));
+                    }
+                    RegAfct = IncluirFichaUsuario(CodUsuario, null);
+                    if(RegAfct <= 0){
+                        JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o cadastro. \nContate o administrador.");
+                    }
+                }
                 RegAfct = DeletarFicha(CodFicha, idExercicio);
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
@@ -334,7 +365,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         TotalRegs = 0; 
         jcbExercicio.removeAllItems();
         try{
-            Sql = BuscarUsuario(0,2);
+            Sql = BuscarExercicio(0);
             Sql.last();
             TotalRegs = Sql.getRow();        
             Sql.first();
@@ -365,10 +396,14 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         PessoaDAO UsuTb = new PessoaDAO();     
         return UsuTb.Select(CPF,CodTpUsu);
     }
-    /*private static ResultSet BuscarExercicio(int CPF,int CodTpUsu){        
-        PessoaDAO UsuTb = new PessoaDAO();     
-        return UsuTb.Select(CPF,CodTpUsu);
-    }*/
+    private static int IncluirFichaUsuario(int CPF,String CodFicha){                      
+        PessoaDAO Tabela = new PessoaDAO();     
+        return Tabela.UpdateIdFicha(CPF, CodFicha);
+    }
+    private static ResultSet BuscarExercicio(int Exec){        
+        ExerciciosDAO ExeTb = new ExerciciosDAO();     
+        return ExeTb.Select(Exec);
+    }
     private void PreencherFormulario(int CodFicha){    
         FichaDAO FichaDB = new FichaDAO();     
         //ResultSet rsDadosForm = null; 
@@ -380,7 +415,6 @@ public class FrameCadFicha extends javax.swing.JDialog  {
             jtfCarga.setText(String.valueOf(FichaForm.getCarga()));
             jtfRepeticao.setText(String.valueOf(FichaForm.getRepeticao()));
             jtfSerie.setText(String.valueOf(FichaForm.getSerie()));
-            jtfGrupoM.setText(String.valueOf(GmForm.getDesc()));
         }
     }
     /*
@@ -459,14 +493,12 @@ public class FrameCadFicha extends javax.swing.JDialog  {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> jcbExercicio;
     private javax.swing.JComboBox<String> jcbUsuario;
     private javax.swing.JToggleButton jtbCancelar;
     private javax.swing.JToggleButton jtbConfirmar;
     private javax.swing.JTextField jtfCarga;
-    private javax.swing.JTextField jtfGrupoM;
     private javax.swing.JTextField jtfRepeticao;
     private javax.swing.JTextField jtfSerie;
     // End of variables declaration//GEN-END:variables

@@ -2,6 +2,9 @@
 
 <Form version="1.2" maxVersion="1.2" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[460, 351]"/>
+    </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[460, 351]"/>
     </Property>
@@ -27,7 +30,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="JLTituloFicha" alignment="0" pref="488" max="32767" attributes="0"/>
+                  <Component id="JLTituloFicha" alignment="0" pref="385" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jtbCancelar" min="-2" pref="95" max="-2" attributes="0"/>
@@ -52,7 +55,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="JLTituloFicha" min="-2" pref="21" max="-2" attributes="0"/>
-              <EmptySpace pref="286" max="32767" attributes="0"/>
+              <EmptySpace pref="211" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jtbConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtbCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -60,10 +63,10 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jPanel1" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="42" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -103,44 +106,41 @@
             <EtchetBorder/>
           </Border>
         </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[385, 199]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[385, 199]"/>
+        </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Component id="jtfRepeticao" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                                          <Component id="jtfCarga" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                                          <Component id="jtfSerie" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                                          <Component id="jtfGrupoM" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jcbUsuario" min="-2" pref="334" max="-2" attributes="0"/>
-                                      <Component id="jcbExercicio" min="-2" pref="334" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="jtfRepeticao" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jtfCarga" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jtfSerie" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jcbUsuario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jcbExercicio" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -167,17 +167,12 @@
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfRepeticao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="9" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfSerie" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfGrupoM" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -197,6 +192,9 @@
                 <StringItem index="2" value="Item 3"/>
                 <StringItem index="3" value="Item 4"/>
               </StringArray>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[180, 20]"/>
             </Property>
           </Properties>
           <Events>
@@ -220,6 +218,9 @@
                 <StringItem index="2" value="Item 3"/>
                 <StringItem index="3" value="Item 4"/>
               </StringArray>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[180, 20]"/>
             </Property>
           </Properties>
           <Events>
@@ -249,13 +250,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtfSerie">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Grupo Muscular"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfGrupoM">
         </Component>
       </SubComponents>
     </Container>

@@ -15,7 +15,7 @@ public class GrupoMuscularDAO {
     private PreparedStatement ps = null;
     private String sql = null;
     private ResultSet result = null;
-    public ResultSet select(int CodGrupMusc) {
+    public ResultSet Select(int CodGrupMusc) {
         sql = "SELECT * FROM gruposmusculares";              
         if (CodGrupMusc != 0 ) {
             sql = sql + " WHERE idGrupos  = " + CodGrupMusc + ";";
@@ -76,7 +76,7 @@ public class GrupoMuscularDAO {
         ResultSet rsTabela; 
         DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
         if (Limpar == true){ Val.setNumRows(0); }
-        rsTabela = select(0);
+        rsTabela = Select(0);
         if (rsTabela != null){
             try {                
                 while (rsTabela.next()){
@@ -93,7 +93,7 @@ public class GrupoMuscularDAO {
         GrupoMuscular GrupoMuscList = new GrupoMuscular();         
         ResultSet rsDadosForm = null;        
         try {
-            rsDadosForm = select(CodGrupMusc);
+            rsDadosForm = Select(CodGrupMusc);
             if (rsDadosForm.next()){
                 String codigo = rsDadosForm.getString(1);
                 String descricao = rsDadosForm.getString(2);

@@ -25,7 +25,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
     public FrameCadastroExercicios() {
         initComponents();
         ViewComboBox ();
-        readJTable();
+        //readJTable();
         
     }
     
@@ -39,7 +39,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         }
     }
     
-    public void readJTable (){
+    /*public void readJTable (){
         
         DefaultTableModel model = (DefaultTableModel) TableExercicios.getModel();
         
@@ -103,7 +103,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
             });
         }
         
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -120,8 +120,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         ComboGrupoMuscular = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         txtExercicio = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TableExercicios = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         labelGeradorID = new javax.swing.JLabel();
 
@@ -142,14 +141,14 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbCadastrarExercicio);
-        jbCadastrarExercicio.setBounds(256, 133, 83, 33);
+        jbCadastrarExercicio.setBounds(260, 140, 83, 33);
         jbCadastrarExercicio.getAccessibleContext().setAccessibleName("Atualizar ");
         jbCadastrarExercicio.getAccessibleContext().setAccessibleDescription("");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Exercício");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(44, 88, 60, 20);
+        jLabel2.setBounds(30, 50, 60, 30);
 
         ComboGrupoMuscular.setToolTipText("Grupo Muscular");
         ComboGrupoMuscular.addActionListener(new java.awt.event.ActionListener() {
@@ -158,13 +157,13 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ComboGrupoMuscular);
-        ComboGrupoMuscular.setBounds(126, 135, 112, 30);
+        ComboGrupoMuscular.setBounds(110, 90, 230, 30);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Cadastrar Exercícios");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(97, 27, 229, 32);
+        jLabel1.setBounds(80, 10, 229, 32);
 
         txtExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,44 +171,19 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtExercicio);
-        txtExercicio.setBounds(126, 85, 209, 30);
+        txtExercicio.setBounds(109, 50, 230, 30);
 
-        TableExercicios.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        TableExercicios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Exercicio", "Grp. Muscular"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(TableExercicios);
-        if (TableExercicios.getColumnModel().getColumnCount() > 0) {
-            TableExercicios.getColumnModel().getColumn(0).setMinWidth(30);
-            TableExercicios.getColumnModel().getColumn(0).setPreferredWidth(30);
-            TableExercicios.getColumnModel().getColumn(0).setMaxWidth(30);
-            TableExercicios.getColumnModel().getColumn(2).setMinWidth(100);
-            TableExercicios.getColumnModel().getColumn(2).setPreferredWidth(100);
-            TableExercicios.getColumnModel().getColumn(2).setMaxWidth(100);
-        }
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(44, 195, 342, 217);
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("Grupo");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(30, 90, 60, 30);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
         jLabel3.setMaximumSize(new java.awt.Dimension(430, 439));
         jLabel3.setMinimumSize(new java.awt.Dimension(430, 439));
         jLabel3.setPreferredSize(new java.awt.Dimension(430, 439));
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(0, 0, 430, 439);
+        jLabel3.setBounds(-10, -40, 430, 439);
 
         labelGeradorID.setForeground(new java.awt.Color(255, 255, 255));
         labelGeradorID.setText("jLabel3");
@@ -256,7 +230,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         edao.Create(e);
         
         txtExercicio.setText("");
-        readJTable();
+        //readJTable();
     }//GEN-LAST:event_jbCadastrarExercicioActionPerformed
 
     private void ComboGrupoMuscularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboGrupoMuscularActionPerformed
@@ -311,12 +285,11 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Object> ComboGrupoMuscular;
-    private javax.swing.JTable TableExercicios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbCadastrarExercicio;
     private javax.swing.JLabel labelGeradorID;
     private javax.swing.JTextField txtExercicio;

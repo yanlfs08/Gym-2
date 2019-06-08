@@ -2,11 +2,16 @@
 package view;
 
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.dao.FichaDAO;
+import model.dao.PDF;
+import static view.FrameAvaliacao.AvalBD;
 
 public class FrameFicha extends javax.swing.JFrame {
     static FichaDAO FichaBD = new FichaDAO();
+    static PDF PDFBD = new PDF();
     //Creates new form JFProduto  
     public FrameFicha() {
         initComponents();
@@ -24,6 +29,7 @@ public class FrameFicha extends javax.swing.JFrame {
         jbExcluir = new javax.swing.JButton();
         jbAtu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jbPDF = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableFicha = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -86,17 +92,32 @@ public class FrameFicha extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(10, 10, 90, 32);
 
+        jbPDF.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbPDF.setText("Exportar");
+        jbPDF.setToolTipText("Atualizar os dados da tabela");
+        jbPDF.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbPDF.setMaximumSize(new java.awt.Dimension(83, 25));
+        jbPDF.setMinimumSize(new java.awt.Dimension(83, 25));
+        jbPDF.setPreferredSize(new java.awt.Dimension(83, 25));
+        jbPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPDFActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbPDF);
+        jbPDF.setBounds(10, 180, 100, 30);
+
         TableFicha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         TableFicha.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Carga", "Repetição", "Serie", "Título 4"
+                "CPF", "Nome", "Exercício", "Repetição", "Série", "Carga"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -109,6 +130,12 @@ public class FrameFicha extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(TableFicha);
+        if (TableFicha.getColumnModel().getColumnCount() > 0) {
+            TableFicha.getColumnModel().getColumn(0).setMinWidth(0);
+            TableFicha.getColumnModel().getColumn(0).setPreferredWidth(0);
+            TableFicha.getColumnModel().getColumn(0).setMaxWidth(0);
+            TableFicha.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(120, 10, 470, 280);
@@ -149,7 +176,7 @@ public class FrameFicha extends javax.swing.JFrame {
             FichaBD.PreencherTabela(TableFicha,true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para alterar.");
-        };
+        }
     }//GEN-LAST:event_jbAtuActionPerformed
 
     
@@ -181,6 +208,18 @@ public class FrameFicha extends javax.swing.JFrame {
         new FrameCadFicha(true, 0, 2).setVisible(true);
         FichaBD.PreencherTabela(TableFicha, true);
     }//GEN-LAST:event_jbIncluirActionPerformed
+
+    private void jbPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPDFActionPerformed
+        int linha = TableFicha.getSelectedRow();
+            //Object ValorCampo = TableFicha.getModel().getValueAt(linha, 0);
+            //String CPF = String.valueOf((String) ValorCampo);
+            String CPF = (String) TableFicha.getModel().getValueAt(linha, 0);
+        try {
+            PDF.PDF(CPF);
+        } catch (Exception ex) {
+            Logger.getLogger(FrameFicha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jbPDFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,5 +267,6 @@ public class FrameFicha extends javax.swing.JFrame {
     private javax.swing.JButton jbAtu;
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbIncluir;
+    private javax.swing.JButton jbPDF;
     // End of variables declaration//GEN-END:variables
 }

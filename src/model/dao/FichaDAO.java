@@ -28,7 +28,8 @@ public class FichaDAO {
     public ResultSet select(int CodigoFicha,boolean relacionado) {
         if(relacionado){
             
-            sql = " SELECT cadastro.Nome AS Nome, " +
+            sql = " SELECT cadastro.CPF AS CPF, " +
+                         " cadastro.Nome AS Nome, " +
                          " ficha.carga AS Carga, " +
                          " ficha.repeticao AS Repeticoes, " +
                          " ficha.serie AS Series, " +
@@ -46,10 +47,10 @@ public class FichaDAO {
         }if (CodigoFicha != 0 ) {
             sql = sql + " WHERE idFicha = " + CodigoFicha + 
                         " ORDER BY ficha.idFicha, " +
-                                 " gruposmuscularesdescGrupo;";
+                                 " gruposmusculares.descGrupo;";
         }else{
             sql = sql + " ORDER BY ficha.idFicha, " +
-                                 " gruposmuscularesdescGrupo;";
+                                 " gruposmusculares.descGrupo;";
         }
         try{
             ps = con.prepareStatement(sql);
@@ -65,8 +66,8 @@ public class FichaDAO {
     public Boolean Insert(String CodigoFicha,String idExercicio,double carga,String repeticao,String serie){
         
         sql = "INSERT INTO ficha(idFicha,idExercicios,carga,repeticao,serie)"
-                +" VALUES(" + CodigoFicha + ",'" + idExercicio + "'," + carga + ",'" 
-                            + repeticao +"','" + serie + "');";
+                +" VALUES('" + CodigoFicha + "','" + idExercicio + "'," + carga + "," +
+                         "'" + repeticao +"','" + serie + "');";
         try{
             ps = con.prepareStatement(sql);
             result = ps.executeQuery(sql);
@@ -125,14 +126,15 @@ public class FichaDAO {
         if (rsTabela != null){
             try {                
                 while (rsTabela.next()){
+                    String CPF = rsTabela.getString("CPF");
                     String Nome = rsTabela.getString("Nome");
-                    String Exercicio = rsTabela.getString("descExercicio");
-                    String Carga = rsTabela.getString("carga");
-                    String Repetições = rsTabela.getString("repeticao");
-                    String Serie = rsTabela.getString("serie");
-                    String GrupoMuscular = rsTabela.getString("descGrupo");
+                    String Exercicio = rsTabela.getString("Exercicio");
+                    String Repetições = rsTabela.getString("Repeticoes");
+                    String Serie = rsTabela.getString("Series");
+                    String Carga = rsTabela.getString("Carga");
+                    String GrupoMuscular = rsTabela.getString("GrupoMuscular");
 
-                    Val.addRow(new String[] {Nome, Exercicio, Carga, Repetições, Serie, GrupoMuscular });
+                    Val.addRow(new String[] {CPF, Nome, Exercicio, Carga, Repetições, Serie, GrupoMuscular });
                 }          
             } catch (SQLException ex) {
                 System.err.println(ex);   

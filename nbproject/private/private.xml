@@ -12,9 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lucas/Gym-2/src/view/FrameAvaliacao.java</file>
-            <file>file:/C:/Users/lucas/Gym-2/src/view/FrameFicha.java</file>
-            <file>file:/C:/Users/lucas/Gym-2/src/view/FrameExercicios.java</file>
+            <file>file:/C:/Users/GH/Documents/NetBeansProjects/Gym-2/src/view/FrameCadFicha.java</file>
+            <file>file:/C:/Users/GH/Documents/NetBeansProjects/Gym-2/src/view/FrameFicha.java</file>
+            <file>file:/C:/Users/GH/Documents/NetBeansProjects/Gym-2/src/model/dao/FichaDAO.java</file>
+            <file>file:/C:/Users/GH/Documents/NetBeansProjects/Gym-2/src/model/dao/PessoaDAO.java</file>
         </group>
     </open-files>
 </project-private>

@@ -76,18 +76,10 @@ public class FrameExercicios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jbCadastrar = new javax.swing.JButton();
+        jbIncluir = new javax.swing.JButton();
         jbExcluir = new javax.swing.JButton();
-        jbAtualizarTabela = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jbPesquisar = new javax.swing.JButton();
-        txtDecGrupoMuscular = new javax.swing.JTextField();
         jbAtu = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        txtExercicio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableExercicios = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -99,17 +91,17 @@ public class FrameExercicios extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        jbCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbCadastrar.setText("Cadastrar");
-        jbCadastrar.setToolTipText("Atualizar os dados da tabela");
-        jbCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        jbIncluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbIncluir.setText("Incluir");
+        jbIncluir.setToolTipText("Atualizar os dados da tabela");
+        jbIncluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCadastrarActionPerformed(evt);
+                jbIncluirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbCadastrar);
-        jbCadastrar.setBounds(30, 210, 83, 33);
+        jPanel1.add(jbIncluir);
+        jbIncluir.setBounds(10, 70, 90, 33);
 
         jbExcluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbExcluir.setText("Excluir");
@@ -124,57 +116,7 @@ public class FrameExercicios extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbExcluir);
-        jbExcluir.setBounds(30, 330, 81, 33);
-
-        jbAtualizarTabela.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbAtualizarTabela.setText("Atualizar");
-        jbAtualizarTabela.setToolTipText("Atualizar os dados da tabela");
-        jbAtualizarTabela.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbAtualizarTabela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAtualizarTabelaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbAtualizarTabela);
-        jbAtualizarTabela.setBounds(30, 390, 79, 33);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Grupo Muscular");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(80, 130, 106, 20);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Exercício");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(130, 90, 60, 20);
-
-        jbPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbPesquisar.setText("Pesquisar");
-        jbPesquisar.setToolTipText("Pesquisar por exercicio ou grupo muscular");
-        jbPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbPesquisarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbPesquisar);
-        jbPesquisar.setBounds(520, 130, 83, 33);
-
-        txtDecGrupoMuscular.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtDecGrupoMuscularMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtDecGrupoMuscularMouseEntered(evt);
-            }
-        });
-        txtDecGrupoMuscular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDecGrupoMuscularActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtDecGrupoMuscular);
-        txtDecGrupoMuscular.setBounds(200, 130, 285, 30);
+        jbExcluir.setBounds(10, 170, 90, 33);
 
         jbAtu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbAtu.setText("Alterar");
@@ -189,39 +131,17 @@ public class FrameExercicios extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbAtu);
-        jbAtu.setBounds(30, 270, 83, 33);
+        jbAtu.setBounds(10, 120, 90, 33);
         jbAtu.getAccessibleContext().setAccessibleName("Atualizar ");
         jbAtu.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("ID");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(40, 90, 14, 20);
-
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Exercícios");
+        jLabel1.setText("Opções");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(300, 30, 113, 32);
+        jLabel1.setBounds(10, 20, 84, 32);
 
-        txtID.setEnabled(false);
-        txtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtID);
-        txtID.setBounds(70, 90, 43, 30);
-
-        txtExercicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtExercicioMouseClicked(evt);
-            }
-        });
-        jPanel1.add(txtExercicio);
-        txtExercicio.setBounds(200, 90, 285, 30);
-
-        TableExercicios.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        TableExercicios.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TableExercicios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -254,7 +174,7 @@ public class FrameExercicios extends javax.swing.JFrame {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(140, 210, 470, 217);
+        jScrollPane1.setBounds(110, 10, 470, 280);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
         jPanel1.add(jLabel5);
@@ -264,11 +184,11 @@ public class FrameExercicios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleDescription("Exercicios");
@@ -283,33 +203,16 @@ public class FrameExercicios extends javax.swing.JFrame {
         ue.setVisible(true);
     }//GEN-LAST:event_jbAtuActionPerformed
 
-    private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
-       
-        if("".equals(txtExercicio.getText())){
-        
-            readPesquisadescGrupo(txtDecGrupoMuscular.getText());
-            
-        }else{
-            readPesquisa(txtExercicio.getText());
-        }
-    }//GEN-LAST:event_jbPesquisarActionPerformed
-
     private void TableExerciciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableExerciciosMouseClicked
         
         int linha = TableExercicios.getSelectedRow();
-        
+        /*
         txtID.setText(TableExercicios.getValueAt(linha,0).toString());
         txtExercicio.setText(TableExercicios.getValueAt(linha,1).toString());
         txtDecGrupoMuscular.setText(TableExercicios.getValueAt(linha,2).toString());
         txtDecGrupoMuscular.setEnabled(false);
+        */
     }//GEN-LAST:event_TableExerciciosMouseClicked
-
-    private void jbAtualizarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAtualizarTabelaActionPerformed
-        readJTable();
-        txtID.setText("");
-        txtExercicio.setText("");
-        txtDecGrupoMuscular.setText("");
-    }//GEN-LAST:event_jbAtualizarTabelaActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
         
@@ -321,36 +224,18 @@ public class FrameExercicios extends javax.swing.JFrame {
         edao.Delete(e);
         
         readJTable();
+        /*
         txtID.setText("");
         txtExercicio.setText("");
         txtDecGrupoMuscular.setText("");
+        */
     }//GEN-LAST:event_jbExcluirActionPerformed
 
-    private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
+    private void jbIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIncluirActionPerformed
         
         FrameCadastroExercicios ce = new FrameCadastroExercicios();
         ce.setVisible(true);
-    }//GEN-LAST:event_jbCadastrarActionPerformed
-
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDActionPerformed
-
-    private void txtDecGrupoMuscularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDecGrupoMuscularActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDecGrupoMuscularActionPerformed
-
-    private void txtDecGrupoMuscularMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDecGrupoMuscularMouseEntered
-        txtDecGrupoMuscular.setEnabled(true);
-    }//GEN-LAST:event_txtDecGrupoMuscularMouseEntered
-
-    private void txtExercicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtExercicioMouseClicked
-        txtDecGrupoMuscular.setText("");
-    }//GEN-LAST:event_txtExercicioMouseClicked
-
-    private void txtDecGrupoMuscularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDecGrupoMuscularMouseClicked
-        txtExercicio.setText("");
-    }//GEN-LAST:event_txtDecGrupoMuscularMouseClicked
+    }//GEN-LAST:event_jbIncluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,19 +275,11 @@ public class FrameExercicios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableExercicios;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAtu;
-    private javax.swing.JButton jbAtualizarTabela;
-    private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbExcluir;
-    private javax.swing.JButton jbPesquisar;
-    private javax.swing.JTextField txtDecGrupoMuscular;
-    private javax.swing.JTextField txtExercicio;
-    private javax.swing.JTextField txtID;
+    private javax.swing.JButton jbIncluir;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,7 +21,8 @@ public class PessoaDAO {
                     " cadastro.DtNasc, " +
                     " cadastro.Telefone," +
                     " cadastro.Email,"+
-                    " cadastro.Senha"+
+                    " cadastro.Senha,"+
+                    " cadastro.idFicha"+
                " FROM cadastro" +
               " INNER JOIN tiposusuarios" +
                  " ON cadastro.idTipoUsuarios = tiposusuarios.idTipoUsuarios" +
@@ -83,6 +84,23 @@ public class PessoaDAO {
         if(Email.equals("")!= true){sql = sql + "Email = '" + Email +"',";}
         if(Senha.equals("")!= true){sql = sql + "Senha = '" + Senha +"',";}
       
+        sql = sql.substring(0, sql.length()-1);
+        sql = sql + " Where CPF = " + CPF + ";";
+        try{
+            ps = con.prepareStatement(sql);  
+            RegAft = ps.executeUpdate(sql);
+            //Conexao.closeConnection();
+            return RegAft;
+        }catch(SQLException u ){
+            System.out.println(u);
+            return RegAft;        
+        }
+    }
+    public int UpdateIdFicha(int CPF,String CodIdFicha) {
+        int RegAft = 0;
+    
+        sql = "UPDATE cadastro SET ";
+        sql = sql + "idFicha = '" + CodIdFicha +"'";      
         sql = sql.substring(0, sql.length()-1);
         sql = sql + " Where CPF = " + CPF + ";";
         try{

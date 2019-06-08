@@ -224,7 +224,7 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
     }
     private static ResultSet BuscarTpPgto(int CodTPPgto){        
         GrupoMuscularDAO Tabela = new GrupoMuscularDAO();     
-        return Tabela.select(CodTPPgto);
+        return Tabela.Select(CodTPPgto);
     }
     private void PreencherFormulario(int CodTPPgto){    
         GrupoMuscularDAO GropuMuscDB = new GrupoMuscularDAO();     

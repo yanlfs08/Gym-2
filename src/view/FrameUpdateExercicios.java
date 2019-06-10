@@ -129,7 +129,7 @@ public class FrameUpdateExercicios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Exercicio", "Grp. Muscular"
+                "ID", "Exercício", "Grp. Muscular"
             }
         ) {
             Class[] types = new Class [] {

@@ -65,7 +65,6 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         jPanel3.setLayout(null);
 
         jtbConfirmar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jtbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jtbConfirmar.setText("Confirmar");
         jtbConfirmar.setName("JTBConfirmar"); // NOI18N
         jtbConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +76,6 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         jtbConfirmar.setBounds(70, 310, 120, 35);
 
         jtbCancelar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jtbCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jtbCancelar.setText("Cancelar");
         jtbCancelar.setName("JTBCancelar"); // NOI18N
         jtbCancelar.addActionListener(new java.awt.event.ActionListener() {

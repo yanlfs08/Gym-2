@@ -182,7 +182,7 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
     private void lbExercicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExercicioMouseEntered
         lbExercicio.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(192, 57, 43), new java.awt.Color(192, 57, 43)));
         lbExercicio.setBounds(435, 80, 139, 130);
-        lbMenu2.setText("Exercicios");
+        lbMenu2.setText("Exercícios");
     }//GEN-LAST:event_lbExercicioMouseEntered
 
     private void lbExercicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExercicioMouseExited
@@ -193,7 +193,7 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
     private void lbUserIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbUserIconMouseEntered
         lbUserIcon.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(192, 57, 43), new java.awt.Color(192, 57, 43))); 
         lbUserIcon.setBounds(250, 85, 139, 130);
-        lbMenu1.setText("Usuarios");
+        lbMenu1.setText("Usuários");
     }//GEN-LAST:event_lbUserIconMouseEntered
 
     private void lbUserIconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbUserIconMouseExited
@@ -215,7 +215,7 @@ public class FramePrincipalMedico extends javax.swing.JFrame {
     private void lbAvaliaçãoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAvaliaçãoMouseEntered
         lbAvaliação.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
         lbAvaliação.setBounds(432, 255, 140, 130);
-        lbMenu4.setText("Avaliacoes");
+        lbMenu4.setText("Avaliações");
     }//GEN-LAST:event_lbAvaliaçãoMouseEntered
 
     private void lbAvaliaçãoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAvaliaçãoMouseExited

@@ -89,7 +89,6 @@ public class FrameRecSenha extends javax.swing.JFrame {
 
         jbRecuperarSenha.setBackground(new java.awt.Color(157, 216, 219));
         jbRecuperarSenha.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jbRecuperarSenha.setForeground(new java.awt.Color(240, 240, 240));
         jbRecuperarSenha.setText("RECUPERAR SENHA");
         jbRecuperarSenha.setBorder(null);
         jbRecuperarSenha.setBorderPainted(false);
@@ -112,7 +111,6 @@ public class FrameRecSenha extends javax.swing.JFrame {
 
         jbRecuperarSenha1.setBackground(new java.awt.Color(157, 216, 219));
         jbRecuperarSenha1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jbRecuperarSenha1.setForeground(new java.awt.Color(240, 240, 240));
         jbRecuperarSenha1.setText("VOLTAR");
         jbRecuperarSenha1.setBorder(null);
         jbRecuperarSenha1.setBorderPainted(false);

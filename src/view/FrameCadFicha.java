@@ -64,7 +64,6 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         jtfSerie = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(460, 351));
-        setPreferredSize(new java.awt.Dimension(460, 351));
 
         JLTituloFicha.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         JLTituloFicha.setText("Cadastro de Ficha");

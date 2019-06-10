@@ -176,7 +176,7 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o tipo de pessoa. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o Grupo Muscular. \nContate o administrador.");
                 }
                 break;
             case 2: //Inserir
@@ -184,7 +184,7 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
                 if(ExecSucess == true){
                     JOptionPane.showMessageDialog(null, "Inclusão realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao inserir o tipo de pessoa. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao inserir o Grupo Muscular. \nContate o administrador.");
                 }
                 break;
             case 3: //Excluir
@@ -192,7 +192,7 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o tipo de pessoa. \nContate o administrador.");
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o Grupo Muscular. \nContate o administrador.");
                 }
                 break;
             case 0: 

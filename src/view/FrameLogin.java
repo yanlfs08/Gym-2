@@ -214,10 +214,10 @@ public class FrameLogin extends javax.swing.JFrame {
                     }
                     } catch (SQLException ex) {
 
-                        JOptionPane.showMessageDialog(null, "Erro ao verificar Usuario " + ex);   
+                        JOptionPane.showMessageDialog(null, "Erro ao verificar Usuário " + ex);   
                     }                        
             }else{
-            JOptionPane.showMessageDialog(rootPane, "Login e/ou senha invalidos!");
+            JOptionPane.showMessageDialog(rootPane, "Login e/ou senha inválidos!");
             }
         }
     }//GEN-LAST:event_txtSenhaKeyPressed
@@ -297,10 +297,10 @@ public class FrameLogin extends javax.swing.JFrame {
                     }
                     } catch (SQLException ex) {
 
-                        JOptionPane.showMessageDialog(null, "Erro ao verificar Usuario " + ex);   
+                        JOptionPane.showMessageDialog(null, "Erro ao verificar Usuário " + ex);   
                     }                        
             }else{
-            JOptionPane.showMessageDialog(rootPane, "CPF e/ou senha invalidos!");
+            JOptionPane.showMessageDialog(rootPane, "CPF e/ou senha inválidos!");
             }
         
     }//GEN-LAST:event_jbLoginActionPerformed

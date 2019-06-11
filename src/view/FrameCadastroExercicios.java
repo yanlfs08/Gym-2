@@ -121,6 +121,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtExercicio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jtbCancelar = new javax.swing.JToggleButton();
         jLabel3 = new javax.swing.JLabel();
         labelGeradorID = new javax.swing.JLabel();
 
@@ -129,19 +130,23 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(369, 200));
+        jPanel1.setMinimumSize(new java.awt.Dimension(369, 200));
         jPanel1.setLayout(null);
 
-        jbCadastrarExercicio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbCadastrarExercicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbCadastrarExercicio.setText("Cadastrar");
         jbCadastrarExercicio.setToolTipText("Cadastrar Exercicio");
         jbCadastrarExercicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbCadastrarExercicio.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbCadastrarExercicio.setMinimumSize(new java.awt.Dimension(100, 30));
         jbCadastrarExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCadastrarExercicioActionPerformed(evt);
             }
         });
         jPanel1.add(jbCadastrarExercicio);
-        jbCadastrarExercicio.setBounds(260, 140, 83, 33);
+        jbCadastrarExercicio.setBounds(130, 140, 100, 30);
         jbCadastrarExercicio.getAccessibleContext().setAccessibleName("Atualizar ");
         jbCadastrarExercicio.getAccessibleContext().setAccessibleDescription("");
 
@@ -178,12 +183,26 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(30, 90, 60, 30);
 
+        jtbCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jtbCancelar.setText("Cancelar");
+        jtbCancelar.setToolTipText("Cancelar operação");
+        jtbCancelar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbCancelar.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbCancelar.setName("JTBCancelar"); // NOI18N
+        jtbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtbCancelar);
+        jtbCancelar.setBounds(240, 140, 100, 30);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
-        jLabel3.setMaximumSize(new java.awt.Dimension(430, 439));
-        jLabel3.setMinimumSize(new java.awt.Dimension(430, 439));
-        jLabel3.setPreferredSize(new java.awt.Dimension(430, 439));
+        jLabel3.setMaximumSize(new java.awt.Dimension(369, 200));
+        jLabel3.setMinimumSize(new java.awt.Dimension(369, 200));
+        jLabel3.setPreferredSize(new java.awt.Dimension(369, 200));
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(-10, -40, 430, 439);
+        jLabel3.setBounds(0, 0, 369, 200);
 
         labelGeradorID.setForeground(new java.awt.Color(255, 255, 255));
         labelGeradorID.setText("jLabel3");
@@ -194,11 +213,17 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         getAccessibleContext().setAccessibleDescription("Exercicios");
@@ -240,6 +265,10 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
     private void txtExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExercicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtExercicioActionPerformed
+
+    private void jtbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_jtbCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,6 +320,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbCadastrarExercicio;
+    private javax.swing.JToggleButton jtbCancelar;
     private javax.swing.JLabel labelGeradorID;
     private javax.swing.JTextField txtExercicio;
     // End of variables declaration//GEN-END:variables

@@ -29,8 +29,12 @@ public class FramePessoa extends javax.swing.JFrame {
         lbBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(550, 300));
+        setMinimumSize(new java.awt.Dimension(550, 300));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(700, 480));
+        jPanel1.setMaximumSize(new java.awt.Dimension(550, 300));
+        jPanel1.setMinimumSize(new java.awt.Dimension(550, 300));
+        jPanel1.setPreferredSize(new java.awt.Dimension(550, 300));
         jPanel1.setLayout(null);
 
         jtbInfoPessoas.setModel(new javax.swing.table.DefaultTableModel(
@@ -52,53 +56,68 @@ public class FramePessoa extends javax.swing.JFrame {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(170, 120, 500, 275);
+        jScrollPane1.setBounds(120, 10, 420, 280);
 
+        jtbExcluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbExcluir.setText("Excluir");
+        jtbExcluir.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbExcluir.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbExcluir.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbExcluirActionPerformed(evt);
             }
         });
         jPanel1.add(jtbExcluir);
-        jtbExcluir.setBounds(5, 232, 160, 38);
+        jtbExcluir.setBounds(10, 130, 100, 30);
 
+        jtbIncluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbIncluir.setText("Incluir");
+        jtbIncluir.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbIncluir.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbIncluir.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbIncluirActionPerformed(evt);
             }
         });
         jPanel1.add(jtbIncluir);
-        jtbIncluir.setBounds(5, 120, 160, 38);
+        jtbIncluir.setBounds(10, 50, 100, 30);
 
+        jtbAlterar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbAlterar.setText("Alterar");
+        jtbAlterar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbAlterar.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbAlterar.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbAlterarActionPerformed(evt);
             }
         });
         jPanel1.add(jtbAlterar);
-        jtbAlterar.setBounds(5, 176, 160, 38);
+        jtbAlterar.setBounds(10, 90, 100, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Usuários");
+        jLabel1.setText("Opções");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(50, 60, 78, 36);
+        jLabel1.setBounds(20, 10, 78, 36);
 
         lbBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
+        lbBackGround.setMaximumSize(new java.awt.Dimension(550, 300));
+        lbBackGround.setMinimumSize(new java.awt.Dimension(550, 300));
+        lbBackGround.setPreferredSize(new java.awt.Dimension(550, 300));
         jPanel1.add(lbBackGround);
-        lbBackGround.setBounds(0, 0, 700, 480);
+        lbBackGround.setBounds(0, 0, 550, 300);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

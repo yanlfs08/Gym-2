@@ -56,29 +56,39 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
 
         setResizable(false);
 
+        jtbCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbCancelar.setText("Cancelar");
+        jtbCancelar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbCancelar.setMinimumSize(new java.awt.Dimension(100, 30));
         jtbCancelar.setName("JTBCancelar"); // NOI18N
+        jtbCancelar.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbCancelarActionPerformed(evt);
             }
         });
 
+        jtbConfirmar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbConfirmar.setText("Confirmar");
+        jtbConfirmar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbConfirmar.setMinimumSize(new java.awt.Dimension(100, 30));
         jtbConfirmar.setName("JTBConfirmar"); // NOI18N
+        jtbConfirmar.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbConfirmarActionPerformed(evt);
             }
         });
 
-        JLTituloGereciamentoProd.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        JLTituloGereciamentoProd.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         JLTituloGereciamentoProd.setText("Cadastro de Avaliações");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Código:");
 
+        jcbUsuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jcbUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jcbUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,22 +96,37 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
             }
         });
 
+        jtfCodigoAval.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jtfCodigoAval.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfCodigoAvalActionPerformed(evt);
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Cliente:");
 
+        jtfPeso.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Peso:");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Altura:");
 
+        jtfAltura.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        jtfIMC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("IMC:");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Gordura:");
 
+        jtfGordCorp.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("%");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -177,18 +202,17 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JLTituloGereciamentoProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(JLTituloGereciamentoProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,12 +220,12 @@ public class FrameCadAvaliacao extends javax.swing.JDialog  {
                 .addContainerGap()
                 .addComponent(JLTituloGereciamentoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtbCancelar)
-                    .addComponent(jtbConfirmar))
-                .addContainerGap())
+                    .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

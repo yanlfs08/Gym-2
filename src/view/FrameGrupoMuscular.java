@@ -24,30 +24,43 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Opções");
 
+        jtbAlterar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbAlterar.setText("Alterar");
+        jtbAlterar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbAlterar.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbAlterar.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbAlterarActionPerformed(evt);
             }
         });
 
+        jtbIncluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbIncluir.setText("Incluir");
+        jtbIncluir.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbIncluir.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbIncluir.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbIncluirActionPerformed(evt);
             }
         });
 
+        jtbExcluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbExcluir.setText("Excluir");
+        jtbExcluir.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbExcluir.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbExcluir.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbExcluirActionPerformed(evt);
             }
         });
 
+        jtbInfoTpPgto.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jtbInfoTpPgto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -63,12 +76,13 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addComponent(jtbIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtbAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtbExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jtbIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -81,11 +95,11 @@ public class FrameGrupoMuscular extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtbIncluir)
+                        .addComponent(jtbIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtbAlterar)
+                        .addComponent(jtbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtbExcluir))
+                        .addComponent(jtbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))

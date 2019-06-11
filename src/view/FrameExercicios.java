@@ -87,59 +87,72 @@ public class FrameExercicios extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Exercicios");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/alt.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(469, 250));
+        setMinimumSize(new java.awt.Dimension(469, 250));
+        setPreferredSize(new java.awt.Dimension(469, 250));
         setResizable(false);
 
+        jPanel1.setMaximumSize(new java.awt.Dimension(469, 250));
+        jPanel1.setMinimumSize(new java.awt.Dimension(469, 250));
+        jPanel1.setPreferredSize(new java.awt.Dimension(469, 250));
         jPanel1.setLayout(null);
 
-        jbIncluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbIncluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbIncluir.setText("Incluir");
         jbIncluir.setToolTipText("Atualizar os dados da tabela");
         jbIncluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbIncluir.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbIncluir.setMinimumSize(new java.awt.Dimension(100, 30));
+        jbIncluir.setPreferredSize(new java.awt.Dimension(100, 30));
         jbIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbIncluirActionPerformed(evt);
             }
         });
         jPanel1.add(jbIncluir);
-        jbIncluir.setBounds(10, 70, 90, 33);
+        jbIncluir.setBounds(10, 50, 100, 30);
 
-        jbExcluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbExcluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbExcluir.setText("Excluir");
         jbExcluir.setToolTipText("Atualizar os dados da tabela");
         jbExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbExcluir.setMaximumSize(new java.awt.Dimension(83, 25));
-        jbExcluir.setMinimumSize(new java.awt.Dimension(83, 25));
-        jbExcluir.setPreferredSize(new java.awt.Dimension(83, 25));
+        jbExcluir.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbExcluir.setMinimumSize(new java.awt.Dimension(100, 30));
+        jbExcluir.setPreferredSize(new java.awt.Dimension(100, 30));
         jbExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbExcluirActionPerformed(evt);
             }
         });
         jPanel1.add(jbExcluir);
-        jbExcluir.setBounds(10, 170, 90, 33);
+        jbExcluir.setBounds(10, 130, 100, 30);
 
-        jbAtu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbAtu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbAtu.setText("Alterar");
         jbAtu.setToolTipText("Atualizar os dados da tabela");
         jbAtu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbAtu.setMaximumSize(new java.awt.Dimension(83, 25));
-        jbAtu.setMinimumSize(new java.awt.Dimension(83, 25));
-        jbAtu.setPreferredSize(new java.awt.Dimension(83, 25));
+        jbAtu.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbAtu.setMinimumSize(new java.awt.Dimension(100, 30));
+        jbAtu.setPreferredSize(new java.awt.Dimension(100, 30));
         jbAtu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAtuActionPerformed(evt);
             }
         });
         jPanel1.add(jbAtu);
-        jbAtu.setBounds(10, 120, 90, 33);
+        jbAtu.setBounds(10, 90, 100, 30);
         jbAtu.getAccessibleContext().setAccessibleName("Atualizar ");
         jbAtu.getAccessibleContext().setAccessibleDescription("");
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Opções");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 20, 84, 32);
+        jLabel1.setBounds(20, 10, 84, 32);
+
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(350, 280));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(350, 280));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(350, 280));
 
         TableExercicios.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TableExercicios.setModel(new javax.swing.table.DefaultTableModel(
@@ -174,21 +187,26 @@ public class FrameExercicios extends javax.swing.JFrame {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(110, 10, 470, 280);
+        jScrollPane1.setBounds(120, 10, 340, 230);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
+        jLabel5.setMaximumSize(new java.awt.Dimension(469, 250));
+        jLabel5.setMinimumSize(new java.awt.Dimension(469, 250));
+        jLabel5.setPreferredSize(new java.awt.Dimension(469, 250));
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 0, 670, 480);
+        jLabel5.setBounds(0, 0, 469, 250);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleDescription("Exercicios");

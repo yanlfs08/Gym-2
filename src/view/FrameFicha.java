@@ -46,6 +46,9 @@ public class FrameFicha extends javax.swing.JFrame {
         jbIncluir.setText("Incluir");
         jbIncluir.setToolTipText("Atualizar os dados da tabela");
         jbIncluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbIncluir.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbIncluir.setMinimumSize(new java.awt.Dimension(100, 30));
+        jbIncluir.setPreferredSize(new java.awt.Dimension(100, 30));
         jbIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbIncluirActionPerformed(evt);
@@ -58,9 +61,9 @@ public class FrameFicha extends javax.swing.JFrame {
         jbExcluir.setText("Excluir");
         jbExcluir.setToolTipText("Atualizar os dados da tabela");
         jbExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbExcluir.setMaximumSize(new java.awt.Dimension(83, 25));
-        jbExcluir.setMinimumSize(new java.awt.Dimension(83, 25));
-        jbExcluir.setPreferredSize(new java.awt.Dimension(83, 25));
+        jbExcluir.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbExcluir.setMinimumSize(new java.awt.Dimension(100, 30));
+        jbExcluir.setPreferredSize(new java.awt.Dimension(100, 30));
         jbExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbExcluirActionPerformed(evt);
@@ -73,9 +76,9 @@ public class FrameFicha extends javax.swing.JFrame {
         jbAtu.setText("Alterar");
         jbAtu.setToolTipText("Atualizar os dados da tabela");
         jbAtu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbAtu.setMaximumSize(new java.awt.Dimension(83, 25));
-        jbAtu.setMinimumSize(new java.awt.Dimension(83, 25));
-        jbAtu.setPreferredSize(new java.awt.Dimension(83, 25));
+        jbAtu.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbAtu.setMinimumSize(new java.awt.Dimension(100, 30));
+        jbAtu.setPreferredSize(new java.awt.Dimension(100, 30));
         jbAtu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAtuActionPerformed(evt);
@@ -87,18 +90,18 @@ public class FrameFicha extends javax.swing.JFrame {
         jbAtu.getAccessibleContext().setAccessibleDescription("");
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Opções");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 10, 90, 32);
+        jLabel1.setBounds(20, 20, 90, 32);
 
         jbPDF.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jbPDF.setText("Exportar");
         jbPDF.setToolTipText("Atualizar os dados da tabela");
         jbPDF.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbPDF.setMaximumSize(new java.awt.Dimension(83, 25));
-        jbPDF.setMinimumSize(new java.awt.Dimension(83, 25));
-        jbPDF.setPreferredSize(new java.awt.Dimension(83, 25));
+        jbPDF.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbPDF.setMinimumSize(new java.awt.Dimension(100, 30));
+        jbPDF.setPreferredSize(new java.awt.Dimension(100, 30));
         jbPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPDFActionPerformed(evt);

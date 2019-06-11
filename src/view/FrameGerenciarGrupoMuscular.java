@@ -35,38 +35,52 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
         jtfDescricao = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(520, 400));
+        setPreferredSize(new java.awt.Dimension(469, 300));
         setResizable(false);
 
+        jtbCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbCancelar.setText("Cancelar");
+        jtbCancelar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbCancelar.setMinimumSize(new java.awt.Dimension(100, 30));
         jtbCancelar.setName("JTBCancelar"); // NOI18N
+        jtbCancelar.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbCancelarActionPerformed(evt);
             }
         });
 
+        jtbConfirmar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbConfirmar.setText("Confirmar");
+        jtbConfirmar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbConfirmar.setMinimumSize(new java.awt.Dimension(100, 30));
         jtbConfirmar.setName("JTBConfirmar"); // NOI18N
+        jtbConfirmar.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbConfirmarActionPerformed(evt);
             }
         });
 
-        JLTituloGereciamentoPes.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        JLTituloGereciamentoPes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         JLTituloGereciamentoPes.setText("Gerenciamento de Grupo Muscular");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Código:");
 
+        jtfCodigoGrupo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtfCodigoGrupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfCodigoGrupoActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Descrição:");
+
+        jtfDescricao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,7 +95,7 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfCodigoGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 75, Short.MAX_VALUE))
+                .addGap(0, 66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +108,7 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(206, 206, 206))
+                .addGap(136, 136, 136))
         );
 
         jtfCodigoGrupo.getAccessibleContext().setAccessibleName("");
@@ -114,9 +128,9 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(14, 14, 14))))
         );
@@ -127,10 +141,10 @@ public class FrameGerenciarGrupoMuscular extends javax.swing.JDialog  {
                 .addComponent(JLTituloGereciamentoPes, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtbCancelar)
-                    .addComponent(jtbConfirmar))
+                    .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 

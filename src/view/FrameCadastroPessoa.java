@@ -57,34 +57,42 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         lbBackground = new javax.swing.JLabel();
         JLTituloGereciamentoPes = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(520, 400));
+        setMaximumSize(new java.awt.Dimension(469, 300));
+        setMinimumSize(new java.awt.Dimension(469, 300));
+        setPreferredSize(new java.awt.Dimension(469, 300));
         setResizable(false);
 
-        jPanel3.setMaximumSize(new java.awt.Dimension(487, 362));
-        jPanel3.setMinimumSize(new java.awt.Dimension(487, 362));
+        jPanel3.setMaximumSize(new java.awt.Dimension(469, 300));
+        jPanel3.setMinimumSize(new java.awt.Dimension(469, 300));
         jPanel3.setLayout(null);
 
-        jtbConfirmar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jtbConfirmar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
         jtbConfirmar.setText("Confirmar");
+        jtbConfirmar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbConfirmar.setMinimumSize(new java.awt.Dimension(100, 30));
         jtbConfirmar.setName("JTBConfirmar"); // NOI18N
+        jtbConfirmar.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbConfirmarActionPerformed(evt);
             }
         });
         jPanel3.add(jtbConfirmar);
-        jtbConfirmar.setBounds(70, 310, 120, 35);
+        jtbConfirmar.setBounds(220, 260, 100, 30);
 
-        jtbCancelar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jtbCancelar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
         jtbCancelar.setText("Cancelar");
+        jtbCancelar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbCancelar.setMinimumSize(new java.awt.Dimension(100, 30));
         jtbCancelar.setName("JTBCancelar"); // NOI18N
+        jtbCancelar.setPreferredSize(new java.awt.Dimension(100, 30));
         jtbCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbCancelarActionPerformed(evt);
             }
         });
         jPanel3.add(jtbCancelar);
-        jtbCancelar.setBounds(300, 310, 120, 35);
+        jtbCancelar.setBounds(330, 260, 100, 30);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -143,7 +151,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,7 +182,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                             .addComponent(jLabel4)
                             .addComponent(jLabel12)
                             .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,7 +198,7 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                                 .addComponent(jcbTipoPessoa, 0, 116, Short.MAX_VALUE))
                             .addComponent(jtfNome)
                             .addComponent(jtfEmail))
-                        .addGap(60, 60, 60))))
+                        .addGap(24, 24, 24))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,27 +225,27 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtfNome.getAccessibleContext().setAccessibleName("");
 
         jPanel3.add(jPanel1);
-        jPanel1.setBounds(16, 50, 450, 238);
+        jPanel1.setBounds(20, 40, 420, 210);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jLabel1.setText("Cadastro de Usuário");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(150, 10, 190, 30);
+        jLabel1.setBounds(150, 10, 190, 24);
 
         lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
-        lbBackground.setMaximumSize(new java.awt.Dimension(487, 362));
-        lbBackground.setMinimumSize(new java.awt.Dimension(487, 362));
-        lbBackground.setPreferredSize(new java.awt.Dimension(487, 362));
+        lbBackground.setMaximumSize(new java.awt.Dimension(469, 300));
+        lbBackground.setMinimumSize(new java.awt.Dimension(469, 300));
+        lbBackground.setPreferredSize(new java.awt.Dimension(469, 300));
         jPanel3.add(lbBackground);
-        lbBackground.setBounds(0, 0, 487, 362);
+        lbBackground.setBounds(0, 0, 469, 300);
 
         JLTituloGereciamentoPes.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         JLTituloGereciamentoPes.setText("Cadastro de Usuários");
@@ -248,11 +256,11 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         getAccessibleContext().setAccessibleName("Usuários");

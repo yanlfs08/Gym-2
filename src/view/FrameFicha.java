@@ -39,7 +39,6 @@ public class FrameFicha extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/alt.png")).getImage());
         setMaximumSize(null);
         setMinimumSize(null);
-        setPreferredSize(null);
         setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(395, 297));
@@ -119,11 +118,11 @@ public class FrameFicha extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CPF", "Nome", "Exercício", "Repetição", "Série", "Carga"
+                "CPF", "IdExec", "Nome", "Exercício", "Repetição", "Série", "Carga"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -140,7 +139,10 @@ public class FrameFicha extends javax.swing.JFrame {
             TableFicha.getColumnModel().getColumn(0).setMinWidth(0);
             TableFicha.getColumnModel().getColumn(0).setPreferredWidth(0);
             TableFicha.getColumnModel().getColumn(0).setMaxWidth(0);
-            TableFicha.getColumnModel().getColumn(5).setResizable(false);
+            TableFicha.getColumnModel().getColumn(1).setMinWidth(0);
+            TableFicha.getColumnModel().getColumn(1).setPreferredWidth(0);
+            TableFicha.getColumnModel().getColumn(1).setMaxWidth(0);
+            TableFicha.getColumnModel().getColumn(6).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1);
@@ -177,8 +179,10 @@ public class FrameFicha extends javax.swing.JFrame {
         if (TableFicha.getSelectedRowCount() != 0 ){
             int linha = TableFicha.getSelectedRow();
             Object ValorCampo = TableFicha.getModel().getValueAt(linha, 0);
-            int codFicha = Integer.valueOf((String) ValorCampo);
-            new FrameCadFicha( true, codFicha, 1).setVisible(true);
+            long codFicha = Long.valueOf((String) ValorCampo);
+            ValorCampo = TableFicha.getModel().getValueAt(linha, 1);
+            long codExec = Long.valueOf((String) ValorCampo);
+            new FrameCadFicha( true, codFicha, codExec, 1).setVisible(true);
             FichaBD.PreencherTabela(TableFicha,true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para alterar.");
@@ -201,8 +205,10 @@ public class FrameFicha extends javax.swing.JFrame {
        if (TableFicha.getSelectedRowCount() != 0 ){
             int linha = TableFicha.getSelectedRow();
             Object ValorCampo = TableFicha.getModel().getValueAt(linha, 0);
-            int codFicha = Integer.valueOf((String) ValorCampo);
-            new FrameCadFicha( true, codFicha, 3).setVisible(true);
+            long codFicha = Long.valueOf((String) ValorCampo);
+            ValorCampo = TableFicha.getModel().getValueAt(linha, 1);
+            long codExec = Long.valueOf((String) ValorCampo);
+            new FrameCadFicha( true, codFicha, codExec, 3).setVisible(true);
             FichaBD.PreencherTabela(TableFicha, true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para excluir.");
@@ -211,7 +217,7 @@ public class FrameFicha extends javax.swing.JFrame {
 
     private void jbIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIncluirActionPerformed
        
-        new FrameCadFicha(true, 0, 2).setVisible(true);
+        new FrameCadFicha(true, 0, 0, 2).setVisible(true);
         FichaBD.PreencherTabela(TableFicha, true);
     }//GEN-LAST:event_jbIncluirActionPerformed
 

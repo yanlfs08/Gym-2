@@ -25,13 +25,13 @@ public class FrameCadFicha extends javax.swing.JDialog  {
     Ficha FichaForm = new Ficha();
     GrupoMuscular GmForm = new GrupoMuscular();
 
-    public FrameCadFicha(boolean modal,int codFicha,int Op) {
+    public FrameCadFicha(boolean modal,long codFicha,long codExec,int Op) {
         initComponents();
         this.setModal(modal);
         CarregarCombos();
         setTpOp(Op);
         if(Op!=2){
-            PreencherFormulario(codFicha);
+            PreencherFormulario(codFicha,codExec);
         //}else{
         //    PreencherCodigo();
         }
@@ -61,6 +61,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         jtfRepeticao = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jtfSerie = new javax.swing.JTextField();
+        jtfFicha = new javax.swing.JTextField();
         jtbCancelar = new javax.swing.JToggleButton();
         lbBackGround2 = new javax.swing.JLabel();
 
@@ -134,6 +135,8 @@ public class FrameCadFicha extends javax.swing.JDialog  {
 
         jtfSerie.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        jtfFicha.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -155,6 +158,11 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                     .addComponent(jcbUsuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jcbExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(99, 99, 99)
+                    .addComponent(jtfFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(160, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,6 +188,11 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                     .addComponent(jLabel7)
                     .addComponent(jtfSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(137, 137, 137))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(245, Short.MAX_VALUE)
+                    .addComponent(jtfFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         getContentPane().add(jPanel1);
@@ -197,7 +210,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
             }
         });
         getContentPane().add(jtbCancelar);
-        jtbCancelar.setBounds(127, 239, 100, 30);
+        jtbCancelar.setBounds(120, 240, 100, 30);
 
         lbBackGround2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
         lbBackGround2.setMaximumSize(new java.awt.Dimension(450, 300));
@@ -214,31 +227,33 @@ public class FrameCadFicha extends javax.swing.JDialog  {
     private void jtbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConfirmarActionPerformed
 
         long CodUsuario;
-        String idExercicio = null;
-        String CodFicha = null;
-        String Exercicio = null;
+        String idExercicio = "";
+        String CodFicha = "";
+        String Exercicio = "";
         double Carga = 0;
-        String Repeticao = null;
-        String Serie = null;
-        String GrupoM;
-        String UsuAux;
+        String Repeticao = "";
+        String Serie = "";
+        String GrupoM = "";
+        String strAux = "";
         int OP = getTpOp();
         
-        UsuAux = jcbUsuario.getModel().getSelectedItem().toString();
-        String[] CPFVet = UsuAux.split(" ");
-        UsuAux = CPFVet[0];
-        CodUsuario = Long.parseLong(UsuAux);
+        strAux = jcbUsuario.getModel().getSelectedItem().toString();
+        String[] CPFVet = strAux.split(" ");
+        strAux = CPFVet[0];
+        CodUsuario = Long.parseLong(strAux);
         ResultSet Sql  = null;        
 
+        try {
+            Sql = BuscarUsuario(CodUsuario,2);
+            Sql.first();
+            CodFicha = Sql.getString(8);
+        } catch (SQLException ex) {
+            Logger.getLogger(FrameCadFicha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(CodFicha.equals("")){CodFicha = jtfFicha.getText();}
         //Atualizar-Inserir
         if (( OP == 1 ) || (OP == 2)){            
-            try {
-                Sql = BuscarUsuario(CodUsuario,2);
-                Sql.first();
-                CodFicha = Sql.getString(8);
-            } catch (SQLException ex) {
-                Logger.getLogger(FrameCadFicha.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
             if(CodFicha.equals("")){
                 Random gerador = new Random();
                 //gera id aleatorio
@@ -251,6 +266,10 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 }
             }
             
+            strAux= jcbExercicio.getModel().getSelectedItem().toString();
+            String[] ExecVet = strAux.split(" ");
+            idExercicio = ExecVet[0];
+
             if (jtfCarga.getText().equalsIgnoreCase(String.valueOf(FichaForm.getCarga())) == false){
                 Carga = Double.parseDouble(jtfCarga.getText());
             }
@@ -260,13 +279,10 @@ public class FrameCadFicha extends javax.swing.JDialog  {
             if (jtfSerie.getText().equalsIgnoreCase(String.valueOf(FichaForm.getSerie())) == false){
                 Serie = jtfSerie.getText();
             }
-            if (jcbExercicio.getModel().getSelectedItem().toString().substring(0, 1).equalsIgnoreCase(ExercForm.getdescExercicio()) == false){
-                idExercicio = jcbExercicio.getModel().getSelectedItem().toString().substring(0, 1);
-            }
         }
         switch (OP){
             case 1: //Atualizar
-                RegAfct = AtualizarFicha(CodFicha, Exercicio, Carga, Repeticao, Serie);
+                RegAfct = AtualizarFicha(CodFicha, idExercicio, Carga, Repeticao, Serie);
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
                 }else{
@@ -298,9 +314,12 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                     RegAfct = IncluirFichaUsuario(CodUsuario, null);
                     if(RegAfct <= 0){
                         JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o cadastro. \nContate o administrador.");
+                        break;
+                    }else{
+                        RegAfct = DeletarFicha(CodFicha, idExercicio);
                     }
                 }
-                RegAfct = DeletarFicha(CodFicha, idExercicio);
+                
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
                 }else{
@@ -407,26 +426,22 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         ExerciciosDAO ExeTb = new ExerciciosDAO();     
         return ExeTb.Select(Exec);
     }
-    private void PreencherFormulario(int CodFicha){    
+    private void PreencherFormulario(long CodFicha,long CodExec){    
         FichaDAO FichaDB = new FichaDAO();     
         //ResultSet rsDadosForm = null; 
         
-        FichaForm = FichaDB.CarregaDadosFormulario(CodFicha);
+        FichaForm = FichaDB.CarregaDadosFormulario(CodFicha,CodExec);
         if (FichaForm != null ){
-            jcbExercicio.setSelectedIndex(IndexValorCombo(ExercForm.getdescExercicio(),1));
-            jcbUsuario.setSelectedIndex(IndexValorCombo(CadForm.getNome(),1));
+            String cbExec = FichaForm.getIdExercicios()+" - "+ FichaForm.getExercicios();
+            String cbUsu = FichaForm.getCPF() +" - "+ FichaForm.getNome();
+            jcbExercicio.setSelectedIndex(IndexValorCombo(cbExec,2));
+            jcbUsuario.setSelectedIndex(IndexValorCombo(cbUsu,1));
             jtfCarga.setText(String.valueOf(FichaForm.getCarga()));
             jtfRepeticao.setText(String.valueOf(FichaForm.getRepeticao()));
             jtfSerie.setText(String.valueOf(FichaForm.getSerie()));
+            jtfFicha.setText(String.valueOf(FichaForm.getIdFicha()));
         }
     }
-    /*
-    private void PreencherCodigo(){
-        ComandDB Tabela = new ComandDB();     
-        jtfCodigoAval.setText(Tabela.GerarCodigo("Produto")); 
-        jtfCodigoAval.isDisplayable();
-    }
-    */
     private int IndexValorCombo(String Valor,int combo ){
         int totVal = 0;
         int indexVal = 0;
@@ -435,7 +450,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 totVal = jcbUsuario.getItemCount();
                 for (int i = 1;i < totVal; i++){
                     jcbUsuario.setSelectedIndex(i);
-                    if(jcbUsuario.getModel().getSelectedItem().toString().substring(0, 1).equalsIgnoreCase(Valor)==true){
+                    if(jcbUsuario.getModel().getSelectedItem().toString().equalsIgnoreCase(Valor)==true){
                        indexVal = i; 
                     }
                 }
@@ -444,7 +459,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 totVal = jcbExercicio.getItemCount();
                 for (int i = 1;i < totVal; i++){
                     jcbExercicio.setSelectedIndex(i);
-                    if(jcbExercicio.getModel().getSelectedItem().toString().substring(0, 1).equalsIgnoreCase(Valor)==true){
+                    if(jcbExercicio.getModel().getSelectedItem().toString().equalsIgnoreCase(Valor)==true){
                        indexVal = i; 
                     }
                 }
@@ -484,7 +499,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameCadFicha(true,0,0).setVisible(true);
+                new FrameCadFicha(true,0,0,0).setVisible(true);
             }
         });
     }
@@ -502,6 +517,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
     private javax.swing.JToggleButton jtbCancelar;
     private javax.swing.JToggleButton jtbConfirmar;
     private javax.swing.JTextField jtfCarga;
+    private javax.swing.JTextField jtfFicha;
     private javax.swing.JTextField jtfRepeticao;
     private javax.swing.JTextField jtfSerie;
     private javax.swing.JLabel lbBackGround2;

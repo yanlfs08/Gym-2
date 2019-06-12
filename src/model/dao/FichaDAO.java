@@ -5,14 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.bean.Cadastro;
-import model.bean.Exercicios;
 import model.bean.Ficha;
-import model.bean.GrupoMuscular;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,11 +19,13 @@ public class FichaDAO {
     public FichaDAO() {
     }
     
-    public ResultSet select(int CodigoFicha,boolean relacionado) {
+    public ResultSet select(long CodigoFicha,long CodigoExec,boolean relacionado) {
         if(relacionado){
             
-            sql = " SELECT cadastro.CPF AS CPF, " +
+            sql = " SELECT ficha.idFicha AS Ficha, " +
+                         " ficha.idExercicios AS IdExec, " +
                          " cadastro.Nome AS Nome, " +
+                         " cadastro.CPF AS CPF, " +
                          " ficha.carga AS Carga, " +
                          " ficha.repeticao AS Repeticoes, " +
                          " ficha.serie AS Series, " +
@@ -45,12 +41,14 @@ public class FichaDAO {
         } else {
             sql = "SELECT * FROM ficha";
         }if (CodigoFicha != 0 ) {
-            sql = sql + " WHERE idFicha = " + CodigoFicha + 
-                        " ORDER BY ficha.idFicha, " +
+            sql = sql + " WHERE ficha.idFicha = '" + CodigoFicha+"' "+
+                           " AND ficha.idExercicios = '"+ CodigoExec+"' ";
+            if(relacionado){
+                sql = sql + " ORDER BY ficha.idFicha, " +
                                  " gruposmusculares.descGrupo;";
-        }else{
-            sql = sql + " ORDER BY ficha.idFicha, " +
-                                 " gruposmusculares.descGrupo;";
+            }else{
+                sql = sql + " ORDER BY ficha.idFicha; ";
+            }
         }
         try{
             ps = con.prepareStatement(sql);
@@ -86,11 +84,12 @@ public class FichaDAO {
                       String serie){
         
         sql = "UPDATE ficha SET ";
-        if(idExercicio.equals("")== true){sql = sql + " idExercicio = '" + idExercicio + "'";}
-        if(carga!= 0){sql = sql + " carga = '" + carga + "'";}
-        if(repeticao.equals("")== true){sql = sql + " repeticao = '" + repeticao + "'";}
-        if(serie.equals("")== true){sql = sql + " serie = '" + serie + "'";}
-        sql = sql + " WHERE idFicha = " + CodigoFicha + ";";
+        if(carga!= 0){sql = sql + " carga = '" + carga + "',";}
+        if(repeticao.equals("")== false){sql = sql + " repeticao = '" + repeticao + "',";}
+        if(serie.equals("")== false){sql = sql + " serie = '" + serie + "',";}
+        sql = sql.substring(0, sql.length()-1);
+        sql = sql + " WHERE idFicha = '" + CodigoFicha +"'"+
+                     " AND idExercicios = '" + idExercicio + "';";
         
        try{
             ps = con.prepareStatement(sql);
@@ -106,7 +105,7 @@ public class FichaDAO {
     public int Delete(String CodigoFicha, String idExercicio){
         sql = "DELETE FROM ficha, " +
                    " WHERE idFicha     = '" + CodigoFicha + "', " +
-                     " AND idExercicio;= '" + idExercicio + "';";
+                     " AND idExercicio = '" + idExercicio + "';";
         
         try{
             ps = con.prepareStatement(sql);
@@ -122,11 +121,12 @@ public class FichaDAO {
         ResultSet rsTabela; 
         DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
         if (Limpar == true){ Val.setNumRows(0); }
-        rsTabela = select(0,true);
+        rsTabela = select(0,0,true);
         if (rsTabela != null){
             try {                
                 while (rsTabela.next()){
-                    String CPF = rsTabela.getString("CPF");
+                    String Ficha = rsTabela.getString("Ficha");
+                    String IdExec = rsTabela.getString("IdExec");
                     String Nome = rsTabela.getString("Nome");
                     String Exercicio = rsTabela.getString("Exercicio");
                     String Repetições = rsTabela.getString("Repeticoes");
@@ -134,7 +134,7 @@ public class FichaDAO {
                     String Carga = rsTabela.getString("Carga");
                     String GrupoMuscular = rsTabela.getString("GrupoMuscular");
 
-                    Val.addRow(new String[] {CPF, Nome, Exercicio, Carga, Repetições, Serie, GrupoMuscular });
+                    Val.addRow(new String[] {Ficha,IdExec, Nome, Exercicio, Repetições, Serie, Carga, GrupoMuscular });
                 }          
             } catch (SQLException ex) {
                 System.err.println(ex);   
@@ -142,143 +142,40 @@ public class FichaDAO {
         }
     }
     
-    public Ficha CarregaDadosFormulario(int CodFicha){
-        Cadastro UsuList = new Cadastro();
-        Exercicios ExerciciosList = new Exercicios();
+    public Ficha CarregaDadosFormulario(long CodFicha,long CodExec){
+        //Cadastro UsuList = new Cadastro();
+        //Exercicios ExerciciosList = new Exercicios();
         Ficha FichaList = new Ficha();
-        GrupoMuscular GrupoMuscList = new GrupoMuscular();
+        //GrupoMuscular GrupoMuscList = new GrupoMuscular();
         
         ResultSet rsDadosForm = null;
         
         try{
-            rsDadosForm = select(CodFicha,true);
+            rsDadosForm = select(CodFicha,CodExec,true);
             if (rsDadosForm.next()){
+                    String Ficha = rsDadosForm.getString("Ficha");
                     String Nome = rsDadosForm.getString("Nome");
-                    String Exercicio = rsDadosForm.getString("descExercicio");
+                    String CPF = rsDadosForm.getString("CPF");
+                    String IdExec = rsDadosForm.getString("IdExec");
+                    String Exercicio = rsDadosForm.getString("Exercicio");
                     double Carga = rsDadosForm.getDouble("carga");
-                    String Repetições = rsDadosForm.getString("repeticao");
-                    String Serie = rsDadosForm.getString("serie");
-                    String GrupoMuscular = rsDadosForm.getString("descGrupo");
+                    String Repetições = rsDadosForm.getString("Repeticoes");
+                    String Serie = rsDadosForm.getString("series");
+                    String GrupoMuscular = rsDadosForm.getString("GrupoMuscular");
                     
-                    UsuList.setNome(Nome);
-                    ExerciciosList.setdescExercicio(Exercicio);
+                    FichaList.setIdFicha(Ficha);
+                    FichaList.setNome(Nome);
+                    FichaList.setCPF(CPF);
+                    FichaList.setIdExercicios(IdExec);
+                    FichaList.setExercicios(Exercicio);
                     FichaList.setCarga(Carga);
                     FichaList.setRepeticao(Repetições);
                     FichaList.setSerie(Serie);
-                    GrupoMuscList.setDesc(GrupoMuscular);
+                    FichaList.setGroupMusc(GrupoMuscular);
             }
         }catch (SQLException ex) {
             System.out.println(ex);   
         }return FichaList;
-    } 
-    
-    public List <Ficha> read(){
-        
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        List <Ficha> ficha = new ArrayList<>();
-        
-        try {
-            stmt = con.prepareStatement("SELECT \n" +
-                                        "cadastro.Nome` AS Nome, \n" +
-                                        "ficha.carga` AS Carga, \n" +
-                                        "ficha.repeticao` AS Repetições, \n" +
-                                        "ficha.serie` AS Séries, \n" +
-                                        "exercicios.descExercicio` AS Exercicio, g.`descGrupo` AS 'Grupro Muscular' \n" +
-                                        "FROM `ficha` f \n" +
-                                        "INNER JOIN `cadastro` c \n" +
-                                        "ON ficha.idFicha` = cadastro.idFicha` \n" +
-                                        "INNER JOIN `exercicios` e \n" +
-                                        "ON ficha.idExercicios` = exercicios.idExercicios` \n" +
-                                        "INNER JOIN `gruposmusculares` g \n" +
-                                        "ON exercicios.idGrupos` = g.`idGrupos`\n" +
-                                        "ORDER BY g.`descGrupo`"); 
-            rs = stmt.executeQuery();
-            
-            while (rs.next()){
-                
-                Cadastro      C = new Cadastro();
-                Exercicios    E = new Exercicios();
-                Ficha         F = new Ficha();
-                GrupoMuscular G = new GrupoMuscular();
-                
-                C.setNome(rs.getString("c.Nome"));
-                E.setdescExercicio(rs.getString("e.descExercicio"));
-                F.setCarga(rs.getDouble("f.carga"));
-                F.setSerie(rs.getString("f.serie"));
-                F.setRepeticao(rs.getString("f.repeticao"));
-                G.setDesc(rs.getString("g.descGrupo"));
-                
-                ficha.add(F);
-        }
-    } catch (SQLException ex) {
-                        
-            JOptionPane.showMessageDialog(null, "Erro ao gerar lista " + ex);
-            
-        }finally{
-            
-            ConnectionFactory.closeConnection(con, stmt, rs);
-        }
-        
-        return ficha;
-    }
-    
-    public List <Ficha> readPesquisaFicha(String pesquisa){
-        
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        List <Ficha> ficha = new ArrayList<>();
-        
-         try {
-            stmt = con.prepareStatement("SELECT \n" +
-                                        "cadastro.Nome` AS Nome, \n" +
-                                        "ficha.carga` AS Carga, \n" +
-                                        "ficha.repeticao` AS Repetições, \n" +
-                                        "ficha.serie` AS Séries, \n" +
-                                        "exercicios.descExercicio` AS Exercicio, g.`descGrupo` AS 'Grupro Muscular' \n" +
-                                        "FROM `ficha` f \n" +
-                                        "INNER JOIN `cadastro` c \n" +
-                                        "ON ficha.idFicha` = cadastro.idFicha` \n" +
-                                        "INNER JOIN exercicios " +
-                                        "ON ficha.idExercicios` = exercicios.idExercicios` \n" +
-                                        "INNER JOIN `gruposmusculares` g \n" +
-                                        "ON exercicios.idGrupos` = g.`idGrupos`\n" +
-                                        "ORDER BY g.`descGrupo`");
-            stmt.setString(1, "%"+pesquisa+"%");
-            rs = stmt.executeQuery();
-            
-            while (rs.next()){
-                
-                Cadastro      C = new Cadastro();
-                Exercicios    E = new Exercicios();
-                Ficha         F = new Ficha();
-                GrupoMuscular G = new GrupoMuscular();
-                
-                C.setNome(rs.getString("c.Nome"));
-                E.setdescExercicio(rs.getString("e.descExercicio"));
-                F.setCarga(rs.getDouble("f.carga"));
-                F.setSerie(rs.getString("f.serie"));
-                F.setRepeticao(rs.getString("f.repeticao"));
-                G.setDesc(rs.getString("g.descGrupo"));
-                
-                ficha.add(F);
-        }
-    } catch (SQLException ex) {
-                        
-            JOptionPane.showMessageDialog(null, "Erro ao gerar lista " + ex);
-            
-        }finally{
-            
-            ConnectionFactory.closeConnection(con, stmt, rs);
-        }
-        
-        return ficha;
-    }
-    
-    
+    }     
 }
 

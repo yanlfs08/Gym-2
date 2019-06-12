@@ -14,7 +14,7 @@ public class PessoaDAO {
     private PreparedStatement ps = null;
     private String sql = null;
     private ResultSet result = null;
-    public ResultSet Select(int CPF,int TipoUsuarios) {
+    public ResultSet Select(long CPF,int TipoUsuarios) {
         sql = "SELECT cadastro.CPF, " +
                     " cadastro.Nome," +
                     " tiposusuarios.TipoUsuario, " +
@@ -96,7 +96,7 @@ public class PessoaDAO {
             return RegAft;        
         }
     }
-    public int UpdateIdFicha(int CPF,String CodIdFicha) {
+    public int UpdateIdFicha(long CPF,String CodIdFicha) {
         int RegAft = 0;
     
         sql = "UPDATE cadastro SET ";
@@ -148,7 +148,7 @@ public class PessoaDAO {
 //            }
 //        }
 //    }
-    public Pessoa CarregaDadosFormulario(int CodProd){    
+    public Pessoa CarregaDadosFormulario(long CodProd){    
         Pessoa PesList = new Pessoa(); 
         
         ResultSet rsDadosForm;        

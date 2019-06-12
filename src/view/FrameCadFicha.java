@@ -49,7 +49,6 @@ public class FrameCadFicha extends javax.swing.JDialog  {
     private void initComponents() {
 
         JLTituloFicha = new javax.swing.JLabel();
-        jtbCancelar = new javax.swing.JToggleButton();
         jtbConfirmar = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -62,23 +61,20 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         jtfRepeticao = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jtfSerie = new javax.swing.JTextField();
+        jtbCancelar = new javax.swing.JToggleButton();
+        lbBackGround2 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(460, 351));
+        setMaximumSize(new java.awt.Dimension(350, 300));
+        setMinimumSize(new java.awt.Dimension(350, 300));
+        setModal(true);
+        setPreferredSize(new java.awt.Dimension(350, 300));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         JLTituloFicha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         JLTituloFicha.setText("Cadastro de Ficha");
-
-        jtbCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jtbCancelar.setText("Cancelar");
-        jtbCancelar.setMaximumSize(new java.awt.Dimension(100, 30));
-        jtbCancelar.setMinimumSize(new java.awt.Dimension(100, 30));
-        jtbCancelar.setName("JTBCancelar"); // NOI18N
-        jtbCancelar.setPreferredSize(new java.awt.Dimension(100, 30));
-        jtbCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbCancelarActionPerformed(evt);
-            }
-        });
+        getContentPane().add(JLTituloFicha);
+        JLTituloFicha.setBounds(20, 11, 320, 21);
 
         jtbConfirmar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jtbConfirmar.setText("Confirmar");
@@ -91,10 +87,13 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 jtbConfirmarActionPerformed(evt);
             }
         });
+        getContentPane().add(jtbConfirmar);
+        jtbConfirmar.setBounds(233, 239, 100, 30);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.setMinimumSize(new java.awt.Dimension(385, 199));
-        jPanel1.setPreferredSize(new java.awt.Dimension(385, 199));
+        jPanel1.setMaximumSize(new java.awt.Dimension(320, 190));
+        jPanel1.setMinimumSize(new java.awt.Dimension(320, 190));
+        jPanel1.setPreferredSize(new java.awt.Dimension(320, 190));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Nome:");
@@ -140,7 +139,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
@@ -155,7 +154,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                         .addComponent(jtfSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jcbUsuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jcbExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(113, 113, 113))
+                .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,41 +182,29 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 .addGap(137, 137, 137))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLTituloFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JLTituloFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(15, 38, 323, 190);
+
+        jtbCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jtbCancelar.setText("Cancelar");
+        jtbCancelar.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbCancelar.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbCancelar.setName("JTBCancelar"); // NOI18N
+        jtbCancelar.setPreferredSize(new java.awt.Dimension(100, 30));
+        jtbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtbCancelar);
+        jtbCancelar.setBounds(127, 239, 100, 30);
+
+        lbBackGround2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
+        lbBackGround2.setMaximumSize(new java.awt.Dimension(450, 300));
+        lbBackGround2.setMinimumSize(new java.awt.Dimension(450, 300));
+        lbBackGround2.setPreferredSize(new java.awt.Dimension(350, 280));
+        getContentPane().add(lbBackGround2);
+        lbBackGround2.setBounds(0, 0, 350, 280);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbCancelarActionPerformed
@@ -226,7 +213,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
 
     private void jtbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConfirmarActionPerformed
 
-        int CodUsuario;
+        long CodUsuario;
         String idExercicio = null;
         String CodFicha = null;
         String Exercicio = null;
@@ -240,7 +227,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         UsuAux = jcbUsuario.getModel().getSelectedItem().toString();
         String[] CPFVet = UsuAux.split(" ");
         UsuAux = CPFVet[0];
-        CodUsuario = Integer.parseInt(UsuAux);
+        CodUsuario = Long.parseLong(UsuAux);
         ResultSet Sql  = null;        
 
         //Atualizar-Inserir
@@ -408,11 +395,11 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         FichaDAO Tabela = new FichaDAO();     
         return Tabela.Delete(CodFicha,idExercicio);
     }
-    private static ResultSet BuscarUsuario(int CPF,int CodTpUsu){        
+    private static ResultSet BuscarUsuario(long CPF,int CodTpUsu){        
         PessoaDAO UsuTb = new PessoaDAO();     
         return UsuTb.Select(CPF,CodTpUsu);
     }
-    private static int IncluirFichaUsuario(int CPF,String CodFicha){                      
+    private static int IncluirFichaUsuario(long CPF,String CodFicha){                      
         PessoaDAO Tabela = new PessoaDAO();     
         return Tabela.UpdateIdFicha(CPF, CodFicha);
     }
@@ -475,7 +462,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -517,5 +504,6 @@ public class FrameCadFicha extends javax.swing.JDialog  {
     private javax.swing.JTextField jtfCarga;
     private javax.swing.JTextField jtfRepeticao;
     private javax.swing.JTextField jtfSerie;
+    private javax.swing.JLabel lbBackGround2;
     // End of variables declaration//GEN-END:variables
 }

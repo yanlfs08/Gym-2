@@ -157,7 +157,7 @@ public class FramePessoa extends javax.swing.JFrame {
         if (jtbInfoPessoas.getSelectedRowCount() != 0 ){
             int linha = jtbInfoPessoas.getSelectedRow();
             Object ValorCampo = jtbInfoPessoas.getModel().getValueAt(linha, 0);
-            int codPes = Integer.valueOf((String) ValorCampo);
+            long codPes = Long.valueOf((String) ValorCampo);
             new FrameCadastroPessoa( true, codPes, 1).setVisible(true);
             PreencherTabela(jtbInfoPessoas,true);
         }else{
@@ -169,7 +169,7 @@ public class FramePessoa extends javax.swing.JFrame {
         if (jtbInfoPessoas.getSelectedRowCount() != 0 ){
             int linha = jtbInfoPessoas.getSelectedRow();
             Object ValorCampo = jtbInfoPessoas.getModel().getValueAt(linha, 0);
-            int codPes = Integer.valueOf((String) ValorCampo);
+            long codPes = Long.valueOf((String) ValorCampo);
             new FrameCadastroPessoa( true, codPes, 3).setVisible(true);
             PreencherTabela(jtbInfoPessoas, true);
         }else{

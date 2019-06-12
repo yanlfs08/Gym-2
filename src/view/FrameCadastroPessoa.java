@@ -14,13 +14,13 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
     int RegAfct = 0,TpOp = 0;
     boolean ExecSucess = false;
     Pessoa PesForm = new Pessoa();
-    public FrameCadastroPessoa(boolean modal,int codProd,int Op) {
+    public FrameCadastroPessoa(boolean modal,long codPes,int Op) {
         initComponents();
         this.setModal(modal);
         CarregarCombos();
         setTpOp(Op);
-        if(codProd!=0){
-            PreencherFormulario(codProd);
+        if(codPes!=0){
+            PreencherFormulario(codPes);
         }
         MostrarOp(Op);        
     }
@@ -57,9 +57,8 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         lbBackground = new javax.swing.JLabel();
         JLTituloGereciamentoPes = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(469, 300));
-        setMinimumSize(new java.awt.Dimension(469, 300));
-        setPreferredSize(new java.awt.Dimension(469, 300));
+        setMaximumSize(new java.awt.Dimension(0, 0));
+        setPreferredSize(null);
         setResizable(false);
 
         jPanel3.setMaximumSize(new java.awt.Dimension(469, 300));
@@ -420,11 +419,11 @@ public class FrameCadastroPessoa extends javax.swing.JDialog  {
         PessoaDAO Tabela = new PessoaDAO();     
         return Tabela.Delete(CPF);
     }
-    private static ResultSet BuscarTpPessoa(int CPF){        
+    private static ResultSet BuscarTpPessoa(int TpPes){        
         TipoUsuarioDAO Tabela = new TipoUsuarioDAO();     
-        return Tabela.select(CPF);
+        return Tabela.select(TpPes);
     }
-    private void PreencherFormulario(int CodProd){    
+    private void PreencherFormulario(long CodProd){    
         PessoaDAO PesDB = new PessoaDAO();     
         //ResultSet rsDadosForm = null; 
         

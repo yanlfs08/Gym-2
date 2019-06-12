@@ -37,6 +37,9 @@ public class FrameFicha extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ficha");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icones/alt.png")).getImage());
+        setMaximumSize(null);
+        setMinimumSize(null);
+        setPreferredSize(null);
         setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(395, 297));

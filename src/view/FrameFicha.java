@@ -118,11 +118,11 @@ public class FrameFicha extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CPF", "IdExec", "Nome", "Exercício", "Repetição", "Série", "Carga"
+                "Ficha", "IdExec", "CPF", "Nome", "Exercício", "Repetição", "Série", "Carga"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -142,7 +142,10 @@ public class FrameFicha extends javax.swing.JFrame {
             TableFicha.getColumnModel().getColumn(1).setMinWidth(0);
             TableFicha.getColumnModel().getColumn(1).setPreferredWidth(0);
             TableFicha.getColumnModel().getColumn(1).setMaxWidth(0);
-            TableFicha.getColumnModel().getColumn(6).setResizable(false);
+            TableFicha.getColumnModel().getColumn(2).setMinWidth(0);
+            TableFicha.getColumnModel().getColumn(2).setPreferredWidth(0);
+            TableFicha.getColumnModel().getColumn(2).setMaxWidth(0);
+            TableFicha.getColumnModel().getColumn(7).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1);
@@ -222,14 +225,16 @@ public class FrameFicha extends javax.swing.JFrame {
     }//GEN-LAST:event_jbIncluirActionPerformed
 
     private void jbPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPDFActionPerformed
-        int linha = TableFicha.getSelectedRow();
-            //Object ValorCampo = TableFicha.getModel().getValueAt(linha, 0);
-            //String CPF = String.valueOf((String) ValorCampo);
-            String CPF = (String) TableFicha.getModel().getValueAt(linha, 0);
-        try {
-            PDF.PDF(CPF);
-        } catch (Exception ex) {
-            Logger.getLogger(FrameFicha.class.getName()).log(Level.SEVERE, null, ex);
+        if (TableFicha.getSelectedRowCount() != 0 ){
+            int linha = TableFicha.getSelectedRow();
+            String CPF = (String) TableFicha.getModel().getValueAt(linha, 2);
+            try {
+                PDF.PDF(CPF);
+            } catch (Exception ex) {
+                Logger.getLogger(FrameFicha.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "selecione um registro na tabela para exportar.");
         }
     }//GEN-LAST:event_jbPDFActionPerformed
 

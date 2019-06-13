@@ -127,6 +127,7 @@ public class FichaDAO {
                 while (rsTabela.next()){
                     String Ficha = rsTabela.getString("Ficha");
                     String IdExec = rsTabela.getString("IdExec");
+                    String CPF = rsTabela.getString("CPF");
                     String Nome = rsTabela.getString("Nome");
                     String Exercicio = rsTabela.getString("Exercicio");
                     String Repetições = rsTabela.getString("Repeticoes");
@@ -134,7 +135,7 @@ public class FichaDAO {
                     String Carga = rsTabela.getString("Carga");
                     String GrupoMuscular = rsTabela.getString("GrupoMuscular");
 
-                    Val.addRow(new String[] {Ficha,IdExec, Nome, Exercicio, Repetições, Serie, Carga, GrupoMuscular });
+                    Val.addRow(new String[] {Ficha,IdExec,CPF,Nome,Exercicio,Repetições,Serie,Carga,GrupoMuscular});
                 }          
             } catch (SQLException ex) {
                 System.err.println(ex);   

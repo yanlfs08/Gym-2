@@ -13,7 +13,6 @@ import model.bean.Ficha;
 import model.bean.GrupoMuscular;
 import model.dao.PessoaDAO;
 import model.dao.ExerciciosDAO;
-import model.dao.GrupoMuscularDAO;
 import model.dao.FichaDAO;
 
 

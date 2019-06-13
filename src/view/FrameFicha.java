@@ -1,13 +1,16 @@
 
 package view;
 
-import java.awt.event.MouseEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import connection.ConnectionFactory;
+import java.sql.Connection;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import model.dao.FichaDAO;
 import model.dao.PDF;
-import static view.FrameAvaliacao.AvalBD;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class FrameFicha extends javax.swing.JFrame {
     static FichaDAO FichaBD = new FichaDAO();
@@ -29,9 +32,9 @@ public class FrameFicha extends javax.swing.JFrame {
         jbExcluir = new javax.swing.JButton();
         jbAtu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jbPDF = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableFicha = new javax.swing.JTable();
+        jbPDF1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -97,21 +100,6 @@ public class FrameFicha extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(20, 20, 90, 32);
 
-        jbPDF.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jbPDF.setText("Exportar");
-        jbPDF.setToolTipText("Atualizar os dados da tabela");
-        jbPDF.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbPDF.setMaximumSize(new java.awt.Dimension(100, 30));
-        jbPDF.setMinimumSize(new java.awt.Dimension(100, 30));
-        jbPDF.setPreferredSize(new java.awt.Dimension(100, 30));
-        jbPDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbPDFActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbPDF);
-        jbPDF.setBounds(10, 180, 100, 30);
-
         TableFicha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         TableFicha.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -150,6 +138,21 @@ public class FrameFicha extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(120, 10, 470, 280);
+
+        jbPDF1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jbPDF1.setText("Exportar");
+        jbPDF1.setToolTipText("Atualizar os dados da tabela");
+        jbPDF1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbPDF1.setMaximumSize(new java.awt.Dimension(100, 30));
+        jbPDF1.setMinimumSize(new java.awt.Dimension(100, 30));
+        jbPDF1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jbPDF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPDF1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbPDF1);
+        jbPDF1.setBounds(10, 180, 100, 30);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
         jPanel1.add(jLabel5);
@@ -224,19 +227,31 @@ public class FrameFicha extends javax.swing.JFrame {
         FichaBD.PreencherTabela(TableFicha, true);
     }//GEN-LAST:event_jbIncluirActionPerformed
 
-    private void jbPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPDFActionPerformed
-        if (TableFicha.getSelectedRowCount() != 0 ){
+    private void jbPDF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPDF1ActionPerformed
+       if (TableFicha.getSelectedRowCount()!= 0 ){
             int linha = TableFicha.getSelectedRow();
             String CPF = (String) TableFicha.getModel().getValueAt(linha, 2);
+            
+            Connection con = ConnectionFactory.getConnection();
+
+            String src = "report4.jasper";
+
+            JasperPrint jp = null;
             try {
-                PDF.PDF(CPF);
-            } catch (Exception ex) {
-                Logger.getLogger(FrameFicha.class.getName()).log(Level.SEVERE, null, ex);
+                HashMap params = new HashMap<>();
+                params.put("CPF", CPF);
+                jp = JasperFillManager.fillReport(src, params, con);
+            } catch (JRException ex) {
+                System.out.println("Erro:" + ex);
             }
+
+            JasperViewer jpv = new JasperViewer(jp,false);
+
+            jpv.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para exportar.");
         }
-    }//GEN-LAST:event_jbPDFActionPerformed
+    }//GEN-LAST:event_jbPDF1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,6 +299,6 @@ public class FrameFicha extends javax.swing.JFrame {
     private javax.swing.JButton jbAtu;
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbIncluir;
-    private javax.swing.JButton jbPDF;
+    private javax.swing.JButton jbPDF1;
     // End of variables declaration//GEN-END:variables
 }

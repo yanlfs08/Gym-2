@@ -1,8 +1,15 @@
 
 package view;
 
+import connection.ConnectionFactory;
+import java.sql.Connection;
+import java.util.HashMap;
 import model.dao.AvaliacaoDAO;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class FrameAvaliacao extends javax.swing.JFrame {
     static AvaliacaoDAO AvalBD = new AvaliacaoDAO();
@@ -22,12 +29,12 @@ public class FrameAvaliacao extends javax.swing.JFrame {
         jtbExcluir = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbInfoAvalicao = new javax.swing.JTable();
+        jtbIncluir1 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 300));
         setMinimumSize(new java.awt.Dimension(550, 300));
-        setPreferredSize(new java.awt.Dimension(550, 300));
         setResizable(false);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(550, 300));
@@ -77,10 +84,26 @@ public class FrameAvaliacao extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cod. Avaliação", "Usuário", "Peso", "Altura", "Gordura(%)"
+                "CPF", "Cod. Avaliação", "Cliente", "Peso", "Altura", "Gordura(%)"
             }
         ));
         jScrollPane1.setViewportView(jtbInfoAvalicao);
+        if (jtbInfoAvalicao.getColumnModel().getColumnCount() > 0) {
+            jtbInfoAvalicao.getColumnModel().getColumn(0).setMinWidth(0);
+            jtbInfoAvalicao.getColumnModel().getColumn(0).setPreferredWidth(0);
+            jtbInfoAvalicao.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
+        jtbIncluir1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jtbIncluir1.setText("Exporta");
+        jtbIncluir1.setMaximumSize(new java.awt.Dimension(100, 30));
+        jtbIncluir1.setMinimumSize(new java.awt.Dimension(100, 30));
+        jtbIncluir1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jtbIncluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbIncluir1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(550, 300));
@@ -96,8 +119,9 @@ public class FrameAvaliacao extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtbIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtbIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbIncluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -116,11 +140,13 @@ public class FrameAvaliacao extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtbIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtbIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtbIncluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -171,6 +197,32 @@ public class FrameAvaliacao extends javax.swing.JFrame {
         new FrameCadAvaliacao(true, 0, 2).setVisible(true);
         AvalBD.PreencherTabela(jtbInfoAvalicao, true);
     }//GEN-LAST:event_jtbIncluirActionPerformed
+
+    private void jtbIncluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbIncluir1ActionPerformed
+        if (jtbInfoAvalicao.getSelectedRowCount()!= 0 ){
+            int linha = jtbInfoAvalicao.getSelectedRow();
+            String CPF = (String) jtbInfoAvalicao.getModel().getValueAt(linha, 0);
+            
+            Connection con = ConnectionFactory.getConnection();
+
+            String src = "avaliação.jasper";
+
+            JasperPrint jp = null;
+            try {
+                HashMap params = new HashMap<>();
+                params.put("CPF", CPF);
+                jp = JasperFillManager.fillReport(src, params, con);
+            } catch (JRException ex) {
+                System.out.println("Erro:" + ex);
+            }
+
+            JasperViewer jpv = new JasperViewer(jp,false);
+
+            jpv.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "selecione um registro na tabela para exportar.");
+        }
+    }//GEN-LAST:event_jtbIncluir1ActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -215,6 +267,7 @@ public class FrameAvaliacao extends javax.swing.JFrame {
     private javax.swing.JToggleButton jtbAlterar;
     private javax.swing.JToggleButton jtbExcluir;
     private javax.swing.JToggleButton jtbIncluir;
+    private javax.swing.JToggleButton jtbIncluir1;
     private static javax.swing.JTable jtbInfoAvalicao;
     // End of variables declaration//GEN-END:variables
 }

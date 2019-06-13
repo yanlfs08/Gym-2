@@ -9,9 +9,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 import model.bean.Avaliacao;
 import model.bean.Cadastro;
-import model.bean.Exercicios;
-import model.bean.GrupoMuscular;
-import model.dao.AvaliacaoDAO;
 
 public class AvaliacaoDAO {
     Connection con = ConnectionFactory.getConnection();
@@ -23,7 +20,8 @@ public class AvaliacaoDAO {
     public ResultSet select(int CodigoAval,boolean relacionado) {
         if(relacionado){
             
-            sql = "SELECT avaliação.idAvaliacao as ID, " +
+            sql = "SELECT cadastro.CPF as CPF, " +
+                        "avaliação.idAvaliacao as ID, " +
                         " cadastro.nome as Nome, " +
                         " avaliação.peso as Peso, " +
                         " avaliação.altura, " +
@@ -116,13 +114,15 @@ public class AvaliacaoDAO {
         if (rsTabela != null){
             try {                
                 while (rsTabela.next()){
+                    
+                    String CPF =rsTabela.getString("CPF");
                     String Codigo = rsTabela.getString("ID");
                     String Nome = rsTabela.getString("Nome");
                     String Peso = rsTabela.getString("Peso");
                     String Altura = rsTabela.getString("altura");
                     String GordCorp = rsTabela.getString("% Gordura");
 
-                    Val.addRow(new String[] {Codigo, Nome, Peso, Altura, GordCorp});
+                    Val.addRow(new String[] {CPF,Codigo, Nome, Peso, Altura, GordCorp});
                 }          
             } catch (SQLException ex) {
                 System.err.println(ex);   
@@ -142,7 +142,7 @@ public class AvaliacaoDAO {
                 double Peso = rsDadosForm.getDouble("Peso");
                 double Altura = rsDadosForm.getDouble("altura");
                 double GordCorp = rsDadosForm.getDouble("% Gordura");
-
+                
                 AvalList.setIdAvaliacao(Codigo);
                 UsuList.setNome(Nome);
                 AvalList.setPeso(Peso);

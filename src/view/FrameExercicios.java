@@ -187,14 +187,14 @@ public class FrameExercicios extends javax.swing.JFrame {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(120, 10, 340, 230);
+        jScrollPane1.setBounds(120, 10, 340, 340);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/FUndo.png"))); // NOI18N
         jLabel5.setMaximumSize(new java.awt.Dimension(469, 250));
         jLabel5.setMinimumSize(new java.awt.Dimension(469, 250));
         jLabel5.setPreferredSize(new java.awt.Dimension(469, 250));
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 0, 469, 250);
+        jLabel5.setBounds(0, 0, 469, 370);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,7 +206,7 @@ public class FrameExercicios extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleDescription("Exercicios");

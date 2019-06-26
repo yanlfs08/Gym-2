@@ -4,8 +4,6 @@ package view;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.bean.Cadastro;
 import model.bean.Exercicios;
@@ -244,16 +242,8 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         String[] ExecVet = strAux.split(" ");
         idExercicio = ExecVet[0];
         
-        /*try {
-            Sql = BuscarUsuario(CodUsuario,2);
-            Sql.first();
-            CodFicha = Sql.getString(8);
-        } catch (SQLException ex) {
-            Logger.getLogger(FrameCadFicha.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
-        //if(CodFicha.equals("")){CodFicha = jtfFicha.getText();}
         CodFicha = jtfFicha.getText();
+                
         //Atualizar-Inserir
         if (( OP == 1 ) || (OP == 2)){            
             
@@ -263,12 +253,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 for (int i = 0; i < 1; i++) {
                     CodFicha = String.valueOf(gerador.nextInt(5555));
                 }
-                /*RegAfct = IncluirFichaUsuario(CodUsuario, CodFicha);
-                if(RegAfct <= 0){
-                    JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o cadastro. \nContate o administrador.");
-                }*/
             }
-
             if (jtfCarga.getText().equalsIgnoreCase(String.valueOf(FichaForm.getCarga())) == false){
                 Carga = Double.parseDouble(jtfCarga.getText());
             }
@@ -281,7 +266,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         }
         switch (OP){
             case 1: //Atualizar
-                RegAfct = AtualizarFicha(CodFicha, idExercicio, Carga, Repeticao, Serie);
+                RegAfct = AtualizarFicha(CodUsuario,CodFicha, idExercicio, Carga, Repeticao, Serie);
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
                 }else{
@@ -298,14 +283,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 }
                 break;
             case 3: //Excluir
-                /*try {
-                    Sql.first();
-                    CodFicha = Sql.getString(8);
-                } catch (SQLException ex) {
-                    Logger.getLogger(FrameCadFicha.class.getName()).log(Level.SEVERE, null, ex);
-                }*/
-                
-                RegAfct = DeletarFicha(CodFicha, idExercicio);                                
+                RegAfct = DeletarFicha(CodUsuario,CodFicha, idExercicio);                                
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
                 }else{
@@ -392,13 +370,13 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         FichaDAO Tabela = new FichaDAO();
         return Tabela.Insert(CodUsuario, CodFicha, idExercicio, Carga, Repeticao, Serie);
     }
-    private static int AtualizarFicha(String CodFicha, String IdExercicio, double Carga, String Repeticao, String Serie){
+    private static int AtualizarFicha(Long CodUsuario, String CodFicha, String IdExercicio, double Carga, String Repeticao, String Serie){
         FichaDAO Tabela = new FichaDAO();
-        return Tabela.Update(CodFicha, IdExercicio, Carga, Repeticao, Serie);
+        return Tabela.Update(CodUsuario, CodFicha, IdExercicio, Carga, Repeticao, Serie);
     }
-    private static int DeletarFicha(String CodFicha, String idExercicio){        
+    private static int DeletarFicha(Long CodUsuario, String CodFicha, String idExercicio){        
         FichaDAO Tabela = new FichaDAO();     
-        return Tabela.Delete(CodFicha,idExercicio);
+        return Tabela.Delete(CodUsuario, CodFicha,idExercicio);
     }
     private static ResultSet BuscarUsuario(long CPF,int CodTpUsu){        
         PessoaDAO UsuTb = new PessoaDAO();     

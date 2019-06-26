@@ -79,7 +79,8 @@ public class FichaDAO {
         }
     }
     
-    public int Update(String CodigoFicha,
+    public int Update(long CPF,
+                      String CodigoFicha,
                       String idExercicio,
                       Double carga,
                       String repeticao,
@@ -90,8 +91,11 @@ public class FichaDAO {
         if(repeticao.equals("")== false){sql = sql + " repeticao = '" + repeticao + "',";}
         if(serie.equals("")== false){sql = sql + " serie = '" + serie + "',";}
         sql = sql.substring(0, sql.length()-1);
-        sql = sql + " WHERE idFicha = '" + CodigoFicha +"'"+
-                     " AND idExercicios = '" + idExercicio + "';";
+        
+        sql = sql + "  ficha.CPF = '" + CPF+"' AND ";
+        sql = sql + "  ficha.idFicha = '" + CodigoFicha +"' AND ";
+        sql = sql + "  ficha.idExercicios = '"+ idExercicio+"'; ";
+        
         
        try{
             ps = con.prepareStatement(sql);
@@ -104,10 +108,11 @@ public class FichaDAO {
         } 
     }
     
-    public int Delete(String CodigoFicha, String idExercicio){
-        sql = "DELETE FROM ficha " +
-                   " WHERE idFicha     = '" + CodigoFicha + "' " +
-                     " AND idExercicios = '" + idExercicio + "'";
+    public int Delete(long CPF, String CodigoFicha, String idExercicio){
+        sql = "DELETE FROM ficha " ;
+        sql = sql + "  ficha.CPF = '" + CPF+"' AND ";
+        sql = sql + "  ficha.idFicha = '" + CodigoFicha +"' AND ";
+        sql = sql + "  ficha.idExercicios = '"+ idExercicio+"'; ";
         
         try{
             ps = con.prepareStatement(sql);

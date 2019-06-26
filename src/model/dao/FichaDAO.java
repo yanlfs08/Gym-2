@@ -19,7 +19,7 @@ public class FichaDAO {
     public FichaDAO() {
     }
     
-    public ResultSet select(long CodigoFicha,long CodigoExec,boolean relacionado) {
+    public ResultSet select(long CPF,long CodigoFicha,long CodigoExec,boolean relacionado) {
         if(relacionado){
             
             sql = " SELECT ficha.idFicha AS Ficha, " +
@@ -33,16 +33,18 @@ public class FichaDAO {
                          " gruposmusculares.descGrupo AS GrupoMuscular" +
                     " FROM ficha " +
                    " INNER JOIN  cadastro " +
-                      " ON ficha.idFicha = cadastro.idFicha " +
+                      " ON ficha.CPF = cadastro.CPF " +
                    " INNER JOIN exercicios " +
                       " ON ficha.idExercicios = exercicios.idExercicios " +
                    " INNER JOIN gruposmusculares " +
                       " ON exercicios.idGrupos = gruposmusculares.idGrupos ";
         } else {
             sql = "SELECT * FROM ficha";
-        }if (CodigoFicha != 0 ) {
-            sql = sql + " WHERE ficha.idFicha = '" + CodigoFicha+"' "+
-                           " AND ficha.idExercicios = '"+ CodigoExec+"' ";
+        }if ((CodigoFicha != 0) || (CPF != 0)) {
+            sql = sql + " WHERE";
+            if (CPF != 0) {sql = sql + "  ficha.CPF = '" + CPF+"' AND";}
+            if (CodigoFicha != 0) {sql = sql + "  ficha.idFicha = '" + CodigoFicha+"' AND";}
+            sql = sql + "  ficha.idExercicios = '"+ CodigoExec+"' ";
             if(relacionado){
                 sql = sql + " ORDER BY ficha.idFicha, " +
                                  " gruposmusculares.descGrupo;";
@@ -61,10 +63,10 @@ public class FichaDAO {
         }
     }
 
-    public Boolean Insert(String CodigoFicha,String idExercicio,double carga,String repeticao,String serie){
+    public Boolean Insert(long CPF,String CodigoFicha,String idExercicio,double carga,String repeticao,String serie){
         
-        sql = "INSERT INTO ficha(idFicha,idExercicios,carga,repeticao,serie)"
-                +" VALUES('" + CodigoFicha + "','" + idExercicio + "'," + carga + "," +
+        sql = "INSERT INTO ficha(CPF,idFicha,idExercicios,carga,repeticao,serie)"
+                +" VALUES('" + CPF + "','" + CodigoFicha + "','" + idExercicio + "'," + carga + "," +
                          "'" + repeticao +"','" + serie + "');";
         try{
             ps = con.prepareStatement(sql);
@@ -103,9 +105,9 @@ public class FichaDAO {
     }
     
     public int Delete(String CodigoFicha, String idExercicio){
-        sql = "DELETE FROM ficha, " +
-                   " WHERE idFicha     = '" + CodigoFicha + "', " +
-                     " AND idExercicio = '" + idExercicio + "';";
+        sql = "DELETE FROM ficha " +
+                   " WHERE idFicha     = '" + CodigoFicha + "' " +
+                     " AND idExercicios = '" + idExercicio + "'";
         
         try{
             ps = con.prepareStatement(sql);
@@ -121,7 +123,7 @@ public class FichaDAO {
         ResultSet rsTabela; 
         DefaultTableModel Val = (DefaultTableModel) modeloTable.getModel();
         if (Limpar == true){ Val.setNumRows(0); }
-        rsTabela = select(0,0,true);
+        rsTabela = select(0,0,0,true);
         if (rsTabela != null){
             try {                
                 while (rsTabela.next()){
@@ -143,7 +145,7 @@ public class FichaDAO {
         }
     }
     
-    public Ficha CarregaDadosFormulario(long CodFicha,long CodExec){
+    public Ficha CarregaDadosFormulario(long CPF,long CodFicha,long CodExec){
         //Cadastro UsuList = new Cadastro();
         //Exercicios ExerciciosList = new Exercicios();
         Ficha FichaList = new Ficha();
@@ -152,11 +154,11 @@ public class FichaDAO {
         ResultSet rsDadosForm = null;
         
         try{
-            rsDadosForm = select(CodFicha,CodExec,true);
+            rsDadosForm = select(CPF,CodFicha,CodExec,true);
             if (rsDadosForm.next()){
                     String Ficha = rsDadosForm.getString("Ficha");
                     String Nome = rsDadosForm.getString("Nome");
-                    String CPF = rsDadosForm.getString("CPF");
+                    String CPF_Ficha = rsDadosForm.getString("CPF");
                     String IdExec = rsDadosForm.getString("IdExec");
                     String Exercicio = rsDadosForm.getString("Exercicio");
                     double Carga = rsDadosForm.getDouble("carga");
@@ -166,7 +168,7 @@ public class FichaDAO {
                     
                     FichaList.setIdFicha(Ficha);
                     FichaList.setNome(Nome);
-                    FichaList.setCPF(CPF);
+                    FichaList.setCPF(CPF_Ficha);
                     FichaList.setIdExercicios(IdExec);
                     FichaList.setExercicios(Exercicio);
                     FichaList.setCarga(Carga);

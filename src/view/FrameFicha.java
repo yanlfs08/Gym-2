@@ -188,7 +188,9 @@ public class FrameFicha extends javax.swing.JFrame {
             long codFicha = Long.valueOf((String) ValorCampo);
             ValorCampo = TableFicha.getModel().getValueAt(linha, 1);
             long codExec = Long.valueOf((String) ValorCampo);
-            new FrameCadFicha( true, codFicha, codExec, 1).setVisible(true);
+            ValorCampo = TableFicha.getModel().getValueAt(linha, 2);
+            long CPF = Long.valueOf((String) ValorCampo);
+            new FrameCadFicha( true, CPF, codFicha, codExec, 1).setVisible(true);
             FichaBD.PreencherTabela(TableFicha,true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para alterar.");
@@ -214,7 +216,9 @@ public class FrameFicha extends javax.swing.JFrame {
             long codFicha = Long.valueOf((String) ValorCampo);
             ValorCampo = TableFicha.getModel().getValueAt(linha, 1);
             long codExec = Long.valueOf((String) ValorCampo);
-            new FrameCadFicha( true, codFicha, codExec, 3).setVisible(true);
+            ValorCampo = TableFicha.getModel().getValueAt(linha, 2);
+            long CPF = Long.valueOf((String) ValorCampo);
+            new FrameCadFicha( true,CPF, codFicha, codExec, 3).setVisible(true);
             FichaBD.PreencherTabela(TableFicha, true);
         }else{
             JOptionPane.showMessageDialog(null, "selecione um registro na tabela para excluir.");
@@ -223,7 +227,7 @@ public class FrameFicha extends javax.swing.JFrame {
 
     private void jbIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIncluirActionPerformed
        
-        new FrameCadFicha(true, 0, 0, 2).setVisible(true);
+        new FrameCadFicha(true, 0, 0, 0, 2).setVisible(true);
         FichaBD.PreencherTabela(TableFicha, true);
     }//GEN-LAST:event_jbIncluirActionPerformed
 

@@ -24,13 +24,13 @@ public class FrameCadFicha extends javax.swing.JDialog  {
     Ficha FichaForm = new Ficha();
     GrupoMuscular GmForm = new GrupoMuscular();
 
-    public FrameCadFicha(boolean modal,long codFicha,long codExec,int Op) {
+    public FrameCadFicha(boolean modal,long CPF,long codFicha,long codExec,int Op) {
         initComponents();
         this.setModal(modal);
         CarregarCombos();
         setTpOp(Op);
         if(Op!=2){
-            PreencherFormulario(codFicha,codExec);
+            PreencherFormulario(CPF,codFicha,codExec);
         //}else{
         //    PreencherCodigo();
         }
@@ -228,11 +228,9 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         long CodUsuario;
         String idExercicio = "";
         String CodFicha = "";
-        String Exercicio = "";
         double Carga = 0;
         String Repeticao = "";
         String Serie = "";
-        String GrupoM = "";
         String strAux = "";
         int OP = getTpOp();
         
@@ -242,14 +240,20 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         CodUsuario = Long.parseLong(strAux);
         ResultSet Sql  = null;        
 
-        try {
+        strAux= jcbExercicio.getModel().getSelectedItem().toString();
+        String[] ExecVet = strAux.split(" ");
+        idExercicio = ExecVet[0];
+        
+        /*try {
             Sql = BuscarUsuario(CodUsuario,2);
             Sql.first();
             CodFicha = Sql.getString(8);
         } catch (SQLException ex) {
             Logger.getLogger(FrameCadFicha.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(CodFicha.equals("")){CodFicha = jtfFicha.getText();}
+        }*/
+        
+        //if(CodFicha.equals("")){CodFicha = jtfFicha.getText();}
+        CodFicha = jtfFicha.getText();
         //Atualizar-Inserir
         if (( OP == 1 ) || (OP == 2)){            
             
@@ -259,15 +263,11 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 for (int i = 0; i < 1; i++) {
                     CodFicha = String.valueOf(gerador.nextInt(5555));
                 }
-                RegAfct = IncluirFichaUsuario(CodUsuario, CodFicha);
+                /*RegAfct = IncluirFichaUsuario(CodUsuario, CodFicha);
                 if(RegAfct <= 0){
                     JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o cadastro. \nContate o administrador.");
-                }
+                }*/
             }
-            
-            strAux= jcbExercicio.getModel().getSelectedItem().toString();
-            String[] ExecVet = strAux.split(" ");
-            idExercicio = ExecVet[0];
 
             if (jtfCarga.getText().equalsIgnoreCase(String.valueOf(FichaForm.getCarga())) == false){
                 Carga = Double.parseDouble(jtfCarga.getText());
@@ -289,8 +289,8 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 }
                 break;
             case 2: {
-            ExecSucess = IncluirFicha(CodFicha, idExercicio, Carga, Repeticao, Serie);
-        }
+                ExecSucess = IncluirFicha(CodUsuario,CodFicha, idExercicio, Carga, Repeticao, Serie);
+                    }
                 if(ExecSucess == true){
                     JOptionPane.showMessageDialog(null, "Inclusão realizada com sucesso");
                 }else{
@@ -298,27 +298,14 @@ public class FrameCadFicha extends javax.swing.JDialog  {
                 }
                 break;
             case 3: //Excluir
-                try {
+                /*try {
                     Sql.first();
                     CodFicha = Sql.getString(8);
                 } catch (SQLException ex) {
                     Logger.getLogger(FrameCadFicha.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                if(CodFicha.equals("")){
-                    Random gerador = new Random();
-                    //gera id aleatorio
-                    for (int i = 0; i < 1; i++) {
-                        CodFicha = String.valueOf(gerador.nextInt(5555));
-                    }
-                    RegAfct = IncluirFichaUsuario(CodUsuario, null);
-                    if(RegAfct <= 0){
-                        JOptionPane.showMessageDialog(null, "Ocorreu um erro ao atualizar o cadastro. \nContate o administrador.");
-                        break;
-                    }else{
-                        RegAfct = DeletarFicha(CodFicha, idExercicio);
-                    }
-                }
+                }*/
                 
+                RegAfct = DeletarFicha(CodFicha, idExercicio);                                
                 if(RegAfct > 0){
                     JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
                 }else{
@@ -401,9 +388,9 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         }
     }
     //CodAval, Peso, Altura, GordCorp, CodUsuario
-    private static boolean IncluirFicha(String CodFicha,String idExercicio,double Carga,String Repeticao,String Serie){
+    private static boolean IncluirFicha(Long CodUsuario, String CodFicha,String idExercicio,double Carga,String Repeticao,String Serie){
         FichaDAO Tabela = new FichaDAO();
-        return Tabela.Insert(CodFicha, idExercicio, Carga, Repeticao, Serie);
+        return Tabela.Insert(CodUsuario, CodFicha, idExercicio, Carga, Repeticao, Serie);
     }
     private static int AtualizarFicha(String CodFicha, String IdExercicio, double Carga, String Repeticao, String Serie){
         FichaDAO Tabela = new FichaDAO();
@@ -425,11 +412,11 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         ExerciciosDAO ExeTb = new ExerciciosDAO();     
         return ExeTb.Select(Exec);
     }
-    private void PreencherFormulario(long CodFicha,long CodExec){    
+    private void PreencherFormulario(long CPF,long CodFicha,long CodExec){    
         FichaDAO FichaDB = new FichaDAO();     
         //ResultSet rsDadosForm = null; 
         
-        FichaForm = FichaDB.CarregaDadosFormulario(CodFicha,CodExec);
+        FichaForm = FichaDB.CarregaDadosFormulario(CPF,CodFicha,CodExec);
         if (FichaForm != null ){
             String cbExec = FichaForm.getIdExercicios()+" - "+ FichaForm.getExercicios();
             String cbUsu = FichaForm.getCPF() +" - "+ FichaForm.getNome();
@@ -498,7 +485,7 @@ public class FrameCadFicha extends javax.swing.JDialog  {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameCadFicha(true,0,0,0).setVisible(true);
+                new FrameCadFicha(true,0,0,0,0).setVisible(true);
             }
         });
     }

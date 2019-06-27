@@ -38,7 +38,8 @@ public class CadastroDAO {
             
         }catch (SQLException ex) {
             
-            Logger.getLogger(Old_GruposMuscularesDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+            return check;        
         }finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }

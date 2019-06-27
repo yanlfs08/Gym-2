@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import model.bean.GrupoMuscular;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +18,7 @@ public class GrupoMuscularDAO {
     private PreparedStatement ps = null;
     private String sql = null;
     private ResultSet result = null;
+    int RegAft = 0;
     public ResultSet Select(int CodGrupMusc) {
         sql = "SELECT * FROM gruposmusculares";              
         if (CodGrupMusc != 0 ) {
@@ -33,10 +37,11 @@ public class GrupoMuscularDAO {
         return result;
     }
     public Boolean Insert(int CodGrupMusc,String DescGrupoMusc){
+        RegAft = 0;
         sql = "INSERT INTO gruposmusculares(idGrupos,descGrupo)  VALUES(" + CodGrupMusc + ",'" + DescGrupoMusc + "');";        
         try{
             ps = con.prepareStatement(sql);
-            ps.execute(sql);
+            RegAft = ps.executeUpdate(sql);
             return true;
         }catch(SQLException u ){
             System.out.println(u);
@@ -44,32 +49,34 @@ public class GrupoMuscularDAO {
         }        
     }
     public int Update(int CodGrupMusc,String DescGrupoMusc) {
-    		if(DescGrupoMusc.equals("")!= true){
-                    sql = "UPDATE gruposmusculares SET ";
-                    sql = sql + " descGrupo = '" + DescGrupoMusc +"'";
-                    sql = sql + " Where idGrupos = " + CodGrupMusc + ";";
-                    
-                    try{
-                        ps = con.prepareStatement(sql);
-                        ps.execute(sql);
-                        return 1;
-                    }catch(SQLException u ){
-                        System.out.println(u);
-                        return 0;        
-                    }                     
-		}else{
-			return 1;
-		}
+        RegAft = 0;
+        if(DescGrupoMusc.equals("")!= true){
+            sql = "UPDATE gruposmusculares SET ";
+            sql = sql + " descGrupo = '" + DescGrupoMusc +"'";
+            sql = sql + " Where idGrupos = " + CodGrupMusc + ";";
+
+            try{
+                ps = con.prepareStatement(sql);
+                RegAft = ps.executeUpdate(sql);
+                return RegAft;
+            }catch(SQLException u ){
+                System.out.println(u);
+                return RegAft;        
+            }                     
+        }else{
+                return 1;
+        }
     }
     public int Delete(int CodGrupMusc){        
+        RegAft = 0;
         sql = "DELETE FROM gruposmusculares WHERE idGrupos = " + CodGrupMusc + ";";        
         try{
             ps = con.prepareStatement(sql);
-            ps.execute(sql);
-            return 1;
+            RegAft = ps.executeUpdate(sql);
+            return RegAft;
         }catch(SQLException u ){
             System.out.println(u);
-            return 0;        
+            return RegAft;        
         }  
     }
     public void PreencherTabela(JTable modeloTable,boolean Limpar){ 
@@ -105,5 +112,40 @@ public class GrupoMuscularDAO {
             System.out.println(ex);   
         }
         return GrupoMuscList;
-    }  
+    }
+    public List <GrupoMuscular> read(){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List <GrupoMuscular> grupomuscular = new ArrayList<>();
+        
+        try {
+            
+            stmt = con.prepareStatement("SELECT * FROM gruposmusculares");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                
+                GrupoMuscular G = new GrupoMuscular();
+                
+                G.setIdInt(rs.getInt("idGrupos"));
+                G.setDesc(rs.getString("descGrupo"));
+
+                grupomuscular.add(G);
+                
+            }
+                    
+        } catch (SQLException ex) {
+                        
+            JOptionPane.showMessageDialog(null, "Erro ao gerar lista " + ex);
+            
+        }finally{
+            
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return grupomuscular;
+    }
 }

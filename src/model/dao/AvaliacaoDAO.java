@@ -15,6 +15,7 @@ public class AvaliacaoDAO {
     private PreparedStatement ps = null;
     private String sql = null;
     private ResultSet result = null;
+    int RegAft = 0;
     public AvaliacaoDAO(){    
     }        
     public ResultSet select(int CodigoAval,boolean relacionado) {
@@ -53,14 +54,14 @@ public class AvaliacaoDAO {
                       double GordCorp,
                       int CodUsuario){
         String DtAval = "";
-
+        RegAft =0;
         sql = "INSERT INTO avaliação(idAvaliacao,data,peso,altura,gorduraCorporal,CPF)"
                 +" VALUES(" + CodigoAval + ",'" + DtAval + "'," + PesoAval + ",'" 
                             + AltAval +"','" + GordCorp + "'," + CodUsuario + ");";
         
         try{
             ps = con.prepareStatement(sql);
-            result = ps.executeQuery(sql);
+            RegAft = ps.executeUpdate(sql);
             //Conexao.closeConnection();
             return true;
         }catch(SQLException u ){
@@ -73,7 +74,7 @@ public class AvaliacaoDAO {
                       double AltAval,
                       double GordCorp) {
         String DtAval = "";
-        
+        RegAft = 0;
         sql = "UPDATE avaliação SET ";
         sql = sql + "data = '" + DtAval +"',";
         if(PesoAval!= 0){sql = sql + "peso = " + PesoAval +",";}
@@ -84,26 +85,26 @@ public class AvaliacaoDAO {
 
         try{
             ps = con.prepareStatement(sql);
-            result = ps.executeQuery(sql);
+            RegAft = ps.executeUpdate(sql);
             //Conexao.closeConnection();
-            return 1;
+            return RegAft;
         }catch(SQLException u ){
             System.out.println(u); 
-            return 0;
+            return RegAft;
         }         
     }
     public int Delete(int CodigoAval){
-        
+        RegAft = 0;
         sql = "DELETE FROM avaliação WHERE idAvaliacao = " + CodigoAval + ";";
         
         try{
             ps = con.prepareStatement(sql);
-            result = ps.executeQuery(sql);
+            RegAft = ps.executeUpdate(sql);
             //Conexao.closeConnection();
-            return 1;
+            return RegAft;
         }catch(SQLException u ){
             System.out.println(u); 
-            return 0;
+            return RegAft;
         }  
     }
     public void PreencherTabela(JTable modeloTable,boolean Limpar){ 

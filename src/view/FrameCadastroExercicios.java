@@ -5,12 +5,14 @@
  */
 package view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Random;
 import javax.swing.table.DefaultTableModel;
 import model.bean.Exercicios;
 import model.bean.GrupoMuscular;
 import model.dao.ExerciciosDAO;
-import model.dao.Old_GruposMuscularesDAO;
+import model.dao.GrupoMuscularDAO;
 
 
 /**
@@ -31,80 +33,14 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
     
     public void ViewComboBox (){
         
-        Old_GruposMuscularesDAO gdao = new Old_GruposMuscularesDAO();
+        GrupoMuscularDAO gdao = new GrupoMuscularDAO();
         
         for (GrupoMuscular g: gdao.read()){
             
-            ComboGrupoMuscular.addItem(g);
+            jcbGrupoMuscular.addItem(g.toString());
         }
     }
     
-    /*public void readJTable (){
-        
-        DefaultTableModel model = (DefaultTableModel) TableExercicios.getModel();
-        
-        model.setNumRows(0);
-        
-        ExerciciosDAO edao = new ExerciciosDAO();
-        
-        for(Exercicios e:edao.read()){
-            
-            model.addRow(new Object[]{
-                    
-                    e.getIdExercicios(),
-                    e.getdescExercicio(),
-                    e.getIdGruposMusculares()
-                    
-                    
-            });
-        }
-        
-    }
-    
-    public void readPesquisa (String pesquisa){
-        
-        DefaultTableModel model = (DefaultTableModel) TableExercicios.getModel();
-        
-        model.setNumRows(0);
-        
-        ExerciciosDAO edao = new ExerciciosDAO();
-        
-        for(Exercicios e:edao.readPesquisaExercicio(pesquisa)){
-            
-            model.addRow(new Object[]{
-                    
-                    e.getIdExercicios(),
-                    e.getdescExercicio(),
-                    e.getIdGruposMusculares()
-                    
-                    
-            });
-        }
-        
-    }
-    
-    public void readPesquisadescGrupo (String pesquisa){
-        
-        DefaultTableModel model = (DefaultTableModel) TableExercicios.getModel();
-        
-        model.setNumRows(0);
-        
-        ExerciciosDAO edao = new ExerciciosDAO();
-        
-        for(Exercicios e:edao.readPesquisaDesc(pesquisa)){
-            
-            model.addRow(new Object[]{
-                    
-                    e.getIdExercicios(),
-                    e.getdescExercicio(),
-                    e.getIdGruposMusculares()
-                    
-                    
-            });
-        }
-        
-    }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -117,7 +53,7 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jbCadastrarExercicio = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        ComboGrupoMuscular = new javax.swing.JComboBox<>();
+        jcbGrupoMuscular = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         txtExercicio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -155,14 +91,14 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(30, 50, 60, 30);
 
-        ComboGrupoMuscular.setToolTipText("Grupo Muscular");
-        ComboGrupoMuscular.addActionListener(new java.awt.event.ActionListener() {
+        jcbGrupoMuscular.setToolTipText("Grupo Muscular");
+        jcbGrupoMuscular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboGrupoMuscularActionPerformed(evt);
+                jcbGrupoMuscularActionPerformed(evt);
             }
         });
-        jPanel1.add(ComboGrupoMuscular);
-        ComboGrupoMuscular.setBounds(110, 90, 230, 30);
+        jPanel1.add(jcbGrupoMuscular);
+        jcbGrupoMuscular.setBounds(110, 90, 230, 30);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -233,18 +169,17 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbCadastrarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarExercicioActionPerformed
-        
-        
+                
         Random gerador = new Random();
 
         //gera id aleatorio
         for (int i = 0; i < 1; i++) {
             labelGeradorID.setText(String.valueOf(gerador.nextInt(5555)));
         }
-        
+            
         Exercicios e = new Exercicios();
         ExerciciosDAO edao = new ExerciciosDAO();
-        GrupoMuscular g = (GrupoMuscular) ComboGrupoMuscular.getSelectedItem();
+        GrupoMuscular g = (GrupoMuscular) jcbGrupoMuscular.getSelectedItem();
         g.getId();
         
         e.setIdExercicios(labelGeradorID.getText());
@@ -258,9 +193,9 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
         //readJTable();
     }//GEN-LAST:event_jbCadastrarExercicioActionPerformed
 
-    private void ComboGrupoMuscularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboGrupoMuscularActionPerformed
+    private void jcbGrupoMuscularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbGrupoMuscularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComboGrupoMuscularActionPerformed
+    }//GEN-LAST:event_jcbGrupoMuscularActionPerformed
 
     private void txtExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExercicioActionPerformed
         // TODO add your handling code here:
@@ -313,13 +248,13 @@ public class FrameCadastroExercicios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<Object> ComboGrupoMuscular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbCadastrarExercicio;
+    private javax.swing.JComboBox<Object> jcbGrupoMuscular;
     private javax.swing.JToggleButton jtbCancelar;
     private javax.swing.JLabel labelGeradorID;
     private javax.swing.JTextField txtExercicio;

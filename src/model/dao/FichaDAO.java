@@ -16,6 +16,7 @@ public class FichaDAO {
     private PreparedStatement ps = null;
     private String sql = null;
     private ResultSet result = null;
+    int RegAft = 0;
     public FichaDAO() {
     }
     
@@ -70,7 +71,7 @@ public class FichaDAO {
                          "'" + repeticao +"','" + serie + "');";
         try{
             ps = con.prepareStatement(sql);
-            result = ps.executeQuery(sql);
+            RegAft = ps.executeUpdate(sql);
             //Conexao.closeConnection();
             return true;
         }catch(SQLException u ){
@@ -85,42 +86,43 @@ public class FichaDAO {
                       Double carga,
                       String repeticao,
                       String serie){
-        
+        RegAft = 0;        
         sql = "UPDATE ficha SET ";
         if(carga!= 0){sql = sql + " carga = '" + carga + "',";}
         if(repeticao.equals("")== false){sql = sql + " repeticao = '" + repeticao + "',";}
         if(serie.equals("")== false){sql = sql + " serie = '" + serie + "',";}
         sql = sql.substring(0, sql.length()-1);
         
-        sql = sql + "  ficha.CPF = '" + CPF+"' AND ";
-        sql = sql + "  ficha.idFicha = '" + CodigoFicha +"' AND ";
-        sql = sql + "  ficha.idExercicios = '"+ idExercicio+"'; ";
+        sql = sql + " WHERE CPF = '" + CPF+"'";
+        sql = sql + "   AND idFicha = '" + CodigoFicha +"'";
+        sql = sql + "   AND idExercicios = '"+ idExercicio+"';";
         
         
        try{
             ps = con.prepareStatement(sql);
-            result = ps.executeQuery(sql);
+            RegAft = ps.executeUpdate(sql);
             //Conexao.closeConnection();
-            return 1;
+            return RegAft;
         }catch(SQLException u ){
             System.out.println(u); 
-            return 0;
+            return RegAft;
         } 
     }
     
     public int Delete(long CPF, String CodigoFicha, String idExercicio){
-        sql = "DELETE FROM ficha " ;
-        sql = sql + "  ficha.CPF = '" + CPF+"' AND ";
-        sql = sql + "  ficha.idFicha = '" + CodigoFicha +"' AND ";
-        sql = sql + "  ficha.idExercicios = '"+ idExercicio+"'; ";
+        RegAft = 0;
+        sql = " DELETE FROM ficha " ;
+        sql = sql + " WHERE CPF = '" + CPF+"' ";
+        sql = sql + "   AND idFicha = '" + CodigoFicha +"' ";
+        sql = sql + "   AND idExercicios = '"+ idExercicio+"'; ";
         
         try{
             ps = con.prepareStatement(sql);
-            ps.execute(sql);
-            return 1;
+            RegAft = ps.executeUpdate(sql);
+            return RegAft;
         }catch(SQLException u ){
             System.out.println(u);
-            return 0;        
+            return RegAft;        
         }
     }
     
